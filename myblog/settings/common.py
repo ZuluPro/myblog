@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+from .env import CONFIG
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ALLOWED_HOSTS = ['*']
@@ -20,6 +21,7 @@ SITE_ID = 1
 # Application definition
 INSTALLED_APPS = (
     'django.contrib.admin',
+    'django.contrib.sitemaps',
     'django.contrib.sites',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -30,6 +32,7 @@ INSTALLED_APPS = (
     'mptt',
     'tagging',
     'zinnia',
+    'myapp',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -41,6 +44,14 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+)
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.contrib.auth.context_processors.auth',
+    'django.core.context_processors.i18n',
+    'django.core.context_processors.request',
+    'django.contrib.messages.context_processors.messages',
+    'zinnia.context_processors.version',
 )
 
 ROOT_URLCONF = 'urls'
@@ -73,3 +84,4 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
+STATICFILES_DIRS = ()
