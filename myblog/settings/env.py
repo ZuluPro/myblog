@@ -18,7 +18,6 @@ CONFIG.read(CONFIG_FILE)
 
 
 ENV = os.environ.get('BLOG_ENV') or CONFIG.get('DEFAULT', 'env')
-DEBUG = CONFIG.getboolean('DEFAULT', 'debug')
 SERVER_URL = CONFIG.get('DEFAULT', 'server_url')
 
 CACHES = {

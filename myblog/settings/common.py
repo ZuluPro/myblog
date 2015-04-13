@@ -20,6 +20,7 @@ SITE_ID = 1
 
 # Application definition
 INSTALLED_APPS = (
+    'myapp',
     'django.contrib.admin',
     'django.contrib.sitemaps',
     'django.contrib.sites',
@@ -32,7 +33,6 @@ INSTALLED_APPS = (
     'mptt',
     'tagging',
     'zinnia',
-    'myapp',
 )
 
 MIDDLEWARE_CLASSES = (

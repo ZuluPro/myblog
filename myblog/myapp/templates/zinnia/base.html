@@ -1,0 +1,119 @@
+{% extends "zinnia/skeleton.html" %}
+{% load zinnia i18n staticfiles %}
+
+{% block meta-keywords %}{% get_tags as entry_tags %}{{ entry_tags|join:", "}}{% endblock meta-keywords %}
+
+{% block meta %}
+    <meta name="generator" content="Zinnia {{ ZINNIA_VERSION }}" />
+{% endblock meta %}
+
+{% block link %}
+    <link rel="index" href="{% url 'zinnia:entry_archive_index' %}" />
+    <link rel="author" type="text/plain" href="{% url 'zinnia:humans' %}" />
+    <link rel="EditURI" type="application/rsd+xml" href="{% url 'zinnia:rsd' %}" />
+    <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="{% url 'zinnia:wlwmanifest' %}" />
+    <link rel="search" type="application/opensearchdescription+xml" title="Zinnia's Blog" href="{% url 'zinnia:opensearch' %}" />
+    <link rel="alternate" type="application/rss+xml" title="{% trans "RSS Feed of latest entries" %}" href="{% url 'zinnia:entry_latest_feed' %}" />
+    <link rel="alternate" type="application/rss+xml" title="{% trans "RSS Feed of latest discussions" %}" href="{% url 'zinnia:discussion_latest_feed' %}" />
+    {% get_archives_entries "zinnia/tags/entries_archives_link.html" %}
+{% endblock link %}
+
+{% block breadcrumbs %}
+  {% zinnia_breadcrumbs %}
+{% endblock breadcrumbs %}
+
+{% block sidebar %}
+<div id="widget-me" class="widget">
+  <h4>{% trans "About me" %}</h4>
+  <img src="{% static "img/avatar.png" %}" height="120" width="120" style="border-radius: 70px;"/>
+  <p>
+    {% trans "Anthony MONTHE, Open Source enthusiast" %}
+  </p>
+</div>
+<hr>
+<div id="widget-links" class="widget">
+  <h4>{% trans "Links" %}</h4>
+  <ul>
+  <li><a href="https://github.com/ZuluPro">GitHub</a></li>
+  <li><a href="https://www.linkedin.com/profile/view?id=150870594">Linkedin</a></li>
+  <li><a href="http://stackoverflow.com/users/1454176/zulu">stackoverflow</a></li>
+  </ul>
+</div>
+<hr>
+<div id="widget-categories" class="widget">
+  <h4>{% trans "Categories" %}</h4>
+  {% get_categories %}
+</div>
+<hr>
+<div id="widget-calendar" class="widget">
+  <h4>{% trans "Calendar" %}</h4>
+  {% get_calendar_entries %}
+</div>
+<hr>
+<div id="widget-tags" class="widget">
+  <h4>{% trans "Tags" %}</h4>
+  {% get_tag_cloud %}
+</div>
+<hr>
+<div id="widget-recents" class="widget">
+  <h4>{% trans "Recent entries" %}</h4>
+  {% get_recent_entries %}
+</div>
+<hr>
+<div id="widget-comments" class="widget">
+  <h4>{% trans "Recent comments" %}</h4>
+  {% get_recent_comments %}
+</div>
+<hr>
+<div id="widget-linkbacks" class="widget">
+  <h4>{% trans "Recent linkbacks" %}</h4>
+  {% get_recent_linkbacks %}
+</div>
+<hr>
+<div id="widget-randoms" class="widget">
+  <h4>{% trans "Random entries" %}</h4>
+  {% get_random_entries %}
+</div>
+<hr>
+<div id="widget-populars" class="widget">
+  <h4>{% trans "Popular entries" %}</h4>
+  {% get_popular_entries %}
+</div>
+<hr>
+<div id="widget-archives" class="widget">
+  <h4>{% trans "Archives" %}</h4>
+  {% get_archives_entries_tree %}
+</div>
+{% if user.is_authenticated %}
+<hr>
+<div id="widget-tools" class="widget">
+  <h4>{% trans "Tools" %}</h4>
+  <ul class="no-bullet">
+    {% if perms.zinnia %}
+    <li>
+      <a href="{% url 'admin:app_list' 'zinnia' %}" title="{% trans "Dashboard" %}">
+        <i class="fi-list-thumbnails"></i>
+        {% trans "Dashboard" %}
+      </a>
+    </li>
+    {% endif %}
+    {% if perms.zinnia.add_entry %}
+    <li>
+      <a href="{% url 'admin:zinnia_entry_add' %}" title="{% trans "Post an entry" %}">
+        <i class="fi-page-add"></i>
+        {% trans "Post an entry" %}
+      </a>
+    </li>
+    {% endif %}
+    {% block admin-tools %}
+    {% endblock admin-tools %}
+    <li>
+      <a href="{% url 'admin:logout' %}" title="{% trans "Log out" %}">
+        <i class="fi-arrow-right"></i>
+        {% trans "Log out" %}
+      </a>
+    </li>
+  </ul>
+</div>
+{% endif %}
+{% endblock sidebar %}
