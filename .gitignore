@@ -14,3 +14,4 @@ dist/
 .idea/
 .coverage
 myblog/db.sqlite3
+myblog/uploads/*

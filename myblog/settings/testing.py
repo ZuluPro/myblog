@@ -25,6 +25,7 @@ DATABASES = {
     }
 }
 
+# Static
 if DEBUG:
     STATICFILES_DIRS = (
     #    os.path.join(BASE_DIR, 'static'),
@@ -38,3 +39,11 @@ elif CONFIG.has_option('DEFAULT', 'static_root') and not CONFIG.get('DEFAULT', '
     STATIC_ROOT = CONFIG.get('DEFAULT', 'static_root')
 else:
     STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+
+# Media
+if os.environ.get('BLOG_MEDIA_ROOT'):
+    MEDIA_ROOT = os.environ['BLOG_MEDIA_ROOT']
+elif CONFIG.has_option('DEFAULT', 'media_root') and not CONFIG.get('DEFAULT', 'media_root') is None:
+    MEDIA_ROOT = CONFIG.get('DEFAULT', 'media_root')
+else:
+    MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads/')

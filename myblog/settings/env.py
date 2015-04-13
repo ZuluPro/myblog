@@ -8,6 +8,7 @@ CONFIG = SafeConfigParser(defaults={
     'debug': 'False',
     'server_url': 'anthony.monthe.me',
     'static_root': None,
+    'media_root': None,
     # Cache
     'cache_backend': 'redis_cache.cache.RedisCache',
     'cache_location': '127.0.0.1:6379:1',
