@@ -5752,3 +5752,8 @@ footer {
     padding: 10px;
     height: 40px;
 }
+
+#zinnia-slogan {
+    color: #B3B3B3;
+    font-style: italic;
+}

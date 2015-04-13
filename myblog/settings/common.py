@@ -20,6 +20,12 @@ SITE_ID = 1
 
 # Application definition
 INSTALLED_APPS = (
+    # 'admin_tools',
+    # 'admin_tools.theming',
+    # 'admin_tools.menu',
+    # 'admin_tools.dashboard',
+    # 'admin_tools_zinnia',
+    'tinymce',
     'myapp',
     'django.contrib.admin',
     'django.contrib.sitemaps',
@@ -33,6 +39,7 @@ INSTALLED_APPS = (
     'mptt',
     'tagging',
     'zinnia',
+    'zinnia_tinymce',
 )
 
 MIDDLEWARE_CLASSES = (
