@@ -45,6 +45,8 @@ html, body {
          url('/static/fonts/amble_regular_macroman/Amble-Regular-webfont.woff') format('woff'),
          url('/static/fonts/amble_regular_macroman/Amble-Regular-webfont.ttf') format('truetype'),
          url('/static/fonts/amble_regular_macroman/Amble-Regular-webfont.svg#webfont') format('svg');
+    font-weight: normal;
+    font-style: normal;
 }
 
 html,
@@ -3785,6 +3787,8 @@ dialog.full, .reveal-modal.full {
   .label.secondary {
     background-color: #e7e7e7;
     color: #333333; }
+  span.label {
+    border-radius: 15px; }
 
 .off-canvas-wrap {
   -webkit-backface-visibility: hidden;
@@ -5736,3 +5740,15 @@ th.hide-for-touch {
 
   th.show-for-print {
     display: table-cell !important; } }
+
+footer {
+    background-color: #F04124;
+    margin-left: 0px;
+    margin-right: 0px;
+    width: inherit;
+    max-width: none;
+    color: #FFF;
+    border-radius: 5px;
+    padding: 10px;
+    height: 40px;
+}
