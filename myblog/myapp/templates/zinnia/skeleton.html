@@ -3,20 +3,21 @@
 <html class="no-js" lang="{{ LANGUAGE_CODE }}">
   <head>
     <title>Zinnia's Weblog - {% block title %}{% endblock title %}{% block title-page %}{% endblock title-page %}</title>
-    <meta charset="utf-8" />
-    <meta http-equiv="cache-control" content="public" />
+    <meta charset="utf-8"/>
+    <meta http-equiv="cache-control" content="public"/>
     <meta name="robots" content="follow, all" />
-    <meta name="language" content="{{ LANGUAGE_CODE }}" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="{% block meta-description %}{% trans "My weblog." %}{% endblock meta-description %}{% block meta-description-page %}{% endblock meta-description-page %}" />
-    <meta name="keywords" content="{% block meta-keywords %}django, blog, weblog, zinnia{% endblock meta-keywords %}" />
-    <meta name="author" content="ZuluPro" />
+    <meta name="language" content="{{ LANGUAGE_CODE }}"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="{% block meta-description %}{% trans "My weblog." %}{% endblock meta-description %}{% block meta-description-page %}{% endblock meta-description-page %}"/>
+    <meta name="keywords" content="{% block meta-keywords %}django, blog, weblog, zinnia{% endblock meta-keywords %}"/>
+    <meta name="author" content="ZuluPro"/>
     {% block meta %}{% endblock meta %}
-    <link rel="pingback" href="/xmlrpc/" />
-    <link rel="icon" href="{% static "img/favicon.ico" %}" />
-    <link rel="home" href="{% url 'zinnia:entry_archive_index' %}" />
-    <link rel="stylesheet" href="{% static "zinnia/css/foundation.css" %}" />
-    <link rel="stylesheet" href="{% static "zinnia/icons/foundation-icons.css" %}" />
+    <link rel="pingback" href="/xmlrpc/"/>
+    <link rel="icon" href="{% static "img/favicon.ico" %}"/>
+    <link rel="home" href="{% url 'zinnia:entry_archive_index' %}"/>
+    <link rel="stylesheet" href="{% static "zinnia/css/foundation.css" %}"/>
+    <link rel="stylesheet" href="{% static "zinnia/icons/foundation-icons.css" %}"/>
+    <link rel="stylesheet" href="{% static "prism/themes/prism.css" %}"/>
     <script src="{% static "zinnia/js/vendor/modernizr.js" %}"></script>
     <style>
       /* Foundation fixs for Zinnia blog */
@@ -127,6 +128,7 @@
          Anthony MONTHE ® {% now "Y" %}
         </p>
     </footer>
+    <script src="{% static "prism/prism.js" %}"></script>
     <script src="{% static "zinnia/js/vendor/jquery.js" %}"></script>
     <script src="{% static "zinnia/js/foundation.min.js" %}"></script>
     <script>

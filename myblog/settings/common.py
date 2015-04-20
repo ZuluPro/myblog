@@ -40,6 +40,7 @@ INSTALLED_APPS = (
     'tagging',
     'zinnia',
     'zinnia_tinymce',
+    'sorl.thumbnail',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -92,3 +93,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
 STATICFILES_DIRS = ()
+
+DEBUG_TOOLBAR_CONFIG = {
+    'JQUERY_URL': STATIC_URL + 'admin_tools/js/jquery/jquery.min.js'
+}

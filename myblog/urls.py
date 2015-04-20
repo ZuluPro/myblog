@@ -7,6 +7,7 @@ urlpatterns = [
     # Examples:
     # url(r'^$', 'myblog.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
+    url(r'^', include('myapp.urls')),
     url(r'^tinymce/zinnia/', include('zinnia_tinymce.urls')),
     url(r'^tinymce/', include('tinymce.urls')),
     url(r'^comments/', include('django_comments.urls')),
