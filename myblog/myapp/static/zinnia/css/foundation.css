@@ -2705,11 +2705,6 @@ small {
   font-size: 60%;
   line-height: inherit; }
 
-code {
-  font-family: Consolas, "Liberation Mono", Courier, monospace;
-  font-weight: normal;
-  color: #333333;
-  padding: 0.125rem 0.3125rem 0.0625rem; }
 
 /* Lists */
 ul,
@@ -5752,4 +5747,12 @@ footer {
 #zinnia-slogan {
     color: #B3B3B3;
     font-style: italic;
+}
+code {
+    background: #252525;
+    color: #EEE;
+    padding-left: 3px;
+    padding-right: 3px;
+    padding-bottom: 1px;
+    padding-top: 1px;
 }

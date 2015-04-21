@@ -1,5 +1,5 @@
 {% load url from future %}
-{% load theming_tags %}
+{% load theming_tags static %}
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="{{ LANGUAGE_CODE }}" xml:lang="{{ LANGUAGE_CODE }}" {% if LANGUAGE_BIDI %}dir="rtl"{% endif %}>
 <head>
@@ -9,6 +9,7 @@
 <!--[if lte IE 7]><link rel="stylesheet" type="text/css" href="{% block stylesheet_ie %}{% get_admin_media "css/ie.css" %}{% endblock %}" /><![endif]-->
 {% if LANGUAGE_BIDI %}<link rel="stylesheet" type="text/css" href="{% block stylesheet_rtl %}{% get_admin_media "css/rtl.css" %}{% endblock %}" />{% endif %}
 {% render_theming_css %}
+<link rel="icon" href="{% static "img/admin_favicon.ico" %}"/>
 <script type="text/javascript">window.__admin_media_prefix__ = "{% filter escapejs %}{% get_admin_media %}{% endfilter %}";</script>
 {% block extrahead %}{% endblock %}
 {% block blockbots %}<meta name="robots" content="NONE,NOARCHIVE" />{% endblock %}

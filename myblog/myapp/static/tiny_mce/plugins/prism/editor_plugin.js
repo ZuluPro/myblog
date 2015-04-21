@@ -39,9 +39,9 @@ $('body').on('submit', "#prism-form", function (e) {
     var editor = tinymce.activeEditor;
     var language = $('[name="language"]').val();
     var code = $('[name="code"]').val();
-    var line_numbers = $('[name="line-numbers"]').val();
+    var line_numbers = $('[name="line-numbers"]')[0].checked;
     var text = '<pre class="language-' + language;
-    if (line_numbers) text += " line-numbers"
+    if (line_numbers) text += " line-numbers";
     text += '"><code>' + code + '</code></pre>';
     editor.execCommand('mceInsertContent', false, text);
     tinyMCEPopup.close(); 

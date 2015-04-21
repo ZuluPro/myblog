@@ -1,5 +1,7 @@
 {% extends "admin/base_site.html" %}
 
+{% block title %}Add highlighted code{% endblock %}
+
 {% block content %}
 <form id="prism-form">
  <label class="required" for="id_language">Language:</label>
@@ -17,7 +19,7 @@
  </select>
  <br>
  <label class="required"for="id_line-numbers">Include line numbers:</label>
- <input type="checkbox" name="line-numbers" checked="checked">
+ <input type="checkbox" name="line-numbers">
  <br>
  <label class="required inline" for="id_code">Code:</label>
  <textarea name="code" rows="5" style="width: 500px;"></textarea>
