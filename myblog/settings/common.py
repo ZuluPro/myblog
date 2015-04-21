@@ -1,8 +1,10 @@
 """
 Common settings for myblog project.
 """
-from .env import CONFIG
+from .env import CONFIG, BASE_DIR
 
+DEBUG = CONFIG.getboolean('DEFAULT', 'debug')
+TEMPLATE_DEBUG = CONFIG.getboolean('DEFAULT', 'template_debug')
 ALLOWED_HOSTS = CONFIG.get('DEFAULT', 'allowed_hosts').split(',')
 SERVER_URL = CONFIG.get('DEFAULT', 'server_url')
 SITE_ID = CONFIG.getint('DEFAULT', 'site_id')

@@ -1,6 +1,7 @@
 """
 Dynamic settings module made for set a :class:`ConfigParser.SafeConfigParser`
-with all parameters from configuratin file, environment variable and default values.
+with all parameters from configuration file, environment variables and
+parser's default values.
 """
 import os
 from ConfigParser import SafeConfigParser
@@ -46,12 +47,12 @@ DEFAULT_CONFIG = {
     # Test
     'internal_ips': '127.0.0.1',
 }
-# Overide with env
-DEFAULT_CONFIG.update(ENV_VARS)
 # Choose conf file to read
 CONFIG_FILE = os.environ.get('BLOG_CONFIG_FILE', '/etc/myblog.cfg')
 # Read it
 CONFIG = SafeConfigParser(defaults=DEFAULT_CONFIG, allow_no_value=True)
 CONFIG.read(CONFIG_FILE)
+map(lambda i: CONFIG.set('DEFAULT', i[0], i[1]),
+    ENV_VARS.items())
 # Set ENV shortcut var
-ENV = os.environ.get('BLOG_ENV') or CONFIG.get('DEFAULT', 'env')
+ENV = CONFIG.get('DEFAULT', 'env')

@@ -4,9 +4,7 @@ Testing settings for myblog project.
 from .common import *
 from .env import CONFIG
 
-DEBUG = CONFIG.getboolean('DEFAULT', 'debug')
 SECRET_KEY = '&qaeg(m5s0rpdj-wx@hrc3vpu)v@@n$if67ba-4e9&kk+j$$c+'
-TEMPLATE_DEBUG = True
 # Use Debug toolbar if present
 try:
     __import__('imp').find_module('debug_toolbar')
@@ -23,5 +21,7 @@ DATABASES = {
         'NAME': CONFIG.get('DEFAULT', 'default_db_name')
     }
 }
-TEMPLATES[0]['OPTIONS']['context_processors']\
-    .insert(0, 'django.template.context_processors.debug')
+
+if TEMPLATE_DEBUG:
+    TEMPLATES[0]['OPTIONS']['context_processors']\
+        .insert(0, 'django.template.context_processors.debug')
