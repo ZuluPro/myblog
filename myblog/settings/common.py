@@ -22,6 +22,7 @@ STATIC_ROOT = CONFIG.get('DEFAULT', 'static_root')
 STATIC_URL = CONFIG.get('DEFAULT', 'static_url')
 STATICFILES_DIRS = CONFIG.get('DEFAULT', 'staticfiles_dirs').split(',')
 MEDIA_ROOT = CONFIG.get('DEFAULT', 'media_root')
+MEDIA_URL = CONFIG.get('DEFAULT', 'media_url')
 # Application definition
 INSTALLED_APPS = (
     'tinymce',
