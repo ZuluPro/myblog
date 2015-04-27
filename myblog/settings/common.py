@@ -20,7 +20,7 @@ USE_TZ = CONFIG.getboolean('DEFAULT', 'use_tz')
 # Extra files (CSS, JavaScript, Images)
 STATIC_ROOT = CONFIG.get('DEFAULT', 'static_root')
 STATIC_URL = CONFIG.get('DEFAULT', 'static_url')
-STATICFILES_DIRS = CONFIG.get('DEFAULT', 'staticfiles_dirs').split(',')
+STATICFILES_DIRS = filter(bool, CONFIG.get('DEFAULT', 'staticfiles_dirs').split(','))
 MEDIA_ROOT = CONFIG.get('DEFAULT', 'media_root')
 MEDIA_URL = CONFIG.get('DEFAULT', 'media_url')
 # Application definition
@@ -82,17 +82,6 @@ TEMPLATES = [
         },
     },
 ]
-
-CACHES = {
-    'default': {
-        'BACKEND': CONFIG.get('DEFAULT', 'cache_backend'),
-        'LOCATION': CONFIG.get('DEFAULT', 'cache_location'),
-        'OPTIONS': {
-            'CLIENT_CLASS': CONFIG.get('DEFAULT', 'cache_option_client_class'),
-            'SOCKET_TIMEOUT': 5,
-        }
-    }
-}
 
 DEBUG_TOOLBAR_CONFIG = {
     'JQUERY_URL': STATIC_URL + 'admin_tools/js/jquery/jquery.min.js'

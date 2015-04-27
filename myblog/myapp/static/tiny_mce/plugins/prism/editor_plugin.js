@@ -1,7 +1,3 @@
-/**
- * Prism plugin by Metrakit
- * contact@jordane.net
-*/
 (function() {
 tinymce.create('tinymce.plugins.PrismPlugin', {
     init : function(ed, url) {
@@ -26,10 +22,10 @@ tinymce.create('tinymce.plugins.PrismPlugin', {
     getInfo : function() {
         return {
             longname : 'Prism plugin',
-            author : 'Some author',
-            authorurl : 'http://tinymce.moxiecode.com',
-            infourl : 'http://wiki.moxiecode.com/index.php/TinyMCE:Plugins/prism',
-            version : "1.0"
+            author : 'Anthony MONTHE',
+            // authorurl : '',
+            // infourl : '',
+            version : "0.1"
         };
     }
 });
