@@ -1,0 +1,14 @@
+---
+- name: Install system tools
+  apt: name={{ item }} state=present
+  with_items:
+    - ntp
+    - ntpdate
+    - vim
+    - git
+    - tig
+    - screen
+    - htop
+
+- name: Start the ntp service
+  service: name=ntp state=started enabled=true

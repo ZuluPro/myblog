@@ -1,0 +1,43 @@
+---
+# myblog
+- name: Install Python
+  apt: name={{ item }} state=present
+  with_items:
+    - python
+    - python-setuptools
+
+- name: Instal pip
+  easy_install: name=pip
+
+- name: Git pull blog
+  git: repo=https://github.com/ZuluPro/myblog.git
+       dest=/tmp/src/myblog version={{ myblog_version }}
+
+- name: Install myblog requirements
+  pip: requirements=/tmp/src/myblog/requirements.txt
+
+- name: Install myblog
+  shell: python setup.py install chdir=/tmp/src/myblog
+
+- name: Setup myblog configuration
+  template: src=myblog.cfg.j2 dest=/etc/myblog.cfg mode=0644 owner=root
+
+- name: Deploy static files
+  command: myblog collectstatic --noinput
+
+- name: Deploy database 
+  command: myblog migrate --noinput
+
+# uWSGI
+- name: Install uWSGI
+  apt: name={{ item }} state=latest
+  with_items:
+    - uwsgi
+    - uwsgi-plugin-python
+
+- name: Setup myblog uWSGI configuration
+  template: src=uwsgi.ini.j2 dest=/etc/uwsgi/apps-available/myblog.ini
+
+- name: Enable myblog uWSGI configuration
+  file: src=/etc/uwsgi/apps-available/myblog.ini dest=/etc/uwsgi/apps-enabled/myblog.ini state=link
+  notify: restart uwsgi

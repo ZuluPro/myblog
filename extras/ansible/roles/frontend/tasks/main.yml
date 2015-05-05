@@ -1,0 +1,9 @@
+---
+- name: Install Nginx
+  apt: name=nginx state=latest
+
+- name: Setup myblog Nginx configuration
+  template: src=nginx.conf.j2 dest=/etc/nginx/site-availables/myblog.conf
+
+- name: Enable myblog Nginx configuration
+  file: src=/etc/nginx/sites-available/myblog.conf dest=/etc/nginx/sites-enabled/myblog.conf state=link
