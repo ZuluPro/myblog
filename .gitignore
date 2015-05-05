@@ -1,5 +1,6 @@
+myblog.egg-info/
 build/
-dist/   
+dist/
 .tox/
 *.py[co]
 *.sw[po]

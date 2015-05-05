@@ -8,11 +8,12 @@ setup(
     version=myblog.__version__,
     description='',
     long_description=open(os.path.join('README.rst')).read(),
-    keywords='django, zinnia, blog',
     author=myblog.__author__,
     author_email=myblog.__email__,
     url=myblog.__url__,
+    scripts=['bin/myblog'],
     packages=find_packages(),
+    keywords='django, zinnia, blog',
     classifiers=[
         'Framework :: Django',
         'Environment :: Web Environment',

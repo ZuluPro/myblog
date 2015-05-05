@@ -1,10 +1,12 @@
 ---
 # myblog
-- name: Install Python
+- name: Install requirements
   apt: name={{ item }} state=present
   with_items:
     - python
+    - python-dev
     - python-setuptools
+    - build-essential
 
 - name: Instal pip
   easy_install: name=pip
