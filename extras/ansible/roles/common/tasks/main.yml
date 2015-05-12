@@ -12,3 +12,6 @@
 
 - name: Start the ntp service
   service: name=ntp state=started enabled=true
+
+- name: Add my public key to root
+  authorized_key: user=root key="{{ lookup('file', ssh_public_key_file) }}"

@@ -1,0 +1,31 @@
+upstream myblog {
+    server 127.0.0.1:9191;
+}
+
+server {
+    listen 80;
+    # Log
+    access_log /var/log/nginx/myblog.log;
+    error_log /var/log/nginx/myblog.err.log warn;
+    # Misc
+    client_max_body_size 10M;
+
+    ## location /static/ {
+    ##     autoindex   on;
+    ##     root  /var/www/myblog/static/;
+    ## }
+
+    ## location /uploads/ {
+    ##     autoindex on;
+    ##     root  /var/www/myblog/uploads/;
+    ## }
+
+    location / {
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwared-For $remote_addr;
+        proxy_set_header Host $host;
+        root /var/www/
+        uwsgi_pass myblog;
+        include uwsgi_params;
+    }
+}

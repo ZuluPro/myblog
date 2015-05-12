@@ -1,0 +1,15 @@
+[uwsgi]
+socket = 127.0.0.1:3031
+master = True
+
+chdir = {{ myblog_basedir.stdout }}
+env = DJANGO_SETTINGS_MODULE=settings
+module = wsgi:application
+home = {{ myblog_venv }}
+
+threads = 1
+processes = 4
+# stats = 127.0.0.1:9191
+
+uid = myblog
+gid = myblog

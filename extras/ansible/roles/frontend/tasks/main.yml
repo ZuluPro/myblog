@@ -2,8 +2,12 @@
 - name: Install Nginx
   apt: name=nginx state=latest
 
+- name: Disable default site
+  file: path=/etc/nginx/sites-enabled/default state=absent
+
 - name: Setup myblog Nginx configuration
-  template: src=nginx.conf.j2 dest=/etc/nginx/site-availables/myblog.conf
+  template: src=nginx-site.conf.j2 dest=/etc/nginx/sites-available/myblog.conf
 
 - name: Enable myblog Nginx configuration
   file: src=/etc/nginx/sites-available/myblog.conf dest=/etc/nginx/sites-enabled/myblog.conf state=link
+  notify: restart nginx
