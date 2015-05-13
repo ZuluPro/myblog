@@ -3,3 +3,16 @@ env = testing
 debug = True
 server_url = anthony-monthe.com
 static_url = /static/
+
+default_db_engine = django.db.backends.mysql
+default_db_name = myblog
+default_db_user = myblog
+default_db_password = {{ db_password }}
+{% if 'all' in groups and groups['all'] %}
+default_db_host = {{ hostvars[groups['all'][0]]['mysql_bind_addr'] }}
+{% elif 'database' in groups %}
+default_db_host = {{ hostvars[groups['database'][0]]['mysql_bind_addr'] }}
+{% else %}
+default_db_host = {{ No_db_host }}
+{% endif %}
+default_db_port = 3306

@@ -23,8 +23,14 @@
 - name: Create myblog database
   mysql_db: name=myblog state=present
 
+- name: Bind server to address
+  lineinfile: regexp='^bind-address\s*=' line="bind-address = {{ mysql_bind_addr }}"
+              dest=/etc/mysql/my.cnf
+  notify: restart mysql
+
 - mysql_user: name=myblog host={{ item }} password={{ db_password }} priv=myblog.*:ALL state=present
   with_items:
     - 127.0.0.1
     - ::1
     - localhost
+    - "{{ mysql_bind_addr }}"

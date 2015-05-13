@@ -15,12 +15,17 @@
     - python-dev
     - python-setuptools
     - build-essential
+    - libmysqlclient-dev
 
-- name: Instal pip
+- name: Install pip
   easy_install: name=pip
 
 - name: Install virtualenv
   pip: name=virtualenv
+
+- name: Install MySQL-python
+  pip: name=MySQL-python virtualenv="{{ myblog_venv }}"
+  remote_user: "{{ myblog_user }}"
 
 - name: Git pull blog
   git: repo=https://github.com/ZuluPro/myblog.git

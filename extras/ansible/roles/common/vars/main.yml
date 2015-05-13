@@ -1,5 +1,6 @@
 ---
+timezone: 'Europe/Paris'
 ssh_public_key_file: ~/.ssh/id_dsa.pub
 db_password:
 myblog_version: master
-timezone: 'Europe/Paris'
+uwsgi_bind_port: 3031

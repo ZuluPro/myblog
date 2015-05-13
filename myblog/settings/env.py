@@ -28,6 +28,10 @@ DEFAULT_CONFIG = {
     # Database
     'default_db_engine': 'django.db.backends.sqlite3',
     'default_db_name': os.path.join(BASE_DIR, 'db.sqlite3'),
+    'default_db_user': '',
+    'default_db_password': '',
+    'default_db_host': '',
+    'default_db_port': '',
     # Extra files
     'static_root': os.path.join(BASE_DIR, 'static/'),
     'media_root': os.path.join(BASE_DIR, 'uploads/'),

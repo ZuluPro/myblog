@@ -1,5 +1,7 @@
 upstream myblog {
-    server 127.0.0.1:9191;
+    {% for host in (groups.get('all', []) + groups.get('middleware', [])) %}
+    server {{ hostvars[host]['uwsgi_bind_addr'] }}:{{ uwsgi_bind_port }};
+    {% endfor %}
 }
 
 server {
@@ -21,9 +23,6 @@ server {
     ## }
 
     location / {
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwared-For $remote_addr;
-        proxy_set_header Host $host;
         root /var/www/
         uwsgi_pass myblog;
         include uwsgi_params;

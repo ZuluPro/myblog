@@ -1,5 +1,5 @@
 [uwsgi]
-socket = 127.0.0.1:3031
+socket = {{ uwsgi_bind_addr }}:{{ uwsgi_bind_port }}
 master = True
 
 chdir = {{ myblog_basedir.stdout }}
@@ -13,3 +13,7 @@ processes = 4
 
 uid = myblog
 gid = myblog
+
+vacuum = true
+max-requests = 5000
+
