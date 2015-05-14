@@ -1,0 +1,5 @@
+---
+ssl_cert:
+ssl_key:
+ssl_cert_addr: /etc/ssl/certs/myblog.crt
+ssl_key_addr: /etc/ssl/private/myblog.key

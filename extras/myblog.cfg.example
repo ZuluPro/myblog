@@ -1,5 +1,5 @@
 [DEFAULT]
 env = testing
 debug = True
-server_url = anthony.monthe.me
+server_url = anthony-monthe.me
 static_url = /static/

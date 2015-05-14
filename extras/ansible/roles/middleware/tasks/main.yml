@@ -42,6 +42,7 @@
   args:
      chdir: /tmp/src/myblog
   remote_user: "{{ myblog_user }}"
+  notify: restart uwsgi
 
 - name: Get package directory
   shell: myblog settings | awk '/BASE_DIR/ {print $3}'
