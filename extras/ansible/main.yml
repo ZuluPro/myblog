@@ -2,6 +2,6 @@
 - hosts: all
   roles:
   - common
-  - database
-  - middleware
-  - frontend
+  - {role: database, tags: [database]}
+  - {role: middleware, tags: [middleware]}
+  - {role: frontend, tags: [frontend]}
