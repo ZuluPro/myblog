@@ -25,6 +25,7 @@ DEFAULT_CONFIG = {
     'secret_key': None,
     'root_urlconf': 'urls',
     'wsgi_application': 'wsgi.application',
+    'session_engine': 'django.contrib.sessions.backends.cached_db',
     # Database
     'default_db_engine': 'django.db.backends.sqlite3',
     'default_db_name': os.path.join(BASE_DIR, 'db.sqlite3'),

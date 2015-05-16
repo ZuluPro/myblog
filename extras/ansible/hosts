@@ -1,2 +1,2 @@
 [all]
-192.168.254.51 mysql_bind_addr=127.0.0.1 uwsgi_bind_addr=127.0.0.1
+192.168.254.51 mysql_bind_addr=127.0.0.1 uwsgi_bind_addr=127.0.0.1 redis_bind_addr=127.0.0.1

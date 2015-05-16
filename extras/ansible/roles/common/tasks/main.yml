@@ -2,16 +2,54 @@
 - name: Install system tools
   apt: name={{ item }} state=present
   with_items:
-    - ntp
     - ntpdate
     - vim
     - git
     - tig
     - screen
     - htop
+    - fail2ban
 
-- name: Start the ntp service
-  service: name=ntp state=started enabled=true
+- name: Remove packages
+  apt: name={{ item }} state=absent
+  with_items:
+    - exim4
+
+- name: Set timezone
+  lineinfile: dest=/etc/timezone regexp="." line="{{ timezone }}"
+  notify: update timezone
+
+- name: Update current time
+  command: ntpdate-debian
+  register: ntpdate
+  changed_when: "not '0.00' in ntpdate.stdout"
 
 - name: Add my public key to root
   authorized_key: user=root key="{{ lookup('file', ssh_public_key_file) }}"
+
+- name: Disable SSHd to use DNS
+  lineinfile: dest=/etc/ssh/sshd_config regexp=UseDNS
+              line="UseDNS no" 
+  notify: restart sshd
+
+- name: Enable Fail2ban SSH-DDOS
+  ini_file: dest=/etc/fail2ban/jail.conf section=ssh-ddos option=enabled value=true
+  notify: restart fail2ban
+
+- name: Disable swap
+  command: swapoff -va
+  register: swapoff
+  changed_when: swapoff.stdout.strip()
+
+# Security
+- name: Kernel settings
+  sysctl: name={{ item.name }} value={{ item.value }} state=present
+          ignoreerrors=yes
+  with_items:
+    - {name: 'kernel.exec-shield', value: 1}
+    - {name: 'kernel.randomize_va_space', value: 1}
+    - {name: 'net.ipv4.conf.all.rp_filter', value: 1}
+    - {name: 'net.ipv4.conf.all.accept_source_route', value: 0}
+    - {name: 'net.ipv4.icmp_echo_ignore_broadcasts', value: 1}
+    - {name: 'net.ipv4.icmp_ignore_bogus_error_messages', value: 1}
+    - {name: 'net.ipv4.conf.all.log_martians', value: 1}

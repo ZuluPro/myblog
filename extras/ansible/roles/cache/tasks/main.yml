@@ -1,0 +1,8 @@
+---
+- name: Install Redis
+  apt: name=redis-server state=latest
+
+- name: Configure bind address
+  lineinfile: dest=/etc/redis/redis.conf regexp=^bind
+              line="bind {{ redis_bind_addr }}" 
+  notify: restart redis

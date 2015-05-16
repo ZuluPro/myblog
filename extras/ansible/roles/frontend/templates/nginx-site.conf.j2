@@ -7,6 +7,7 @@ upstream myblog {
 server {
     listen 80;
     server_name {{ server_url }}; 
+    add_header Strict-Transport-Security max-age=15768000;
     return 301 https://$server_name$request_uri;
 }
 
@@ -17,21 +18,19 @@ server {
     # Log
     access_log /var/log/nginx/myblog.log;
     error_log /var/log/nginx/myblog.err.log warn;
+
     # Misc
     client_max_body_size 10M;
+
     # SSL
     ssl on;
     ssl_certificate {{ ssl_cert_addr }};
     ssl_certificate_key {{ ssl_key_addr }};
     ssl_dhparam {{ dhparam_pem_addr }};
     # ssl_prefer_server_ciphers       on;
+
     # Headers
     add_header X-Frame-Options "SAMEORIGIN";
-
-    ## location /static/ {
-    ##     autoindex   on;
-    ##     root  /var/www/myblog/static/;
-    ## }
 
     ## location /uploads/ {
     ##     autoindex on;
@@ -42,5 +41,15 @@ server {
         root /var/www/;
         uwsgi_pass myblog;
         include uwsgi_params;
+    }
+
+    location = /robots.txt  {
+        root /var/www/;
+        access_log off;
+        log_not_found off;
+    }
+    location ~ ^/static/  {
+        root /var/www/;
+        autoindex   on;
     }
 }

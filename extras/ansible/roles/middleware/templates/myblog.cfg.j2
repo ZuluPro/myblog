@@ -3,6 +3,7 @@ env = testing
 debug = True
 server_url = {{ server_url }}
 static_url = /static/
+static_root = {{ static_root }}
 
 default_db_engine = django.db.backends.mysql
 default_db_name = myblog
@@ -16,3 +17,12 @@ default_db_host = {{ hostvars[groups['database'][0]]['mysql_bind_addr'] }}
 default_db_host = {{ No_db_host }}
 {% endif %}
 default_db_port = 3306
+
+cache_backend = redis_cache.cache.RedisCache
+{% if 'all' in groups and groups['all'] %}
+cache_location = {{ hostvars[groups['all'][0]]['redis_bind_addr'] }}:6379:0
+{% else %}
+cache_location = {{ hostvars[groups['cache'][0]]['redis_bind_addr'] }}:6379:0
+{% endif %}
+
+session_engine = django.contrib.sessions.backends.cache

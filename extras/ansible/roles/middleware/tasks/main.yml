@@ -23,14 +23,18 @@
 - name: Install virtualenv
   pip: name=virtualenv
 
-- name: Install MySQL-python
-  pip: name=MySQL-python virtualenv="{{ myblog_venv }}"
+- name: Install myblog requirements
+  pip: name={{ item }} virtualenv="{{ myblog_venv }}"
   remote_user: "{{ myblog_user }}"
+  with_items:
+    - MySQL-python
+    - django-redis
 
 - name: Git pull blog
   git: repo=https://github.com/ZuluPro/myblog.git
        dest=/tmp/src/myblog version={{ myblog_version }}
   remote_user: "{{ myblog_user }}"
+  register: git_pull_myblog
 
 - name: Install myblog requirements
   pip: requirements=/tmp/src/myblog/requirements.txt
@@ -42,29 +46,38 @@
   args:
      chdir: /tmp/src/myblog
   remote_user: "{{ myblog_user }}"
+  when: git_pull_myblog.changed
   notify: restart uwsgi
 
 - name: Get package directory
   shell: myblog settings | awk '/BASE_DIR/ {print $3}'
   remote_user: "{{ myblog_user }}"
   register: myblog_basedir
+  changed_when: False
   environment:
     PATH: "{{ myblog_venv }}/bin/:{{ ansible_env.PATH }}"
 
 - name: Setup myblog configuration
   template: src=myblog.cfg.j2 dest=/etc/myblog.cfg mode=0644 owner=root
 
-- name: Deploy static files
+- name: Create static root directory
+  file: dest="{{ static_root }}" state=directory
+
+- name: Collect static files
   command: "{{ myblog_venv }}/bin/python manage.py collectstatic --noinput"
   args:
      chdir: /tmp/src/myblog/myblog
   remote_user: "{{ myblog_user }}"
+  register: collectstatic
+  changed_when: "not '0 static files copied to' in collectstatic.stdout"
 
 - name: Deploy database 
   command: "{{ myblog_venv }}/bin/python manage.py migrate --noinput"
   args:
      chdir: /tmp/src/myblog/myblog
   remote_user: "{{ myblog_user }}"
+  register: migration
+  changed_when: "not 'No migrations to apply.' in migration.stdout"
 
 # uWSGI
 - name: Install uWSGI

@@ -5,3 +5,4 @@ db_password:
 myblog_version: master
 uwsgi_bind_port: 3031
 server_url: anthony-monthe.me
+static_root: /var/myblog/static

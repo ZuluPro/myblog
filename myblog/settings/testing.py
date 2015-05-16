@@ -18,7 +18,11 @@ except ImportError:
 DATABASES = {
     'default': {
         'ENGINE': CONFIG.get('DEFAULT', 'default_db_engine'),
-        'NAME': CONFIG.get('DEFAULT', 'default_db_name')
+        'NAME': CONFIG.get('DEFAULT', 'default_db_name'),
+        'USER': CONFIG.get('DEFAULT', 'default_db_user'),
+        'PASSWORD': CONFIG.get('DEFAULT', 'default_db_password'),
+        'HOST': CONFIG.get('DEFAULT', 'default_db_host'),
+        'PORT': CONFIG.get('DEFAULT', 'default_db_port'),
     }
 }
 
