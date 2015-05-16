@@ -33,6 +33,7 @@
 # Sites
 - name: Disable default site
   file: path=/etc/nginx/sites-enabled/default state=absent
+  notify: reload nginx
 
 - name: Setup myblog Nginx configuration
   template: src=nginx-site.conf.j2 dest=/etc/nginx/sites-available/myblog.conf
@@ -51,7 +52,7 @@
   copy: src=robots.txt dest=/var/www/robots.txt mode=660 owner=www-data group=www-data
 
 - name: Update static files
-  command: rsync -e ssh -acogtvz --modify-window=3600 --delete-after --force --no-motd --chown=www-data:www-data root@{{ item }}:{{ static_root }} /var/www/
+  command: rsync -e "ssh -o StrictHostKeyChecking=no" -acogtvz --modify-window=3600 --delete-after --force --no-motd --chown=www-data:www-data root@{{ item }}:{{ static_root }} /var/www/
   with_items: (groups.get('all', []) + groups.get('middleware', []))[0]
   register: update_static
   changed_when: "update_static.stdout.count('\n') > 4"

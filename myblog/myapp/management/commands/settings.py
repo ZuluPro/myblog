@@ -67,8 +67,8 @@ class Command(BaseCommand):
             help="Only diplay sections")
 
     def get_used_section(self, opts):
-        sections = opts['only'] if opts['only'] else get_registered_sections()
-        if opts['ignored']:
+        sections = opts['only'] if opts.get('only') else get_registered_sections()
+        if opts.get('ignored'):
             sections = [i for i in sections if not i in opts['ignored']]
         return sections
 
@@ -80,4 +80,7 @@ class Command(BaseCommand):
     def handle(self, *args, **opts):
         self.stdout.write('ENV: %s\n' % s.ENV)
         for formatter in self.get_used_formatters(opts):
-            self.stdout.write(formatter.get_text())
+            try:
+                self.stdout.write(formatter.get_text())
+            except:
+                pass

@@ -50,7 +50,7 @@
   notify: restart uwsgi
 
 - name: Get package directory
-  shell: myblog settings | awk '/BASE_DIR/ {print $3}'
+  shell: "{{ myblog_venv }}/bin/myblog settings | awk '/BASE_DIR/ {print $3}'"
   remote_user: "{{ myblog_user }}"
   register: myblog_basedir
   changed_when: False
@@ -72,8 +72,6 @@
 
 - name: Deploy database 
   command: "{{ myblog_venv }}/bin/myblog migrate --noinput"
-  args:
-     chdir: /tmp/src/myblog/myblog
   remote_user: "{{ myblog_user }}"
   register: migration
   changed_when: "not 'No migrations to apply.' in migration.stdout"
