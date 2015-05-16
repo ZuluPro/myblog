@@ -61,18 +61,17 @@
   template: src=myblog.cfg.j2 dest=/etc/myblog.cfg mode=0644 owner=root
 
 - name: Create static root directory
-  file: dest="{{ static_root }}" state=directory
+  file: dest="{{ static_root }}" state=directory owner={{ myblog_user }} group={{ myblog_user }}
+        mode=0740
 
 - name: Collect static files
-  command: "{{ myblog_venv }}/bin/python manage.py collectstatic --noinput"
-  args:
-     chdir: /tmp/src/myblog/myblog
+  command: "{{ myblog_venv }}/bin/myblog collectstatic --noinput"
   remote_user: "{{ myblog_user }}"
   register: collectstatic
   changed_when: "not '0 static files copied to' in collectstatic.stdout"
 
 - name: Deploy database 
-  command: "{{ myblog_venv }}/bin/python manage.py migrate --noinput"
+  command: "{{ myblog_venv }}/bin/myblog migrate --noinput"
   args:
      chdir: /tmp/src/myblog/myblog
   remote_user: "{{ myblog_user }}"

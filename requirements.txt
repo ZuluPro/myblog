@@ -1,4 +1,4 @@
-Django==1.8
+Django==1.7
 Pillow==2.8.1
 admin-tools-zinnia==0.1
 argparse==1.2.1
