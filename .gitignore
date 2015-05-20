@@ -10,3 +10,7 @@ dist/
 myblog/db.sqlite3
 myblog/uploads/*
 myblog/static/*
+extras/docker-compose/compose.env
+extras/docker-compose/ssl-certs/dhparam.pem
+extras/docker-compose/ssl-certs/myblog.key
+extras/docker-compose/ssl-certs/myblog.crt
