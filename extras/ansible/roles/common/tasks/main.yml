@@ -23,6 +23,16 @@
   command: ntpdate-debian
   register: ntpdate
   changed_when: "not '0.00' in ntpdate.stdout"
+  ignore_errors: yes
+
+- name: Check SSH public key
+  local_action: command test -e {{ ssh_public_key_file }}
+  register: ssh_public_key_test
+  ignore_errors: yes
+
+- name: Fail if no SSH public key
+  fail: msg="Please put your public SSH key at {{ ssh_public_key_file }}"
+  when: ssh_public_key_test.rc != 0
 
 - name: Add my public key to root
   authorized_key: user=root key="{{ lookup('file', ssh_public_key_file) }}"
@@ -30,7 +40,15 @@
 - name: Disable SSHd to use DNS
   lineinfile: dest=/etc/ssh/sshd_config regexp=UseDNS
               line="UseDNS no" 
-  notify: restart sshd
+  register: sshd_config_setting
+
+- name: Reload SSHd
+  service: name=ssh state=reloaded
+  when: sshd_config_setting.changed
+
+- name: Allow the agent forward
+  lineinfile: dest=/etc/ssh/ssh_config regexp=ForwardAgent
+              line="ForwardAgent yes" 
 
 - name: Enable Fail2ban SSH-DDOS
   ini_file: dest=/etc/fail2ban/jail.conf section=ssh-ddos option=enabled value=true

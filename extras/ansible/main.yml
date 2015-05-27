@@ -1,8 +1,0 @@
----
-- hosts: all
-  roles:
-  - {role: common, tags: common}
-  - {role: database, tags: database}
-  - {role: cache, tags: cache}
-  - {role: middleware, tags: middleware}
-  - {role: frontend, tags: frontend}

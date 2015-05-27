@@ -3,9 +3,10 @@
 - name: Create user {{ myblog_user }}
   user: name="{{ myblog_user }}" shell=/bin/bash home="{{ myblog_home }}"
 
-- name: Add my public key to {{ myblog_user }}
+- name: Add SSH public key to {{ myblog_user }}
   authorized_key: user={{ myblog_user }}
                   key="{{ lookup('file', ssh_public_key_file) }}"
+  when: ssh_public_key_test.rc == 0 
 
 # myblog
 - name: Install requirements
@@ -68,6 +69,7 @@
   command: "{{ myblog_venv }}/bin/myblog collectstatic --noinput"
   remote_user: "{{ myblog_user }}"
   register: collectstatic
+  run_once: true
   changed_when: "not '0 static files copied to' in collectstatic.stdout"
 
 - name: Deploy database 

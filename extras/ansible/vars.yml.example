@@ -1,0 +1,10 @@
+---
+ssh_public_key_file: ~/.ssh/id_dsa.pub
+myblog_version: master
+static_root: /var/myblog/static
+root_db_password: root
+db_password: myblog
+secret_key: 
+# If empty, will be created
+ssl_cert:
+ssl_key:

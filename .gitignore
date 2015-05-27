@@ -10,3 +10,5 @@ dist/
 myblog/db.sqlite3
 myblog/uploads/*
 myblog/static/*
+extras/ansible/vars.yml
+extras/ansible/hosts

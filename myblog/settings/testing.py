@@ -29,3 +29,7 @@ DATABASES = {
 if TEMPLATE_DEBUG:
     TEMPLATES[0]['OPTIONS']['context_processors']\
         .insert(0, 'django.template.context_processors.debug')
+
+DEBUG_TOOLBAR_CONFIG = {
+    'JQUERY_URL': STATIC_URL + 'admin_tools/js/jquery/jquery.min.js'
+}

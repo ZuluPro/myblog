@@ -1,9 +1,10 @@
 [DEFAULT]
-env = testing
+env = {{ env }}
 debug = True
 server_url = {{ server_url }}
 static_url = /static/
 static_root = {{ static_root }}
+secret_key = {{ secret_key }}
 
 default_db_engine = django.db.backends.mysql
 default_db_name = myblog
