@@ -44,7 +44,7 @@ DEFAULT_CONFIG = {
     'time_zone': 'UTC',
     'use_i18n': 'False',
     'use_l10n': 'False',
-    'use_tz': 'True',
+    'use_tz': 'False',
     # Cache
     'cache_backend': 'redis_cache.cache.RedisCache',
     'cache_location': '127.0.0.1:6379:1',
