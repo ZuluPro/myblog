@@ -2,11 +2,11 @@ from django.conf import settings as s
 from django.conf.urls.static import static
 from django.conf.urls import include, url
 from django.contrib import admin
+from django.views.generic.base import RedirectView
+
 
 urlpatterns = [
-    # Examples:
-    # url(r'^$', 'myblog.views.home', name='home'),
-    # url(r'^blog/', include('blog.urls')),
+    url(r'^$', RedirectView.as_view(url='/weblog/', permanent=True)),
     url(r'^', include('myapp.urls')),
     url(r'^tinymce/zinnia/', include('zinnia_tinymce.urls')),
     url(r'^tinymce/', include('tinymce.urls')),

@@ -17,7 +17,7 @@
   when: ssl_key and ssl_cert
   
 - name: Put SSL cert
-  copy: src={{ ssl_cert }} dest=/etc/ssl/private/myblog.key
+  copy: src={{ ssl_cert }} dest=/etc/ssl/certs/myblog.crt
   when: ssl_key and ssl_cert
   notify: reload nginx
 
