@@ -1,3 +1,4 @@
+.vagrant/
 myblog.egg-info/
 build/
 dist/
