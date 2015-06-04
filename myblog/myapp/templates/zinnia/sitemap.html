@@ -8,8 +8,14 @@
 {% block body-class %}sitemap{% endblock body-class %}
 
 {% block content %}
-<h2>{% trans "Sitemap" %}</h2>
+<section class="title">
+<div class="content">
+<h1>{% trans "Sitemap" %}</h1>
+</div>
+</section>
 
+<section>
+<div class="content">
 <div class="entriesbycategories">
   <h3>{% trans "Entries per categories" %}</h3>
   {% for category in categories %}
@@ -32,9 +38,15 @@
   </ul>
   {% endfor %}
 </div>
+</div>
+</section>
 
+<section>
+<div class="content">
 <div class="montharchives">
-  <h3>{% trans "Monthly archives" %}</h3>
+  <h2>{% trans "Monthly archives" %}</h2>
   {% get_archives_entries %}
 </div>
+</div>
+</section>
 {% endblock content %}

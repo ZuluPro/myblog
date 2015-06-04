@@ -12,7 +12,10 @@
 <link rel="icon" href="{% static "img/admin_favicon.ico" %}"/>
 <script type="text/javascript">window.__admin_media_prefix__ = "{% filter escapejs %}{% get_admin_media %}{% endfilter %}";</script>
 {% block extrahead %}{% endblock %}
-{% block blockbots %}<meta name="robots" content="NONE,NOARCHIVE" />{% endblock %}
+
+{% block blockbots %}
+<meta name="robots" content="NONE,NOARCHIVE" />
+{% endblock %}
 </head>
 {% load i18n %}
 

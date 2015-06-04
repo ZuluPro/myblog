@@ -1,4 +1,9 @@
 ---
+- name: Check SSH public key
+  local_action: command test -e {{ ssh_public_key_file }}
+  register: ssh_public_key_test
+  ignore_errors: yes
+
 # user
 - name: Create user {{ myblog_user }}
   user: name="{{ myblog_user }}" shell=/bin/bash home="{{ myblog_home }}"

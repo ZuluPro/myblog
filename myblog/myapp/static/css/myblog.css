@@ -1,0 +1,131 @@
+body {
+  padding: 0px;
+  margin: 0px;
+  padding-top: 90px;
+  font-family: "Open Sans", sans-serif; }
+
+h1, h2, h4, nav li a {
+  margin-top: 10px; }
+
+.entry-title a {
+  text-decoration: none; }
+
+.entry-title a:hover {
+  text-decoration: underline; }
+
+h1 {
+  font-size: 48px;
+  margin-bottom: 0px;
+  color: #002e40; }
+
+h2 {
+  font-size: 28px; }
+
+h4 {
+  font-size: 20px;
+  margin-bottom: 10px; }
+
+.why-list {
+  margin-top: 0px; }
+.why-list li {
+line-height: 28px; }
+
+a {
+  cursor: pointer; }
+
+ul {
+  list-style: none;
+  padding-left: 10px; }
+
+.nav-container {
+  z-index: 99;
+  background-color: #002e40;
+  width: 100%;
+  position: fixed;
+  top: 0px;
+  left: 0px; }
+
+nav {
+  text-align: center;
+  width: 90%;
+  margin: 0px auto; }
+nav ul {
+  line-height: 90px;
+  margin: 0px;
+  padding: 0px; }
+nav ul.left {
+  float: left; }
+nav ul.right {
+  float: right; }
+nav li {
+  display: inline-block; }
+nav li a {
+  font-size: 15px;
+  color: white; }
+nav li a.active {
+  color: #aaaaaa; }
+nav li.name a {
+  font-size: 20px;
+  text-decoration: none; }
+nav li.name a img {
+  vertical-align: middle; }
+@media screen and (max-width: 640px) {
+  nav {
+    width: 90%; }
+  nav li {
+    width: 22%;
+  }
+  nav li a {
+    font-size: 13px; } }
+
+section.title {
+  background-color: #A1A1B4; }
+
+section {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 70px;
+  padding-right: 70px;}
+  section .content {
+    margin: 0px auto;
+    padding: 15px; }
+    @media screen and (max-width: 640px) {
+      section .content {
+        width: 100%; } }
+    section .content a {
+      color: #002e40; }
+
+section:nth-child(odd) {
+  background-color: #002e40;
+  color: white; }
+  section:nth-child(odd) a,
+  section:nth-child(odd) h1 {
+    color: white; }
+
+.bottom-link {
+  margin-top: 80px;
+  font-style: italic; }
+
+.gist-meta {
+  display: none; }
+
+.file-data {
+  font-size: 14px; }
+
+p.entry-details {
+  margin: 0px;
+  font-size: 12px; }
+
+textarea, input {
+  color: #202020; }
+
+ul.errorlist {
+  font-size: 11px;
+  color: #F00;
+  display: -webkit-inline-box; }
+
+section.footer {
+  background-color: #002e40;
+  color: white;
+  padding-top: 3px;
+  padding-bottom: 3px}

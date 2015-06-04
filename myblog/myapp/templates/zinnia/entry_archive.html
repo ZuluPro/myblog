@@ -13,6 +13,8 @@
 
 {% block content-related %}
 {% if date_list %}
+<section>
+<div class="content">
 <h3>{% trans "Yearly archives" %}</h3>
 <ul class="no-bullet inline-list">
   {% for date in date_list %}
@@ -21,5 +23,7 @@
   </li>
   {% endfor %}
 </ul>
+</div>
+</section>
 {% endif %}
 {% endblock content-related %}

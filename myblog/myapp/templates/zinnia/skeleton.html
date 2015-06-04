@@ -1,140 +1,78 @@
 {% load i18n staticfiles %}
-<!doctype html>
+<!DOCTYPE html>
 <html class="no-js" lang="{{ LANGUAGE_CODE }}">
-  <head>
-    <title>Zinnia's Weblog - {% block title %}{% endblock title %}{% block title-page %}{% endblock title-page %}</title>
-    <meta charset="utf-8"/>
-    <meta http-equiv="cache-control" content="public"/>
-    <meta name="robots" content="follow, all" />
-    <meta name="language" content="{{ LANGUAGE_CODE }}"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta name="description" content="{% block meta-description %}{% trans "My weblog." %}{% endblock meta-description %}{% block meta-description-page %}{% endblock meta-description-page %}"/>
-    <meta name="keywords" content="{% block meta-keywords %}django, blog, weblog, zinnia{% endblock meta-keywords %}"/>
-    <meta name="author" content="ZuluPro"/>
-    {% block meta %}{% endblock meta %}
-    <link rel="pingback" href="/xmlrpc/"/>
-    <link rel="icon" href="{% static "img/favicon.ico" %}"/>
-    <link rel="home" href="{% url 'zinnia:entry_archive_index' %}"/>
-    <link rel="stylesheet" href="{% static "zinnia/css/foundation.css" %}"/>
-    <link rel="stylesheet" href="{% static "zinnia/icons/foundation-icons.css" %}"/>
-    <link rel="stylesheet" href="{% static "prism/themes/prism.css" %}"/>
-    <script src="{% static "zinnia/js/vendor/modernizr.js" %}"></script>
-    <style>
-      /* Foundation fixs for Zinnia blog */
-      .entries-calendar td, .no-entries-calendar td { background: #fff; text-align: center; }
-      .entries-calendar th, .no-entries-calendar th { text-align: center; padding: 0px; }
-      .entries-calendar, .no-entries-calendar { table-layout: fixed; width: 100%; }
-      td.entry { background: #f5f5f5 }
-      .tag-2 { font-size: 1.4em }
-      .tag-3 { font-size: 1.8em }
-      .tag-4 { font-size: 2.2em }
-      .tag-5 { font-size: 2.6em }
-      .tag-6 { font-size: 3em }
-      #input-search-top { height: 1.8rem }
-      #zinnia-slogan { display: block; margin-top: 10px; }
-      .entry-image img { margin: 0px 1em 1em 0px; }
-    </style>
-    {% block link %}{% endblock link %}
-    {% block script %}{% endblock script %}
-  </head>
-  <body class="zinnia {% block theme-class %}default{% endblock theme-class %} {% block color-class %}blue{% endblock color-class %} {% block sidebar-class %}right-sidebar{% endblock sidebar-class %} {% block body-class %}{% endblock body-class %}">
-    <nav class="top-bar" data-topbar>
-      <ul class="title-area">
-        <li class="name">
-          <h1>
-            <a href="{% url 'zinnia:entry_archive_index' %}" title="ZuluPro's Weblog" rel="home">
-              ZuluPro's Weblog
-            </a>
-          </h1>
-        </li>
-        <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-        <li class="toggle-topbar menu-icon">
-          <a href="#">
-            <span>Menu</span>
-          </a>
-        </li>
-      </ul>
-      <section class="top-bar-section">
-        <!-- Right Nav Section -->
-        <ul class="right">
-          <li class="has-form">
-            <form method="get" action="{% url 'zinnia:entry_search' %}">
-              <div class="row collapse">
-                <div class="large-8 small-9 columns">
-                  <input id="input-search-top" type="text" name="pattern" placeholder="{% trans "Keywords..." %}" {% if pattern %}value="{{ pattern }}"{% endif %} />
-                </div>
-                <div class="large-4 small-3 columns">
-                  <input type="submit" class="alert button expand" value="OK" />
-                </div>
-              </div>
-            </form>
-          </li>
-          <li class="divider"></li>
-          <li>
-            <a href="{% url 'zinnia:sitemap' %}" title="{% trans "Sitemap" %}" class="sitemap">
-              <i class="fi-map"></i>
-              {% trans "Sitemap" %}
-            </a>
-          </li>
-          <li class="divider"></li>
-          <li>
-            <a href="{% url 'zinnia:entry_latest_feed' %}" title="{% trans "RSS Feed of latest entries" %}" class="feeds">
-            <i class="fi-rss"></i>
-            {% trans "RSS Feed" %}
-            </a>
-          </li>
-        </ul>
-      </section>
-    </nav>
-    {% block breadcrumbs %}{% endblock breadcrumbs %}
-    <div class="row">
-      <div class="large-12 columns">
-        <h2>ZuluPro's Weblog <small id="zinnia-slogan">{% trans "Brain archives." %}</small></h2>
-        <hr>
-      </div>
+ <head>
+  <title>Anthony Monthe - {% block title %}{% endblock title %}{% block title-page %}{% endblock title-page %}</title>
+  <meta content='initial-scale=1' name='viewport'>
+  <meta charset="utf-8"/>
+  <meta name="robots" content="follow, all" />
+  <meta name="language" content="{{ LANGUAGE_CODE }}"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="{% block meta-description %}{% trans "My weblog." %}{% endblock meta-description %}{% block meta-description-page %}{% endblock meta-description-page %}"/>
+  <meta name="keywords" content="{% block meta-keywords %}django, blog, weblog, zinnia, python, opensource{% endblock meta-keywords %}"/>
+  <meta name="author" content="ZuluPro"/>
+  {% block meta %}{% endblock meta %}
+  <link rel="icon" href="{% static "img/favicon.ico" %}"/>
+  <link rel="home" href="{% url 'zinnia:entry_archive_index' %}"/>
+  <link rel="stylesheet" href="{% static "prism/themes/prism.css" %}"/>
+  {% block link %}{% endblock link %}
+  {% block script %}{% endblock script %}
+  <link rel="pingback" href="/xmlrpc/"/>
+  <link href='http://fonts.googleapis.com/css?family=Headland+One|Open+Sans:400italic,400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="{% static "css/pure-min.css" %}">
+  <link href="{% static "css/myblog.css" %}" media="all" rel="stylesheet" />
+ </head>
+ <body>
+ <div class='nav-container'>
+  <nav>
+   <ul class="left">
+    <li class="name">
+     <a href="{% url 'zinnia:entry_archive_index' %}" title="Anthony Monthe" rel="home">
+      <img src="/static/img/avatar.png" height="60" width="60" style="border-radius: 70px;">
+      Anthony Monthe
+     </a>
+    </li>
+   </ul>
+   <ul class="right">
+    <li><a>About</a></li>
+    <li><a href="{% url 'zinnia:entry_archive_index' %}">Blog</a></li>
+    <li>
+     <a href="{% url 'zinnia:sitemap' %}" title="{% trans "Sitemap" %}" class="sitemap">
+      <i class="fi-map"></i>
+      {% trans "Sitemap" %}
+     </a>
+    </li>
+    <li>
+     <a href="{% url 'zinnia:entry_latest_feed' %}" title="{% trans "RSS Feed of latest entries" %}" class="feeds">
+      <i class="fi-rss"></i> {% trans "RSS Feed" %}
+     </a>
+    </li>
+    {% if request.user.is_superuser %}
+    <li>
+     <a href="{% url 'admin:index' %}" title="{% trans "Admin site" %}" class="admin">
+      <i class="fi-rss"></i> {% trans "Admin" %}
+     </a>
+    </li>
+    {% endif %}
+   </ul>
+  </nav>
+ </div>
+ 
+ <div class="pure-g">
+ <div class='pure-u-1-1'>
+ {% block content %}
+ {% endblock content %}
+ </div>
+ </div>
+
+ <div class='pure-u-1-1'>
+  <section class="footer">
+   <div class="content">
+      Made during geeking nights with <a href="http://django-blog-zinnia.com/">Django Zinnia</a>
     </div>
-    {% block slider %}{% endblock slider %} <!-- TODO -->
-    <div class="row">
-      <div class="large-8 small-12 columns" id="content">
-        {% block content %}
-          <div class="links">
-            <h3>{% trans "Useful links" %}</h3>
-            <ul>
-              <li>
-                <a href="{% url 'zinnia:entry_archive_index' %}" title="{% trans "Weblog index" %}">
-                  {% trans "Weblog index" %}
-                </a>
-              </li>
-              <li>
-                <a href="{% url 'zinnia:sitemap' %}" title="{% trans "Sitemap" %}">
-                  {% trans "Sitemap" %}
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div class="search">
-            <h3>{% trans "Search" %}</h3>
-            {% include "zinnia/tags/search_form.html" %}
-          </div>
-        {% endblock content %}
-      </div>
-      <div class="large-4 small-12 columns panel" id="sidebar">
-        {% block sidebar %}
-        {% endblock sidebar %}
-      </div>
-    </div>
-    <footer class="row">
-        <p>
-         Anthony MONTHE ® {% now "Y" %}
-        </p>
-    </footer>
-    <script src="{% static "prism/prism.js" %}"></script>
-    <script src="{% static "zinnia/js/vendor/jquery.js" %}"></script>
-    <script src="{% static "zinnia/js/foundation.min.js" %}"></script>
-    <script>
-      $(document).foundation();
-      var doc = document.documentElement;
-      doc.setAttribute('data-useragent', navigator.userAgent);
-    </script>
-  </body>
+  </section>
+ </div>
+
+ <script src="{% static "prism/prism.js" %}"></script>
+ </body>
 </html>

@@ -1,16 +1,18 @@
 {% load comments i18n zinnia %}
+<section>
+<div class="content">
 <div id="entry-{{ object.pk }}" class="hentry{% if object.featured %} featured{% endif %}">
   {% block entry-header %}
   <div class="entry-header">
     {% block entry-title %}
-    <h3 class="entry-title">
+    <h1 class="entry-title">
       <a href="{{ object.get_absolute_url }}" title="{{ object.title }}" rel="bookmark">
         {{ object.title|widont }}
       </a>
-    </h3>
+    </h1>
     {% endblock entry-title %}
     {% block entry-info %}
-    <h6>
+    <p class="entry-details">
       {% block entry-published %}
       {% trans "Published" %}
       <abbr class="published" title="{{ object.creation_date|date:"c" }}">{{ object.creation_date|date:"DATE_FORMAT" }}</abbr>
@@ -22,13 +24,12 @@
       {% for category in categories %}
       <a href="{{ category.get_absolute_url }}"
          title="{% blocktrans %}Show all entries in {{ category }}{% endblocktrans %}"
-         rel="tag category">{{ category }}</a>{% if not forloop.last %}, {% endif %}{% endfor %}{% endif %}.
+         rel="tag category">{{ category }}</a>{% if not forloop.last %}, {% endif %}{% endfor %}{% endif %}
       {% endwith %}
       {% endblock entry-categories %}
-    </h6>
     {% endblock entry-info %}
+    -
     {% block entry-last-update %}
-    <p class="entry-last-update">
       {% trans "Last update on" %} <abbr class="updated" title="{{ object.last_update|date:"c" }}">{{ object.last_update|date:"DATE_FORMAT" }}</abbr>.
     </p>
     {% endblock entry-last-update %}
@@ -44,7 +45,7 @@
         {% if continue_reading %}
         <a href="{{ object.get_absolute_url }}" title="{{ object.title }}" rel="bookmark">
           {% endif %}
-          <img src="{{ object.image.url }}" alt="{{ object.title }}" class="left th"" />
+          <img src="{{ object.image.url }}" alt="{{ object.title }}" class="left th"/>
           {% if continue_reading %}
         </a>
         {% endif %}
@@ -87,6 +88,7 @@
       <span>{% trans "No tags" %}</span>
       {% endfor %}
     {% endblock entry-tags %}
+
     {% block entry-discussions %}
       <br/>
       <i class="fi-comments"></i>
@@ -111,6 +113,7 @@
       {% endif %}
       {% endwith %}
       {% endblock entry-comments %}
+
       {% block entry-pingbacks %}
       {% with pingback_count=object.pingback_count %}
       {% if pingback_count %}
@@ -133,5 +136,6 @@
     {% endblock entry-discussions %}
   </div>
   {% endblock entry-footer %}
-  <hr>
 </div>
+</div>
+</section>

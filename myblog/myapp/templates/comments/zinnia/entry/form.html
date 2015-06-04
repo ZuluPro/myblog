@@ -1,34 +1,34 @@
 {% load comments i18n %}
 {% load firstof from future %}
-<form action="{% comment_form_target %}" method="post" id="comment-form">
-  <div>{% csrf_token %}</div>
+
+<form action="{% comment_form_target %}" method="post" id="comment-form" class="pure-form pure-form-aligned">
+  {% csrf_token %}
   {% if form.non_field_errors %}
   <div class="error">
     {{ form.non_field_errors }}
   </div>
   {% endif %}
   <fieldset>
-    <legend>{% trans "Post your comment" %}</legend>
+    <h3>{% trans "Post your comment" %}</h3>
     <input type="hidden" name="next" value="{% url 'zinnia:comment_success' %}"/>
     {% for field in form %}
     {% if field.is_hidden %}{{ field }}{% else %}
     {% if user.email and field.name in "namemailurl" %}{% else %}
-    <div{% if field.errors %} class="error"{% endif %}{% ifequal field.name "honeypot" %} style="display:none;"{% endifequal %}>
+    <div class="pure-control-group{% if field.errors %} error{% endif %}"{% ifequal field.name "honeypot" %} style="display:none;"{% endifequal %}>
       {{ field.label_tag }}
-      {% if field.errors %}{{ field.errors }}{% endif %}
       {{ field }}
+      {% if field.errors %}{{ field.errors }}{% endif %}
     </div>
     {% endif %}
     {% endif %}
     {% endfor %}
     {% if user.is_authenticated %}
-    <p class="auth">
-      {% trans "Comment as" %} <strong>{% firstof user.get_full_name user.get_username %}</strong>. <a href="{% url 'admin:logout' %}">{% trans "Log out" %}</a>.
-    </p>
     {% endif %}
-    <p class="submit right">
-      <input type="submit" name="preview" class="submit-preview button secondary" value="{% trans "Preview" %}" />
-      <input type="submit" name="submit" class="submit-post button" value="{% trans "Post" %}" />
-    </p>
+    <div class="pure-control-group submit">
+      <label></label>
+      <input type="submit" name="submit" class="submit-post pure-button pure-button-primary" value="{% trans "Post" %}" />
+      <input type="submit" name="preview" class="submit-preview pure-button pure-button-secondary" value="{% trans "Preview" %}" />
+      <p class="auth">{% trans "Comment as" %} <strong>{% firstof user.get_full_name user.get_username %}</strong>. <a href="{% url 'admin:logout' %}">{% trans "Log out" %}</a>.</p>
+    </div>
   </fieldset>
 </form>
