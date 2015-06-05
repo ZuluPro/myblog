@@ -25,6 +25,7 @@ MEDIA_ROOT = CONFIG.get('DEFAULT', 'media_root')
 MEDIA_URL = CONFIG.get('DEFAULT', 'media_url')
 # Application definition
 INSTALLED_APPS = (
+    'about',
     'django_comments',
     'tinymce',
     'myapp',  # 1st resolved
