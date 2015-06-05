@@ -1,0 +1,6 @@
+[DEFAULT]
+env = prod
+debug = True
+server_url = anthony-monthe.me
+static_url = /static/
+secret_key = 0a&a0a0a_a0a0aa)@^@0a(aaaaaa)aaaa0a0a0a0aaUa00+a@a
