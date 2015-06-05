@@ -13,17 +13,27 @@ h1, h2, h4, nav li a {
 .entry-title a:hover {
   text-decoration: underline; }
 
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 2px;
+}
+
 h1 {
-  font-size: 48px;
-  margin-bottom: 0px;
-  color: #002e40; }
+  font-size: 48px; }
 
 h2 {
   font-size: 28px; }
 
+h3 {
+  font-size: 24px; }
+
 h4 {
-  font-size: 20px;
-  margin-bottom: 10px; }
+  font-size: 22px; }
+
+h5 {
+  font-size: 20px; }
+
+h6 {
+  font-size: 18px; }
 
 .why-list {
   margin-top: 0px; }
@@ -36,6 +46,9 @@ a {
 ul {
   list-style: none;
   padding-left: 10px; }
+
+li {
+  padding-top: 1px; }
 
 .nav-container {
   z-index: 99;
@@ -70,13 +83,18 @@ nav li.name a {
 nav li.name a img {
   vertical-align: middle; }
 @media screen and (max-width: 640px) {
+  body {
+    padding-top: 80px; }
   nav {
+    height: 70px;
     width: 90%; }
-  nav li {
-    width: 22%;
-  }
+  nav ul {
+    line-height: 50px; }
+  nav li {}
   nav li a {
-    font-size: 13px; } }
+    font-size: 13px; } 
+  
+}
 
 section.title {
   background-color: #A1A1B4; }
