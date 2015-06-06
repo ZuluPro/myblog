@@ -1,0 +1,35 @@
+{% load i18n staticfiles %}
+<div class='nav-container' id="a">
+ <nav>
+  <ul class="left">
+   <li class="name">
+    <a href="{% url 'zinnia:entry_archive_index' %}" title="Anthony Monthe" rel="home">
+     <img src="/static/img/avatar.png" height="60" width="60" style="border-radius: 70px;">
+     Anthony Monthe
+    </a>
+   </li>
+  </ul>
+  <ul class="right">
+   <li><a>About</a></li>
+   <li><a href="{% url 'zinnia:entry_archive_index' %}">Blog</a></li>
+   <li>
+    <a href="{% url 'zinnia:sitemap' %}" title="{% trans "Sitemap" %}" class="sitemap">
+     <i class="fi-map"></i>
+     {% trans "Sitemap" %}
+    </a>
+   </li>
+   <li>
+    <a href="{% url 'zinnia:entry_latest_feed' %}" title="{% trans "RSS Feed of latest entries" %}" class="feeds">
+     <i class="fi-rss"></i> {% trans "RSS Feed" %}
+    </a>
+   </li>
+   {% if request.user.is_superuser %}
+   <li>
+    <a href="{% url 'admin:index' %}" title="{% trans "Admin site" %}" class="admin">
+     <i class="fi-rss"></i> {% trans "Admin" %}
+    </a>
+   </li>
+   {% endif %}
+  </ul>
+ </nav>
+</div>
