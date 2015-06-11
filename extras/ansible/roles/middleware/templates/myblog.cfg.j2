@@ -1,6 +1,5 @@
 [DEFAULT]
 env = {{ env }}
-debug = True
 server_url = {{ server_url }}
 static_url = /static/
 static_root = {{ static_root }}
@@ -8,8 +7,10 @@ secret_key = {{ secret_key }}
 
 {% if env == 'testing' %}
 lor_use_local_urls = True
+debug = True
 {% else %}
 lor_use_local_urls = False
+debug = False
 {% endif %}
 
 default_db_engine = django.db.backends.mysql
