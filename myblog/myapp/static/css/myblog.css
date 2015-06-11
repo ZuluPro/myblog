@@ -1,8 +1,11 @@
+* {
+  font-family: "Open Sans", sans-serif !important;
+}
 body {
   padding: 0px;
   margin: 0px;
   padding-top: 90px;
-  font-family: "Open Sans", sans-serif; }
+}
 
 h1, h2, h4, nav li a {
   margin-top: 10px; }
@@ -120,6 +123,19 @@ section:nth-child(odd) {
   section:nth-child(odd) h1 {
     color: white; }
 
+#formation li div {
+  display: -webkit-inline-box;
+  margin: 5px;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 25px; }
+#formation li:nth-child(odd) div {
+  background-color: #FFF;
+  color: #002e40; 
+  border-radius: 10px;
+}
+
 .bottom-link {
   margin-top: 80px;
   font-style: italic; }
@@ -146,4 +162,35 @@ section.footer {
   background-color: #002e40;
   color: white;
   padding-top: 3px;
-  padding-bottom: 3px}
+  padding-bottom: 3px; }
+
+.circle {
+  margin: 25px 10px;
+  width: 200px;
+  color: #fff;
+  font-size: 32px;
+  line-height: 200px;
+  text-align: center;
+  height: 200px;
+  border-radius: 100px; }
+
+.circle a {
+  color: #FFF;
+  text-decoration: none; }
+
+section.aboutme {
+  overflow: hidden;
+  padding: 0px;
+  background-color: rgba(189, 189, 189, 0.55); }
+
+#aboutme-column {
+  padding: 30px; }
+
+section.aboutme img {
+  margin-top: -75px;
+  margin-bottom: -75px;
+  z-index: 1;
+  width: 100%; }
+
+section.skills {
+  min-height: 800px; }

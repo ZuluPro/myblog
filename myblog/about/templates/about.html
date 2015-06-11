@@ -1,0 +1,76 @@
+{% load i18n staticfiles lor %}
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE }}" ng-app="app">
+ <head>
+  {% include "base/head.html" %}
+  <link rel="stylesheet" href="{% lor_url "animate" %}">
+ </head>
+
+ <body>
+  {% include "base/navbar.html" %}
+  
+  <section class="aboutme">
+  <div class="pure-g">
+    <div class='pure-u-1-2'>
+     <div id="aboutme-column">
+      <h2>About me</h2>
+      <p><i>Hey, what's up! I'm Anthony, an hacker, Pythoner, computer whisperer, Djangonaute, computer scientist, Cloud pratician, dev[ops], shell bilingual, Free softwarer lover, tortured by JS.</i></p>
+      <p>Or simply</p>
+      <p><i>Opensource enthusiast who loves its works and skateboarding.</i></p>
+     </div>
+    </div>
+    <div class='pure-u-1-2'>
+     <img class="pure-img" src="{% static "img/bigme.jpg" %}">
+    </div>
+  </div>
+  </section>
+
+  <section>
+    <div class='pure-u-1-1'>
+     <h1><center>Education & degree</center></h1>
+     <ul id="formation">
+      <li><div>2014</div><div>Google Cloud Developers Certification</div></li>
+      <li><div>2013</div><div>Bachelor of computer science</div></li>
+      <li><div>2011</div><div>Brevet de technicien supérieur en informatique de gestion</div></li>
+      <li><div>2009</div><div>Baccalauréat professionnel en maintenance de réseaux informatique</div></li>
+      <li><div>2007</div><div>Brevet de professionnalisation en science de l'électronique</div></li>
+     </ul>
+    </div>
+  </section>
+
+  <section class="skills" id="skill-section">
+   <div class="pure-g">
+    <div class='pure-u-1-1' ng-controller="SkillListCtrl as skillList">
+     <h1><center>Skills</center></h1>
+     <div class="pure-form" ng-submit="skillList.filter()">
+     <input class="pure-input-1 pure-input-rounded" type="text" ng-model="skillList.q" placeholder="Filter by category or name">
+     </div>
+     <div>
+      <div class="pure-g">
+       <div class='pure-u-1-6' ng-repeat="skill in skillList.filter()">
+        <div class="wow bounceInRight rollIn" data-wow-offset="100">
+         <p class="circle" style="background-color: {$ skill.color $};">
+          <a href="{$ skill.url $}">{$ skill.name $}</a>
+         </p>
+        </div>
+       </div>
+      </div>
+     </div>
+   </div>
+  </section>
+
+  <div class='pure-u-1-1'>
+   <section class="footer">
+    <div class="content">
+       Made during geeking nights with <a href="http://django-blog-zinnia.com/">Django Zinnia</a>
+     </div>
+   </section>
+  </div>
+  </div>
+
+  <script src="{% static "prism/prism.js" %}"></script>
+  <script src="{% lor_url "angularjs" %}"></script>
+  <script src="{% lor_url "wow" %}"></script>
+  <script src="{% static "js/about.js" %}"></script>
+ </body>
+</html>

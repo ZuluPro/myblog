@@ -7,6 +7,7 @@ from django.views.generic.base import RedirectView
 
 urlpatterns = [
     url(r'^$', RedirectView.as_view(url='/weblog/', permanent=True)),
+    url(r'^about$', 'about.views.aboutme', name="aboutme"),
     url(r'^', include('myapp.urls')),
     url(r'^tinymce/zinnia/', include('zinnia_tinymce.urls')),
     url(r'^tinymce/', include('tinymce.urls')),

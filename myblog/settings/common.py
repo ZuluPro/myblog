@@ -18,13 +18,19 @@ USE_I18N = CONFIG.getboolean('DEFAULT', 'use_i18n')
 USE_L10N = CONFIG.getboolean('DEFAULT', 'use_l10n')
 USE_TZ = CONFIG.getboolean('DEFAULT', 'use_tz')
 # Extra files (CSS, JavaScript, Images)
+LOR_STATIC_DIR = CONFIG.get('DEFAULT', 'lor_static_dir')
+LOR_USE_LOCAL_URLS = CONFIG.getboolean('DEFAULT', 'lor_use_local_urls')
 STATIC_ROOT = CONFIG.get('DEFAULT', 'static_root')
 STATIC_URL = CONFIG.get('DEFAULT', 'static_url')
 STATICFILES_DIRS = filter(bool, CONFIG.get('DEFAULT', 'staticfiles_dirs').split(','))
+if DEBUG:
+    STATICFILES_DIRS += [LOR_STATIC_DIR]
 MEDIA_ROOT = CONFIG.get('DEFAULT', 'media_root')
 MEDIA_URL = CONFIG.get('DEFAULT', 'media_url')
+# STATICFILES_STORAGE = 'lor.storage.LorStorage'
 # Application definition
 INSTALLED_APPS = (
+    'lor',
     'about',
     'django_comments',
     'tinymce',
@@ -94,4 +100,23 @@ DATABASES = {
         'HOST': CONFIG.get('DEFAULT', 'default_db_host'),
         'PORT': CONFIG.get('DEFAULT', 'default_db_port'),
     }
+}
+
+import os
+def _make_googleapi_url(suffix):
+    return os.path.join('https://ajax.googleapis.com/ajax/libs/', suffix)
+
+LOR_FILES_URLS = {
+    'jquery': ('js/jquery.js',
+               _make_googleapi_url('jquery/1.11.3/jquery.min.js')),
+    'pure': ('css/pure.css',
+             'https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure.css'),
+    'angularjs': ('js/angularjs.js',
+                  _make_googleapi_url('angularjs/1.3.15/angular.min.js')),
+    'wow': ('js/wow.js',
+            'https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js'),
+    'animate': ('css/animate.css',
+                'https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.3.0/animate.min.css'),
+    'opensans': ('css/opensans.css',
+                 'https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700'),
 }
