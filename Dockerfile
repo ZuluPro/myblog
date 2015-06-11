@@ -4,7 +4,6 @@ MAINTAINER Anthony MONTHE <anthony.monthe@gmail.com>
 ENV PYTHONUNBUFFERED 1
 ENV uwsgi_ini /tmp/uwsgi.ini
 ENV BLOG_CONFIG_FILE /tmp/myblog.cfg
-ENV version docker
 ENV repo_dir /src/myblog
 ENV app_dir ${repo_dir}/myblog/
 
@@ -22,7 +21,7 @@ RUN python setup.py install
 
 VOLUME /static
 
-ENTRYPOINT ["/docker-entrypoint.sh"]
-CMD ["uwsgi", "--ini", "/tmp/uwsgi.ini"]
+ENTRYPOINT ["uwsgi"]
+CMD ["--ini", "/tmp/uwsgi.ini"]
 
 EXPOSE 3031

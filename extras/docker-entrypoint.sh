@@ -10,5 +10,5 @@ if [ -z "$@" ]; then
     set -- uwsgi --ini /tmp/uwsgi.ini
 fi
 
-echo 1 $@ 2
+echo $@
 exec "$@"

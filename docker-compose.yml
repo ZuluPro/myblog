@@ -28,9 +28,7 @@ frontend:
     - "443:443"
   volumes:
     - extras/docker-compose/nginx_site.conf:/etc/nginx/conf.d/default.conf:ro
-    - extras/docker-compose/ssl-certs/myblog.crt:/etc/ssl/certs/myblog.crt:ro
-    - extras/docker-compose/ssl-certs/myblog.key:/etc/ssl/private/myblog.key:ro
-    - extras/docker-compose/ssl-certs/dhparam.pem:/etc/ssl/certs/dhparam.pem:ro
+    - extras/docker-compose/ssl-certs:/ssl/:ro
   volumes_from:
     - static
   links:
