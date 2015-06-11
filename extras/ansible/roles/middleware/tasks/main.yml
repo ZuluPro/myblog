@@ -26,10 +26,13 @@
 - name: Install pip
   easy_install: name=pip
 
+- name: Upgrade pip
+  pip: name=pip
+
 - name: Install virtualenv
   pip: name=virtualenv
 
-- name: Install myblog requirements
+- name: Install Python MySQL and Redis clients
   pip: name={{ item }} virtualenv="{{ myblog_venv }}"
   remote_user: "{{ myblog_user }}"
   with_items:

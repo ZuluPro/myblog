@@ -10,7 +10,9 @@
    </li>
   </ul>
   <ul class="right">
-   <li><a>About</a></li>
+   <li>
+    <a href="{% url 'aboutme' %}">{% trans "About me" %}</a>
+   </li>
    <li><a href="{% url 'zinnia:entry_archive_index' %}">Blog</a></li>
    <li>
     <a href="{% url 'zinnia:sitemap' %}" title="{% trans "Sitemap" %}" class="sitemap">
