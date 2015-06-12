@@ -64,6 +64,7 @@ var app = angular.module("app", [])
             {name: 'TCP/IP', rank: 4, color: '#0E0338', url: 'https://en.wikipedia.org/wiki/Internet_protocol_suite', keywords: 'networking'},
             {name: 'Cisco', rank: 4, color: '#387FEA', url: 'http://www.cisco.com/', keywords: 'networking firewall'},
             {name: 'iptables', rank: 4, color: '#101010', url: 'http://netfilter.org/', keywords: 'networking linux firewall'},
+            {name: 'OpenVPN', rank: 4, color: '#F38220', url: 'https://openvpn.net/', keywords: 'networking linux vpn'},
             // Cloud
             {name: 'Amazon', rank: 4, color: '#f7981d', url: 'http://aws.amazon.com/', keywords: 'cloud iaas paas'},
             {name: 'Google Cloud', rank: 4, color: '#407BDC', url: 'https://cloud.google.com/', keywords: 'cloud iaas'},
@@ -106,17 +107,20 @@ var app = angular.module("app", [])
             {name: 'Memcached', rank: 4, color: '#2D8E83', url: 'http://memcached.org/', keywords: 'cache'},
             {name: 'uWSGI', rank: 4, color: '#C8D983', url: 'http://projects.unbit.it/uwsgi/wiki/WikiStart', keywords: 'wsgi application web'},
             {name: 'Gunicorn', rank: 4, color: '#449442', url: 'http://gunicorn.org/', keywords: 'wsgi application web'},
-            {name: 'RabbitMQ', rank: 4, color: '#F60', url: 'https://www.rabbitmq.com/', keywords: 'message broker'},
-            {name: 'Celery', rank: 4, color: '#E9F4D6', url: 'http://www.celeryproject.org/', keywords: 'message broker python'},
+            {name: 'RabbitMQ', rank: 4, color: '#F60', url: 'https://www.rabbitmq.com/', keywords: 'message broker queue'},
+            {name: 'Celery', rank: 4, color: '#E9F4D6', url: 'http://www.celeryproject.org/', keywords: 'message broker python queue'},
             {name: 'Squid', rank: 4, color: '#169DC9', url: 'http://www.squid-cache.org/', keywords: 'proxy cache'},
             {name: 'Postfix', rank: 4, color: '#F7EDA4', url: 'http://www.postfix.org/', keywords: 'mail'},
+            {name: 'Zimbra', rank: 4, color: '#006B98', url: 'https://www.zimbra.com/', keywords: 'mail postfix'},
             {name: 'Nagios', rank: 4, color: '#444', url: 'https://www.nagios.org/', keywords: 'supervision monitoring'},
             {name: 'Centreon', rank: 4, color: '#A4CC08', url: 'https://www.centreon.com/', keywords: 'supervision monitoring nagios'},
             {name: 'Cacti', rank: 4, color: '#379B1A', url: 'http://www.cacti.net/', keywords: 'monitoring metrology'},
             {name: 'Numeter', rank: 4, color: '#179', url: 'https://github.com/enovance/numeter/', keywords: 'monitoring metrology python django'},
+            {name: 'OpenLDAP', rank: 4, color: '#8F526D', url: 'http://www.openldap.org/', keywords: 'directory'},
             // DB
             {name: 'MySQL', rank: 4, color: '#015A84', url: 'https://www.mysql.com/', keywords: 'mariadb database sql'},
             {name: 'MariaDB', rank: 4, color: '#344371', url: 'https://mariadb.org/', keywords: 'mysql db database sql'},
+            {name: 'Percona', rank: 4, color: '#E67B1A', url: 'https://www.percona.com/', keywords: 'mysql db database sql'},
             {name: 'Postgres', rank: 4, color: '#0092C3', url: 'http://www.postgresql.org/', keywords: 'db database sql'},
             {name: 'MongoDB', rank: 4, color: '#3B291F', url: 'https://www.mongodb.org/', keywords: 'db database nosql'},
             // Virt
@@ -136,5 +140,11 @@ var app = angular.module("app", [])
             {name: 'Drupal', rank: 4, color: '#3E9DD8', url: 'https://www.drupal.org/', keywords: 'web blog php'},
             {name: 'Mediawiki', rank: 4, color: '#F3D30C', url: 'https://www.mediawiki.org/wiki/MediaWiki', keywords: 'web php wiki'},
             {name: 'Semantic', rank: 4, color: '#C3B30C', url: 'https://www.mediawiki.org/wiki/MediaWiki', keywords: 'web php wiki'},
+            // Misc
+            {name: 'Samba', rank: 4, color: '#95A599', url: 'https://www.samba.org/', keywords: 'shared'},
+            {name: 'NFS', rank: 4, color: '#6292BE', url: 'http://linux-nfs.org/', keywords: 'shared'},
+            {name: 'ProFTPd', rank: 4, color: '#FF0000', url: 'http://www.proftpd.org/', keywords: 'ftp'},
+            {name: 'Linux-HA', rank: 4, color: '#C030A0', url: 'http://www.linux-ha.org/wiki/Main_Page', keywords: 'load balancer lb'},
+            {name: 'GLPI', rank: 4, color: '#E8BF4D', url: 'http://www.glpi-project.org/', keywords: 'itil'},
         ];
     }]);

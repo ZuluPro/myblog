@@ -21,7 +21,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 48px; }
+  font-size: 40px; }
 
 h2 {
   font-size: 28px; }
@@ -37,11 +37,6 @@ h5 {
 
 h6 {
   font-size: 18px; }
-
-.why-list {
-  margin-top: 0px; }
-.why-list li {
-line-height: 28px; }
 
 a {
   cursor: pointer; }
