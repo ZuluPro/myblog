@@ -1,6 +1,8 @@
 """
 Common settings for myblog project.
 """
+import os
+from zinnia.xmlrpc import ZINNIA_XMLRPC_METHODS as XMLRPC_METHODS
 from .env import CONFIG, BASE_DIR
 
 DEBUG = CONFIG.getboolean('DEFAULT', 'debug')
@@ -33,6 +35,7 @@ INSTALLED_APPS = (
     'lor',
     'about',
     'django_comments',
+    'django_xmlrpc',
     'tinymce',
     'myapp',  # 1st resolved
     'admin_tools',
@@ -102,7 +105,6 @@ DATABASES = {
     }
 }
 
-import os
 def _make_googleapi_url(suffix):
     return os.path.join('https://ajax.googleapis.com/ajax/libs/', suffix)
 

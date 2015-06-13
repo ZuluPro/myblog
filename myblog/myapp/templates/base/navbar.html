@@ -3,7 +3,7 @@
  <nav>
   <ul class="left">
    <li class="name">
-    <a href="{% url 'zinnia:entry_archive_index' %}" title="Anthony Monthe" rel="home">
+    <a href="{% url 'aboutme' %}" title="Anthony Monthe" rel="home">
      <img src="/static/img/avatar.png" height="60" width="60" style="border-radius: 70px;">
      Anthony Monthe
     </a>
@@ -11,9 +11,9 @@
   </ul>
   <ul class="right">
    <li>
-    <a href="{% url 'aboutme' %}">{% trans "About me" %}</a>
+    <a href="{% url 'aboutme' %}" title="Anthony Monthe">{% trans "About me" %}</a>
    </li>
-   <li><a href="{% url 'zinnia:entry_archive_index' %}">Blog</a></li>
+   <li><a href="{% url 'zinnia:entry_archive_index' %}" title="{% trans "My blog" %}">Blog</a></li>
    <li>
     <a href="{% url 'zinnia:sitemap' %}" title="{% trans "Sitemap" %}" class="sitemap">
      <i class="fi-map"></i>
