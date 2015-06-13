@@ -13,6 +13,8 @@
 {% block body-class %}{{ block.super }} search {% if object_list %}search-results{% else %}search-no-results{% endif %}{% endblock body-class %}
 
 {% block content-title %}
+<section>
+<div class="content">
 <h1>{% trans "Search results for" %} '{{ pattern }}'</h1>
 
 {% if error %}
@@ -26,6 +28,8 @@
     {% blocktrans count entry_count=paginator.count %}{{ entry_count }} entry found{% plural %}{{ entry_count }} entries found{% endblocktrans %}
   </div>
 {% endif %}
+</div>
+</section>
 {% endblock content-title %}
 
 {% block content-loop %}
@@ -41,7 +45,11 @@
 {% endblock content-loop %}
 
 {% block content-related %}
+<section>
+<div class="content">
 <div class="search">
   {% include "zinnia/tags/search_form.html" %}
 </div>
+</div>
+</section>
 {% endblock content-related %}

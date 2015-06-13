@@ -1,10 +1,8 @@
-* {
-  font-family: "Open Sans", sans-serif;
-}
 body {
   padding: 0px;
   margin: 0px;
   padding-top: 90px;
+  font-family: "Open Sans", sans-serif;
 }
 
 h1, h2, h4, nav li a {
@@ -189,3 +187,28 @@ section.aboutme img {
 
 section.skills {
   min-height: 800px; }
+
+section.body-head {
+  font-size: 35px;
+  color: #BAD2D2;
+  background-color: #0C516C; }
+
+section.body-head p {
+  margin: 0px; }
+
+section.body-head p * {
+  vertical-align: middle;
+}
+
+section.body-head input[type="text"] {
+  padding-top: 1px;
+  padding-bottom: 1px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-size: 15px;
+  float: right;
+  height: 40px;
+  width: 90%; }
+
+section.body-head input.submitbutton {
+  display: none; }
