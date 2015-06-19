@@ -1,7 +1,12 @@
 import os
+import sys
 from setuptools import setup, find_packages
 
 import myblog
+
+requirements = open('requirements.txt').read().splitlines()
+if sys.version[0] == '2':
+    requirements += open('requirements-py2.txt').read().splitlines()
 
 setup(
     name='myblog',
@@ -26,5 +31,5 @@ setup(
     license=myblog.__license__,
     include_package_data=True,
     zip_safe=False,
-    install_requires=open('requirements.txt').read().splitlines()
+    install_requires=requirements
 )
