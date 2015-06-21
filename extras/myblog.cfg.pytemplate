@@ -1,0 +1,16 @@
+[DEFAULT]
+env = prod
+debug = True
+server_url = anthony-monthe.me
+
+static_url = /static/
+static_url = /media/
+static_root = {OPENSHIFT_DATA_DIR}static
+media_root = {OPENSHIFT_DATA_DIR}media
+
+default_db_engine = django.db.backends.mysql
+default_db_name = {db_name}
+default_db_user = {OPENSHIFT_MYSQL_DB_USERNAME}
+default_db_password = {OPENSHIFT_MYSQL_DB_PASSWORD}
+default_db_host = {OPENSHIFT_MYSQL_DB_HOST}
+default_db_port = {OPENSHIFT_MYSQL_DB_PORT}
