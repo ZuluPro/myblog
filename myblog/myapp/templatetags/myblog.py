@@ -8,6 +8,9 @@ SENTENCES = [
     "'Cause I need somewhere to write my thoughts",
     'Python, Django et pas de cul',
     '<code>mysql < /dev/brain</code>',
+    "Welcome to Zulu's brain",
+    "Maybe boring stuff for you",
+    "Follow my train of thought",
 ]
 
 

@@ -108,6 +108,8 @@ section {
         width: 100%; } }
     section .content a {
       color: #002e40; }
+    section span.label a {
+      color: #002e40 !important; }
 
 section:nth-child(odd) {
   background-color: #002e40;
@@ -115,6 +117,8 @@ section:nth-child(odd) {
   section:nth-child(odd) a,
   section:nth-child(odd) h1 {
     color: white; }
+  section:nth-child(odd) span.label a {
+    color: #FFFFFF !important; }
 
 #formation li div {
   display: -webkit-inline-box;
