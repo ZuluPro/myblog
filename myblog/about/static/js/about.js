@@ -60,6 +60,8 @@ var app = angular.module("app", [])
             {name: 'Scapy', rank: 4, color: '#A08010', url: 'http://www.secdev.org/projects/scapy/', keywords: 'python network tcp ip'},
             {name: 'ReportLab', rank: 4, color: '#00337F', url: 'http://www.reportlab.com/', keywords: 'python pdf'},
             {name: 'Nose', rank: 4, color: '#003B37', url: 'https://nose.readthedocs.org/en/latest/', keywords: 'python unittest'},
+            {name: 'Coverage', rank: 4, color: '#466316', url: 'http://nedbatchelder.com/code/coverage/', keywords: 'python unittest'},
+            {name: 'Twine', rank: 4, color: '#166316', url: 'https://pypi.python.org/pypi/twine', keywords: 'python'},
             // Net
             {name: 'TCP/IP', rank: 4, color: '#0E0338', url: 'https://en.wikipedia.org/wiki/Internet_protocol_suite', keywords: 'networking'},
             {name: 'Cisco', rank: 4, color: '#387FEA', url: 'http://www.cisco.com/', keywords: 'networking firewall'},
@@ -98,6 +100,7 @@ var app = angular.module("app", [])
             {name: 'Jenkins', rank: 4, color: '#D33833', url: 'https://jenkins-ci.org/', keywords: 'ci continuous integration unittest tests'},
             {name: 'CircleCI', rank: 4, color: '#002632', url: 'https://circleci.com/', keywords: 'ci continuous integration unittest tests saas'},
             {name: 'Travis', rank: 4, color: '#999', url: 'https://travis-ci.org/', keywords: 'ci continuous integration unittest tests saas'},
+            {name: 'Coveralls', rank: 4, color: '#B74846', url: 'https://coveralls.io/', keywords: 'ci unittest continuous integration saas'},
             // Daemon
             {name: 'Apache', rank: 4, color: '#304558', url: 'http://httpd.apache.org/', keywords: 'web frontend'},
             {name: 'Nginx', rank: 4, color: '#090', url: 'http://nginx.org/', keywords: 'web frontend ha high avaibility load balancer lb'},

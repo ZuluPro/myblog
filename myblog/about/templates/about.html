@@ -1,10 +1,21 @@
 {% extends "zinnia/base.html" %}
 {% load i18n staticfiles lor %}
 
-{% block html-attrs %}ng-app="app"{% endblock html-attrs %}
+{% block title %}{{ title }}{% endblock title %}
+
+{% block meta %}
+<meta property="og:title" content="{{ title }}">
+<meta property="og:type" content="profile">
+<meta property="og:first_name" content="Anthony">
+<meta property="og:last_name" content="Monthe">
+<meta property="og:username" content="ZuluPro">
+{% endblock meta %}
+
 {% block link %}
   <link rel="stylesheet" href="{% lor_url "animate" %}">
 {% endblock link %}
+
+{% block html-attrs %}ng-app="app"{% endblock html-attrs %}
 
 {% block content %}
 <section></section>
@@ -13,7 +24,7 @@
   <div class='pure-u-1-2'>
    <div id="aboutme-column">
     <h2>About me</h2>
-    <p><i>Hey, what's up! I'm Anthony, an hacker, Pythoner, computer whisperer, Djangonaute, Computer scientist, Cloud pratician, Dev[Ops], Shell bilingual, Free softwarer lover, Regular expressionist, tortured by JS.</i></p>
+    <p><i>Hey, what's up! I'm Anthony, an hacker, Pythoner, computer whisperer, Djangonaute, Computer scientist, Cloud pratician, Dev[Ops], Shell bilingual, Free software lover, Regular expressionist, tortured by JS.</i></p>
     <p>Or simply</p>
     <p><i>Opensource enthusiast who loves its works and skateboarding.</i></p>
    </div>

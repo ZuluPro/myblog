@@ -2,4 +2,6 @@ from django.shortcuts import render
 
 
 def aboutme(request):
-    return render(request, 'about.html', {})
+    return render(request, 'about.html', {
+        'title': 'About me',
+    })

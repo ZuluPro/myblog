@@ -8,6 +8,14 @@
 
 {% block meta-keywords %}{% if object.tags %}{{ object.tags }}{% else %}{{ block.super }}{% endif %}{% endblock meta-keywords %}
 
+{% block meta %}
+ <meta property="og:title" content="{{ object.title }}">
+ <meta property="og:type" content="article">
+ <meta property="og:url" content="{{ request.build_absolute_uri }}">
+ <meta property="article:published_time" content="{{ object.creation_date|date:"c" }}">
+ <meta property="article:modified_time" content="{{ object.last_update|date:"c" }}">
+{% endblock meta %}
+
 {% block link %}
   {{ block.super }}
   {% with previous_entry=object.previous_entry %}{% if previous_entry %}

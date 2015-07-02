@@ -1,17 +1,21 @@
 {% load i18n staticfiles lor %}
 <!DOCTYPE html>
-<html lang="{{ LANGUAGE_CODE }}" {% block html-attrs %}{% endblock html-attrs %}>
+<html lang="{{ LANGUAGE_CODE|default:"en-us" }}" {% block html-attrs %}{% endblock html-attrs %}>
  <head>
   {% block head %}
   <title>Anthony Monthe - {% block title %}Website{% endblock title %}{% block title-page %}{% endblock title-page %}</title>
   <meta content='initial-scale=1' name='viewport'>
   <meta charset="utf-8"/>
   <meta name="robots" content="follow, all" />
-  <meta name="language" content="{{ LANGUAGE_CODE }}"/>
+  <meta name="language" content="{{ LANGUAGE_CODE|default:"en-us" }}"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="description" content="{% block meta-description %}{% trans "My website, and blog." %}{% endblock meta-description %}{% block meta-description-page %}{% endblock meta-description-page %}"/>
-  <meta name="keywords" content="{% block meta-keywords %}django, blog, weblog, zinnia, python, opensource{% endblock meta-keywords %}"/>
+  <meta name="keywords" content="anthony, monthe, zulu, zulupro, django, python opensouce {% block meta-keywords %}blog, weblog, zinnia{% endblock meta-keywords %}"/>
   <meta name="author" content="ZuluPro (Anthony Monthe)"/>
+  <meta property="article:author" content="{{ request.scheme }}://{{ request.META.HTTP_HOST }}{% url 'aboutme' %}">
+  <meta property="og:site_name" content="Anthony Monthe's Website">
+  <meta property="og:image" content="{{ request.scheme }}://{{ request.META.HTTP_HOST }}{% static '/static/img/avatar.png' %}">
+  <meta property="og:locale" content="{{ LANGUAGE_CODE|default:"en-us" }}">
   {% block meta %}{% endblock meta %}
   <link rel="icon" href="{% static "img/favicon.ico" %}"/>
   <link rel="home" href="{% url 'aboutme' %}"/>
@@ -22,7 +26,7 @@
   <link href='{% lor_url "opensans" %}' rel='stylesheet' type='text/css'/>
   <link rel="stylesheet" href="{% lor_url "pure" %}"/>
   <link href="{% static "css/myblog.css" %}" media="all" rel="stylesheet" />
-    {% endblock head %}
+ {% endblock head %}
  </head>
 
  <body>

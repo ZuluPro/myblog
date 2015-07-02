@@ -24,7 +24,7 @@ LOR_STATIC_DIR = CONFIG.get('DEFAULT', 'lor_static_dir')
 LOR_USE_LOCAL_URLS = CONFIG.getboolean('DEFAULT', 'lor_use_local_urls')
 STATIC_ROOT = CONFIG.get('DEFAULT', 'static_root')
 STATIC_URL = CONFIG.get('DEFAULT', 'static_url')
-STATICFILES_DIRS = filter(bool, CONFIG.get('DEFAULT', 'staticfiles_dirs').split(','))
+STATICFILES_DIRS = list(filter(bool, CONFIG.get('DEFAULT', 'staticfiles_dirs').split(',')))
 if DEBUG:
     STATICFILES_DIRS += [LOR_STATIC_DIR]
 MEDIA_ROOT = CONFIG.get('DEFAULT', 'media_root')
@@ -56,6 +56,7 @@ INSTALLED_APPS = (
     'zinnia',
     'zinnia_tinymce',
     'sorl.thumbnail',
+    'admin_cli',
 )
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',

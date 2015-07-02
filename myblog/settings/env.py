@@ -4,7 +4,10 @@ with all parameters from configuration file, environment variables and
 parser's default values.
 """
 import os
-from ConfigParser import SafeConfigParser
+try:
+    from ConfigParser import SafeConfigParser
+except ImportError:
+    from configparser import SafeConfigParser
 
 # Base path of project
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
