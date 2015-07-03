@@ -1,6 +1,6 @@
 {% load i18n staticfiles lor %}
 <!DOCTYPE html>
-<html lang="{{ LANGUAGE_CODE|default:"en-us" }}" {% block html-attrs %}{% endblock html-attrs %}>
+<html lang="{{ LANGUAGE_CODE|default:"en-us" }}" prefix="og: http://ogp.me/ns#" {% block html-attrs %}{% endblock html-attrs %}>
  <head>
   {% block head %}
   <title>Anthony Monthe - {% block title %}Website{% endblock title %}{% block title-page %}{% endblock title-page %}</title>
@@ -15,7 +15,7 @@
   <meta property="article:author" content="{{ request.scheme }}://{{ request.META.HTTP_HOST }}{% url 'aboutme' %}">
   <meta property="og:site_name" content="Anthony Monthe's Website">
   <meta property="og:image" content="{{ request.scheme }}://{{ request.META.HTTP_HOST }}{% static '/static/img/avatar.png' %}">
-  <meta property="og:locale" content="{{ LANGUAGE_CODE|default:"en-us" }}">
+  <!-- <meta property="og:locale" content="{{ LANGUAGE_CODE|default:"en-us" }}"> !-->
   {% block meta %}{% endblock meta %}
   <link rel="icon" href="{% static "img/favicon.ico" %}"/>
   <link rel="home" href="{% url 'aboutme' %}" "Anthony Monthe - About "/>
