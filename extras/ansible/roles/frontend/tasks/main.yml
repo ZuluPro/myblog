@@ -1,40 +1,8 @@
 ---
-- name: Install Nginx
-  apt: name=nginx state=latest
-
-# SSL
-- name: Check SSL key and chain are installed
-  stat: path={{ dhparam_pem_addr }}
-  register: dhparam_pem_stat
-
-- name: Create Diffie-Hellman pem file
-  command: openssl dhparam -out {{ dhparam_pem_addr }} 2048
-  when: not dhparam_pem_stat.stat.exists
-  notify: restart nginx
-
-- name: Put SSL key
-  copy: src={{ ssl_key }} dest=/etc/ssl/private/myblog.key 
-  when: ssl_key and ssl_cert
-  
-- name: Put SSL cert
-  copy: src={{ ssl_cert }} dest=/etc/ssl/certs/myblog.crt
-  when: ssl_key and ssl_cert
-  notify: reload nginx
-
-- name: Check SSL key and chain are installed
-  stat: path={{ ssl_key_addr }}
-  register: ssl_key_stat
-
-- name: Create auto-signed SSL key and cert
-  command: openssl req -new -x509 -subj "/C=FR/ST=IDF/L=Paris/O=IT/CN={{ server_url }}" -nodes -days 3650 -newkey rsa:2048 -keyout {{ ssl_key_addr }} -out {{ ssl_cert_addr }}
-  when: not ssl_key_stat.stat.exists
-  notify: reload nginx
+- include: ../../common/tasks/install_nginx.yml
+- include: ../../common/tasks/install_ssl_key.yml
 
 # Sites
-- name: Disable default site
-  file: path=/etc/nginx/sites-enabled/default state=absent
-  notify: reload nginx
-
 - name: Setup myblog Nginx configuration
   template: src=nginx-site.conf.j2 dest=/etc/nginx/sites-available/myblog.conf
   notify: reload nginx

@@ -1,0 +1,7 @@
+---
+- name: Install Nginx
+  apt: name=nginx state=latest
+
+- name: Disable default site
+  file: path=/etc/nginx/sites-enabled/default state=absent
+  notify: reload nginx

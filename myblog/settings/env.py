@@ -40,7 +40,7 @@ DEFAULT_CONFIG = {
     'lor_use_local_urls': False,
     'lor_static_dir': '/tmp/lor/',
     'static_root': os.path.join(BASE_DIR, 'static/'),
-    'media_root': os.path.join(BASE_DIR, 'uploads/'),
+    'media_root': os.path.join(BASE_DIR, 'media/'),
     'static_url': '/static/',
     'media_url': '/uploads/',
     'staticfiles_dirs': '',

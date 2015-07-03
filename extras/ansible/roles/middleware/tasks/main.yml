@@ -73,6 +73,10 @@
   file: dest="{{ static_root }}" state=directory owner={{ myblog_user }} group={{ myblog_user }}
         mode=0740
 
+- name: Create media root directory
+  file: dest="{{ media_root }}" state=directory owner={{ myblog_user }} group={{ myblog_user }}
+        mode=0740
+
 - name: Collect static files
   command: "{{ myblog_venv }}/bin/myblog collectstatic --noinput"
   remote_user: "{{ myblog_user }}"
@@ -99,3 +103,15 @@
 
 - name: Enable myblog uWSGI configuration
   file: src=/etc/uwsgi/apps-available/myblog.ini dest=/etc/uwsgi/apps-enabled/myblog.ini state=link
+
+# Nginx
+- include: ../../common/tasks/install_nginx.yml
+- include: ../../common/tasks/install_ssl_key.yml
+
+- name: Setup media Nginx configuration
+  template: src=roles/frontend/templates/nginx-media.conf.j2 dest=/etc/nginx/sites-available/media-myblog.conf
+  notify: reload nginx
+
+- name: Enable myblog Nginx configuration
+  file: src=/etc/nginx/sites-available/media-myblog.conf dest=/etc/nginx/sites-enabled/media-myblog.conf state=link
+  notify: restart nginx

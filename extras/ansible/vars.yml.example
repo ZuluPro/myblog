@@ -2,6 +2,7 @@
 ssh_public_key_file: ~/.ssh/id_dsa.pub
 myblog_version: master
 static_root: /var/myblog/static
+media_root: /var/myblog/media
 root_db_password: root
 db_password: myblog
 secret_key: 

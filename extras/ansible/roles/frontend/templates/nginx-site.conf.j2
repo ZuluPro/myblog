@@ -32,11 +32,6 @@ server {
     # Headers
     add_header X-Frame-Options "SAMEORIGIN";
 
-    ## location /uploads/ {
-    ##     autoindex on;
-    ##     root  /var/www/myblog/uploads/;
-    ## }
-
     location / {
         root /var/www/;
         uwsgi_pass myblog;
@@ -53,6 +48,12 @@ server {
         autoindex   on;
         add_header Pragma public;
         add_header Cache-Control "public, must-revalidate, proxy-revalidate";
+    }
+
+    location ~ ^/media/ {
+        proxy_pass        https://media.{{ server_url }};
+        proxy_redirect    off;
+        proxy_set_header  X-Forwarded-For $remote_addr;
     }
 
     location ~ /\. { access_log off; log_not_found off; deny all; }
