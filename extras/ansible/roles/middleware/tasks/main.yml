@@ -75,7 +75,7 @@
 
 - name: Create media root directory
   file: dest="{{ media_root }}" state=directory owner={{ myblog_user }} group={{ myblog_user }}
-        mode=0740
+        mode=0755
 
 - name: Collect static files
   command: "{{ myblog_venv }}/bin/myblog collectstatic --noinput"
@@ -115,3 +115,6 @@
 - name: Enable myblog Nginx configuration
   file: src=/etc/nginx/sites-available/media-myblog.conf dest=/etc/nginx/sites-enabled/media-myblog.conf state=link
   notify: restart nginx
+
+- name: Add symlink for media files
+  file: src={{ media_root }} dest=/var/www/media state=link owner=www-data group=www-data
