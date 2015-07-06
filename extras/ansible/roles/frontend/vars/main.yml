@@ -1,4 +1,4 @@
 ---
 dhparam_pem_addr: /etc/ssl/certs/dhparam.pem
-ssl_cert_addr: /etc/ssl/certs/myblog.crt
+ssl_cert_addr: /etc/ssl/myblog-unified.crt
 ssl_key_addr: /etc/ssl/private/myblog.key

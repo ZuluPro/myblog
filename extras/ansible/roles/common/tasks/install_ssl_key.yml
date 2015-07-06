@@ -9,11 +9,11 @@
   notify: restart nginx
 
 - name: Put SSL key
-  copy: src={{ ssl_key }} dest=/etc/ssl/private/myblog.key 
+  copy: src={{ ssl_key }} dest={{ ssl_key_addr}}
   when: ssl_key and ssl_cert
   
 - name: Put SSL cert
-  copy: src={{ ssl_cert }} dest=/etc/ssl/certs/myblog.crt
+  copy: src={{ ssl_cert }} dest={{ ssl_cert_addr }}
   when: ssl_key and ssl_cert
   notify: reload nginx
 

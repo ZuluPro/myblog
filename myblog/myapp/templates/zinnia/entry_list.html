@@ -114,7 +114,11 @@
 
 {% block content-pagination %}
 {% if is_paginated %}
+<section class="pagination">
+ <div>
   {% zinnia_pagination page_obj %}
+ </div>
+</section>
 {% endif %}
 {% endblock content-pagination %}
 

@@ -16,21 +16,26 @@
 {% endblock content-title %}
 
 {% block content-related %}
-<section>
+<section class="bottom">
 <div class="content">
 {% if previous_day %}
+<div class='pure-u-1-4'>
 <h3>{% trans "Previous day" %}</h3>
 <p>
   <a href="{% url 'zinnia:entry_archive_day' previous_day|date:"Y" previous_day|date:"m" previous_day|date:"d" %}" rel="archives">{{ previous_day|date:"DATE_FORMAT" }}</a>
 </p>
+</div>
 {% endif %}
 {% if next_day %}
+<div class='pure-u-1-4'>
 <h3>{% trans "Next day" %}</h3>
 <p>
   <a href="{% url 'zinnia:entry_archive_day' next_day|date:"Y" next_day|date:"m" next_day|date:"d" %}" rel="archives">{{ next_day|date:"DATE_FORMAT" }}</a>
 </p>
+</div>
 {% endif %}
 
+<div class='pure-u-1-4'>
 <h3>{% trans "Archives" %}</h3>
 <ul>
   <li>
@@ -55,6 +60,7 @@
   </li>
   {% endif %}
 </ul>
+</div>
 </div>
 </section>
 {% endblock content-related %}

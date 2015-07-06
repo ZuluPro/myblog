@@ -109,7 +109,7 @@
 - include: ../../common/tasks/install_ssl_key.yml
 
 - name: Setup media Nginx configuration
-  template: src=roles/frontend/templates/nginx-media.conf.j2 dest=/etc/nginx/sites-available/media-myblog.conf
+  template: src=nginx-media.conf.j2 dest=/etc/nginx/sites-available/media-myblog.conf
   notify: reload nginx
 
 - name: Enable myblog Nginx configuration

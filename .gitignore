@@ -9,8 +9,8 @@ dist/
 .idea/
 .coverage
 myblog/db.sqlite3
-myblog/uploads/*
 myblog/static/*
+myblog/media/*
 extras/ansible/vars.yml
 extras/ansible/hosts
 extras/docker-compose/compose.env

@@ -1,4 +1,5 @@
 Django==1.7.8
+Pillow==2.8.1
 admin-tools-zinnia==0.1
 django-admin-tools==0.5.2
 django-blog-zinnia==0.15.1

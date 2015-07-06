@@ -37,7 +37,7 @@ DEFAULT_CONFIG = {
     'default_db_host': '',
     'default_db_port': '',
     # Extra files
-    'lor_use_local_urls': False,
+    'lor_use_local_urls': 'False',
     'lor_static_dir': '/tmp/lor/',
     'static_root': os.path.join(BASE_DIR, 'static/'),
     'media_root': os.path.join(BASE_DIR, 'media/'),

@@ -21,7 +21,7 @@
    <div class="pure-u-{% if continue_reading %}5-6{% else %}1-1{% endif %}">
    {% block entry-header %}
    <div class="entry-header">
-      {% if not continue_reading and object.image %}<img src="{{ object.image.url }}" alt="{{ object.title }}" align="right" height="300px"/>{% endif %}
+      {% if not continue_reading and object.image %}<img class="entry-image" src="{{ object.image.url }}" alt="{{ object.title }}" align="right"/>{% endif %}
      {% block entry-title %}
      <h1 class="entry-title">
        <a href="{{ object.get_absolute_url }}" title="{{ object.title }}" rel="bookmark">

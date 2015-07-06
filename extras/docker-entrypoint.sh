@@ -7,7 +7,7 @@ if [ "${1:0:1}" = '-' ]; then
 fi
 
 if [ -z "$@" ]; then
-    set -- uwsgi --ini /tmp/uwsgi.ini
+    set -- uwsgi --ini /uwsgi.ini
 fi
 
 echo $@
