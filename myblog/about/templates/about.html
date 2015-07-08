@@ -21,7 +21,7 @@
 <section></section>
 <section class="aboutme">
 <div class="pure-g">
-  <div class='pure-u-1-2'>
+  <div class='pure-u-1 pure-u-lg-1-2'>
    <div id="aboutme-column">
     <h2>About me</h2>
     <p><i>Hey, what's up! I'm Anthony, an hacker, Pythoner, computer whisperer, Djangonaute, Computer scientist, Cloud pratician, Dev[Ops], Shell bilingual, Free software lover, Regular expressionist, tortured by JS.</i></p>
@@ -29,7 +29,7 @@
     <p><i>Opensource enthusiast who loves its works and skateboarding.</i></p>
    </div>
   </div>
-  <div class='pure-u-1-2'>
+  <div class='pure-u-1 pure-u-lg-1-2'>
    <img class="pure-img" src="{% static "img/bigme.jpg" %}">
   </div>
 </div>
@@ -57,7 +57,7 @@
    </div>
    <div>
     <div class="pure-g">
-     <div class='pure-u-1-6' ng-repeat="skill in skillList.filter()">
+     <div class='pure-u-1-2 pure-u-sm-1-3 pure-u-md-1-4 pure-u-lg-1-5 pure-u-xl-1-6' ng-repeat="skill in skillList.filter()">
       <div class="wow pulse" data-wow-duration="{$ skill.rank - 6 $}s" data-wow-iteration="infinite" data-wow-offset="100" data-wow-delay="{$ 1000 / skill.rank  $}ms">
        <div class="wow {$ skillList.getAnimation(skill.rank) $} " data-wow-delay="{$ 1000 / skill.rank $}ms" data-wow-offset="100">
         <div class="wow rollIn " data-wow-delay="{$ 1000 / skill.rank $}ms" data-wow-offset="100">

@@ -18,13 +18,14 @@
   <!-- <meta property="og:locale" content="{{ LANGUAGE_CODE|default:"en-us" }}"> !-->
   {% block meta %}{% endblock meta %}
   <link rel="icon" href="{% static "img/favicon.ico" %}"/>
-  <link rel="home" href="{% url 'aboutme' %}" "Anthony Monthe - About "/>
+  <link rel="home" href="{% url 'aboutme' %}" title="Anthony Monthe - About"/>
   <link rel="stylesheet" href="{% static "prism/themes/prism.css" %}"/>
   {% block link %}{% endblock link %}
   {% block script %}{% endblock script %}
   <link rel="pingback" href="/xmlrpc/"/>
   <link href='{% lor_url "opensans" %}' rel='stylesheet' type='text/css'/>
   <link rel="stylesheet" href="{% lor_url "pure" %}"/>
+  <link rel="stylesheet" href="{% lor_url "pure-grids" %}"/>
   <link href="{% static "css/myblog.css" %}" media="all" rel="stylesheet" />
   <meta property="og:image" content="{{ request.scheme }}://{{ request.META.HTTP_HOST }}{% static '/static/img/avatar.png' %}">
  {% endblock head %}
@@ -35,22 +36,22 @@
   {% include "base/navbar.html" %}
   {% endblock navbar %}
   
-  {% block body-head %}{% endblock body-head %}
-
   <div class="pure-g">
-  <div class='pure-u-1-1'>
-  {% block content %}
-  {% endblock content %}
-  </div>
-  </div>
+   <div class='pure-u-1-1'>
+   {% block body-head %}{% endblock body-head %}
+   </div>
 
-  <div class='pure-u-1-1'>
-   <section class="footer">
-    <div class="content">
-       Made during geeking nights with <a href="http://django-blog-zinnia.com/">Django Zinnia</a>
+   <div class='pure-u-1-1'>
+    {% block content %}{% endblock content %}
+   </div>
+
+   <div class='pure-u-1-1'>
+    <section class="footer">
+     <div class="content">
+        Made during geeking nights with <a href="http://django-blog-zinnia.com/">Django Zinnia</a>
      </div>
-   </section>
-  </div>
+    </section>
+   </div>
   </div>
 
   <script src="{% static "prism/prism.js" %}"></script>

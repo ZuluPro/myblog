@@ -116,6 +116,8 @@ LOR_FILES_URLS = {
                _make_googleapi_url('jquery/1.11.3/jquery.min.js')),
     'pure': ('css/pure.css',
              'https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure.css'),
+    'pure-grids': ('css/pure-grid.css',
+                   'https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css'),
     'angularjs': ('js/angularjs.js',
                   _make_googleapi_url('angularjs/1.3.15/angular.min.js')),
     'wow': ('js/wow.js',

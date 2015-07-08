@@ -12,7 +12,7 @@
  <meta property="og:title" content="{{ object.title }}">
  <meta property="og:type" content="article">
  <meta property="og:url" content="{{ request.build_absolute_uri }}">
- <meta property="og:image" content="{{ object.image.url }}">
+ {% if object.image %}<meta property="og:image" content="{{ object.image.url }}">{% endif %}
  <meta property="article:published_time" content="{{ object.creation_date|date:"c" }}">
  <meta property="article:modified_time" content="{{ object.last_update|date:"c" }}">
  {% for tag in object.tags_list %}<meta property="article:tag" content="{{ tag }}">{% endfor %}
@@ -84,14 +84,14 @@
   {% endwith %}
   {% endblock entry-related-entries %}
   {% block entry-similar-entries %}
-  <div class="pure-u-1-4">
+  <div class="pure-u-1 pure-u-lg-1-4">
     <h4>{% trans "Similar entries" %}</h4>
     {% get_similar_entries %}
   </div>
   {% endblock entry-similar-entries %}
   {% block entry-next-entry %}
   {% with next_entry=object.next_entry %}
-  <div class="pure-u-1-4">
+  <div class="pure-u-1 pure-u-lg-1-4">
   {% if next_entry %}
     <h4>{% trans "Next entry" %}</h4>
     <p>
@@ -110,7 +110,7 @@
 
  <div class="pure-g">
 {% block entry-pingbacks %}
-<div id="pingbacks" class="pure-u-1-4">
+<div id="pingbacks" class="pure-u-1 pure-u-lg-1-4">
   <h4>{% trans "Pingbacks" %}</h4>
   {% if object.pingback_count %}
   {% with pingback_list=object.pingbacks %}
@@ -154,7 +154,7 @@
 
 {% block entry-trackbacks %}
 {% if object.trackback_count or object.trackbacks_are_open %}
-<div id="trackbacks" class="pure-u-1-4">
+<div id="trackbacks" class="pure-u-1 pure-u-lg-1-4">
   <h4>{% trans "Trackbacks" %}</h4>
   {% if object.trackback_count %}
   {% with trackback_list=object.trackbacks %}

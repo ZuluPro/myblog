@@ -17,28 +17,37 @@
 
 {% block content-related %}
 <section class="bottom">
-<div class="content">
-<h3>{% trans "Monthly archives" %}</h3>
-<ul>
-  {% for date in date_list %}
-  <li>
-    <a href="{% url 'zinnia:entry_archive_month' date|date:"Y" date|date:"m" %}" rel="archives">{{ date|date:"YEAR_MONTH_FORMAT" }}</a>
-  </li>
-  {% endfor %}
-</ul>
+ <div class="content">
+  <div class="pure-g">
 
-{% if previous_year %}
-<h3>{% trans "Previous year" %}</h3>
-<p>
-  <a href="{% url 'zinnia:entry_archive_year' previous_year|date:"Y" %}" rel="archives">{{ previous_year|date:"Y" }}</a>
-</p>
-{% endif %}
-{% if next_year %}
-<h3>{% trans "Next year" %}</h3>
-<p>
-  <a href="{% url 'zinnia:entry_archive_year' next_year|date:"Y" %}" rel="archives">{{ next_year|date:"Y" }}</a>
-</p>
-</div>
+  <div class='pure-u-1-2 pure-u-sm-1-3 pure-u-lg-1-4'>
+   <h3>{% trans "Monthly archives" %}</h3>
+   <ul>
+    {% for date in date_list %}
+    <li>
+      <a href="{% url 'zinnia:entry_archive_month' date|date:"Y" date|date:"m" %}" rel="archives">{{ date|date:"YEAR_MONTH_FORMAT" }}</a>
+    </li>
+    {% endfor %}
+   </ul>
+  </div>
+  
+  {% if previous_year %}
+  <div class='pure-u-1-2 pure-u-sm-1-3 pure-u-lg-1-4'>
+   <h3>{% trans "Previous year" %}</h3>
+   <p>
+     <a href="{% url 'zinnia:entry_archive_year' previous_year|date:"Y" %}" rel="archives">{{ previous_year|date:"Y" }}</a>
+   </p>
+  </div>
+  {% endif %}
+
+  {% if next_year %}
+  <div class='pure-u-1-2 pure-u-sm-1-3 pure-u-lg-1-4'>
+   <h3>{% trans "Next year" %}</h3>
+   <p>
+     <a href="{% url 'zinnia:entry_archive_year' next_year|date:"Y" %}" rel="archives">{{ next_year|date:"Y" }}</a>
+   </p>
+  </div>
+  {% endif %}
+ </div>
 </section>
-{% endif %}
 {% endblock content-related %}
