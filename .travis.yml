@@ -1,0 +1,42 @@
+# Config file for automatic testing at travis-ci.org
+
+language: python
+
+services: mysql
+
+python:
+  - "2.7"
+  - "3.2"
+  - "3.3"
+  - "3.4"
+  - "3.5"
+  - "pypy"
+
+env:
+  global:
+    # - DJANGO_PACKAGE="Django>=1.6,<1.7"
+    - DJANGO_PACKAGE="Django>=1.7,<1.8"
+    # - DJANGO_PACKAGE="Django>=1.8,<1.9"
+  matrix:
+    - DB="mysql" MYBLOG_CONFIG_FILE="extras/travis/myblog-mysql.cfg"
+
+install:
+  - pip install -r requirements.txt
+  - pip install -r requirements-tests.txt
+  - pip install "${DJANGO_PACKAGE:-Django}"
+  - pip install coveralls
+  - sudo cp extras/travis/myblog-${DB}.cfg /etc/myblog.cfg
+  - extras/travis/before-install-${DB}.sh
+  - extras/travis/before-install-common.sh
+
+script:
+    - coverage run myblog/manage.py test
+after_success: coveralls $COVERALLS_OPTION
+
+matrix:
+  fast_finish: true
+  allow_failures:
+    - python: "3.2"
+    - python: "3.3"
+    - python: "3.4"
+    - python: "3.5"

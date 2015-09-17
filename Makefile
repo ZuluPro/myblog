@@ -1,6 +1,8 @@
+.PHONY: all test clean docs
+
 clean:
-	rm -rf myblog.egg-info/ build/ myblog/static/*
-	touch myblog/static/.empty
+	rm -rf *.egg-info/ build/ dist/ coverage_html_report .coverage
+	find . -name "*.pyc" -delete
 
 test:
 	python setup.py test
@@ -10,3 +12,6 @@ install:
 
 build:
 	python setup.py build
+
+# docs:
+# 	cd docs && make html

@@ -1,1 +1,1 @@
-web: gunicorn myblog.wsgi --log-file -
+web: uwsgi --ini /uwsgi.ini

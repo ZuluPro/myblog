@@ -1,3 +1,4 @@
+"""My blog's code"""
 __version__ = 0.1
 __email__ = 'anthony.monthe@gmail.com'
 __author__ = 'Anthony MONTHE'
