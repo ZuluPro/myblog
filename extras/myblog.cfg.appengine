@@ -1,0 +1,5 @@
+[DEFAULT]
+env = testing
+debug = True
+server_url = *
+static_url = /static/

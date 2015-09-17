@@ -1,0 +1,17 @@
+application: myblog
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: true
+
+handlers:
+- url: .*
+  script: myblog.wsgi.application
+
+env_variables:
+  DJANGO_SETTINGS_MODULE: 'myapp.settings'
+  MYBLOG_CONFIG_FILE: 'extras/myblog.cfg.appengine'
+
+libraries:
+- name: django
+  version: 1.8
