@@ -14,11 +14,14 @@ python:
 
 env:
   global:
+    - secure: R2OC8k1XEHR+wUXcCMBLcxNxcas429I0PvYUr8V/JYpnmMF1qhJDXBgZATdV91TCl+QxBGc0Me1sxUiGV3t4lSmcO3D7TG+omZ/vUykLka5UPwD/tX7vt7I3zGz20Sk7hB2RR/vlAWmUOjmQTxkQ2ihUKcosh5z9ZRRnJHqfpgM=
+    - secure: atuOq8sV91onfYOJAPlnPAJeZML/Ji7/1Q+mL8lUBD7VpIO95HV+3ZSXbmUuiNI72TDFelheps9mxoEBZNpAZNXAzb7X9/Bgwjw0W1lhZtm/FFgUEKPqPKafLj7+5cEJBna+5azdlLOiR2CVKWvNglPwNeqY1EZbh6CxGSiBSQo=
     # - DJANGO_PACKAGE="Django>=1.6,<1.7"
     - DJANGO_PACKAGE="Django>=1.7,<1.8"
     # - DJANGO_PACKAGE="Django>=1.8,<1.9"
   matrix:
-    - DB="mysql" MYBLOG_CONFIG_FILE="extras/travis/myblog-mysql.cfg"
+    - DB="mysql"
+    - DB="sqlite"
 
 install:
   - pip install -r requirements.txt
@@ -40,3 +43,6 @@ matrix:
     - python: "3.3"
     - python: "3.4"
     - python: "3.5"
+
+addons:
+  sauce_connect: true
