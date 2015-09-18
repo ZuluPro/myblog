@@ -1,6 +1,13 @@
 [DEFAULT]
-env = prod
+env = testing
 debug = True
 server_url = anthony-monthe.me
+secret_key = BIGSECRET
+
 static_url = /static/
-secret_key = 0a&a0a0a_a0a0aa)@^@0a(aaaaaa)aaaa0a0a0a0aaUa00+a@a
+static_root = /tmp/static/
+media_url = /media/
+media_root = /tmp/media/
+
+default_db_engine = django.db.backends.sqlite3
+default_db_name = /tmp/db.sqlite3

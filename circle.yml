@@ -12,5 +12,4 @@ dependencies:
 
 test:
   override:
-    - pwd && ls -lah extras/
-    - BLOG_CONFIG_FILE=extras/myblog.cfg.ci myblog/manage.py test
+    - myblog/manage.py test
