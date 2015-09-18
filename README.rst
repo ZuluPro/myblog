@@ -2,6 +2,9 @@
 My blog source code
 ===================
 
+.. image:: https://circleci.com/gh/ZuluPro/myblog/tree/master.svg?style=shield
+        :target: https://circleci.com/gh/ZuluPro/myblog
+
 .. image:: https://api.travis-ci.org/ZuluPro/myblog.svg
         :target: https://travis-ci.org/ZuluPro/myblog
 
