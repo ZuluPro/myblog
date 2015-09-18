@@ -1,0 +1,15 @@
+---
+machine:
+  environment:
+    BLOG_CONFIG_FILE: extras/myblog.cfg.ci
+  services:
+    - mysql
+    - redis
+
+dependencies:
+  override:
+    - pip install -r requirements.txt
+
+test:
+  override:
+    - myblog/manage.py test
