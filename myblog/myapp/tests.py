@@ -2,6 +2,7 @@ from django.test import TestCase
 from django.conf import settings as s
 from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
+from django.core.management import call_command
 
 
 class BlogTest(TestCase):
@@ -39,3 +40,8 @@ class AdminTest(TestCase):
         url = '%s/tiny_mce/plugins/prism/editor_plugin.js' % s.STATIC_URL
         res = self.client.get(url)
         self.assertEqual(res.status_code, 200)
+
+
+class CommandSettingsTest(TestCase):
+    def test_command(self):
+        call_command('settings')
