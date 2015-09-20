@@ -58,10 +58,15 @@ DEFAULT_CONFIG = {
     'internal_ips': '127.0.0.1',
 }
 # Choose conf file to read
-CONFIG_FILE = os.environ.get('BLOG_CONFIG_FILE', '/etc/myblog.cfg')
+CONFIG_FILE = os.environ.get('BLOG_CONFIG_FILE',
+                             os.path.join(os.getcwd(), '.myblog.cfg'))
 # Read it
 CONFIG = SafeConfigParser(defaults=DEFAULT_CONFIG, allow_no_value=True)
-CONFIG.read(CONFIG_FILE)
+CONFIG.read([
+    CONFIG_FILE,
+    '/etc/myblog.cfg',
+    os.path.expanduser('~/.myblog.cfg')
+])
 map(lambda i: CONFIG.set('DEFAULT', i[0], i[1]),
     ENV_VARS.items())
 # Set ENV shortcut var

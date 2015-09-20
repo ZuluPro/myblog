@@ -1,9 +1,8 @@
 # Config file for automatic testing at travis-ci.org
 
+sudo: false
 language: python
-
 services: mysql
-
 python:
   - "2.7"
   - "3.2"
@@ -16,24 +15,21 @@ env:
   global:
     - secure: R2OC8k1XEHR+wUXcCMBLcxNxcas429I0PvYUr8V/JYpnmMF1qhJDXBgZATdV91TCl+QxBGc0Me1sxUiGV3t4lSmcO3D7TG+omZ/vUykLka5UPwD/tX7vt7I3zGz20Sk7hB2RR/vlAWmUOjmQTxkQ2ihUKcosh5z9ZRRnJHqfpgM=
     - secure: atuOq8sV91onfYOJAPlnPAJeZML/Ji7/1Q+mL8lUBD7VpIO95HV+3ZSXbmUuiNI72TDFelheps9mxoEBZNpAZNXAzb7X9/Bgwjw0W1lhZtm/FFgUEKPqPKafLj7+5cEJBna+5azdlLOiR2CVKWvNglPwNeqY1EZbh6CxGSiBSQo=
-    # - DJANGO_PACKAGE="Django>=1.6,<1.7"
-    - DJANGO_PACKAGE="Django>=1.7,<1.8"
-    # - DJANGO_PACKAGE="Django>=1.8,<1.9"
   matrix:
-    - DB="mysql"
-    - DB="sqlite"
+    - DJANGO="1.7" DB="sqlite"
+    - DJANGO="1.7" DB="mysql"
+    # - DJANGO="1.8" DB="sqlite"
+    # - DJANGO="1.8" DB="mysql"
 
 install:
-  - pip install -r requirements.txt
-  - pip install -r requirements-tests.txt
-  - pip install "${DJANGO_PACKAGE:-Django}"
-  - pip install coveralls
-  - sudo cp extras/travis/myblog-${DB}.cfg /etc/myblog.cfg
+  - TOX_ENV=py${TRAVIS_PYTHON_VERSION}-django${DJANGO}-${DB}
+  - pip install tox coveralls
+  - tox -e $TOX_ENV --notest
+  - cp extras/travis/myblog-${DB}.cfg ~/.myblog.cfg
   - extras/travis/before-install-${DB}.sh
   - extras/travis/before-install-common.sh
 
-script:
-    - coverage run myblog/manage.py test
+script: tox -e $TOX_ENV
 after_success: coveralls $COVERALLS_OPTION
 
 matrix:
@@ -44,5 +40,5 @@ matrix:
     - python: "3.4"
     - python: "3.5"
 
-addons:
-  sauce_connect: true
+# addons:
+#   sauce_connect: true
