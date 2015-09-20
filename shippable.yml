@@ -1,44 +1,51 @@
-language: python
+# Config file for automatic testing at travis-ci.org
 
+sudo: false
 services: mysql
 
+language: python
 python:
-  - "2.7"
-  - "3.2"
-  - "3.3"
-  - "3.4"
-  - "3.5"
+  - 2.7
   - "pypy"
 
 env:
   global:
-    # - DJANGO_PACKAGE="Django>=1.6,<1.7"
-    - DJANGO_PACKAGE="Django>=1.7,<1.8"
-    # - DJANGO_PACKAGE="Django>=1.8,<1.9"
+    - TEST_OUTPUT_DIR=shippable/testresults/result.xml
   matrix:
-    - DB="mysql"
-    - DB="sqlite"
+    - DJANGO="1.7" DB="sqlite"
+    - DJANGO="1.7" DB="mysql"
+    - DJANGO="1.7" DB="postgresql"
+    - DJANGO="1.8" DB="sqlite"
+    - DJANGO="1.8" DB="mysql"
+    - DJANGO="1.8" DB="postgresql"
 
 install:
-  - pip install -r requirements.txt
-  - pip install -r requirements-tests.txt
-  - pip install "${DJANGO_PACKAGE:-Django}"
-  - pip install coveralls
-  - sudo cp extras/travis/myblog-${DB}.cfg /etc/myblog.cfg
-  - extras/travis/before-install-${DB}.sh
-  - extras/travis/before-install-common.sh
+  - TOX_ENV=py${TRAVIS_PYTHON_VERSION}-django${DJANGO}-${DB}
+  - pip install tox
+  # Fix for PyPy and system packages
+  - tox -e $TOX_ENV -- pip install unittest-xml-reporting
+  - cp extras/shippable/myblog-${DB}.cfg ~/.myblog.cfg
+  - extras/shippable/before-install-common.sh
 
-script:
-    - coverage run myblog/manage.py test
-# after_success: coveralls $COVERALLS_OPTION
+script: tox -e $TOX_ENV
+after_script: tox -e $TOX_ENV -- coverage xml -o shippable/codecoverage/coverage.xml
 
 matrix:
   fast_finish: true
   allow_failures:
+    # Zinnia 0.15 doesn't support Django 1.8
+    - python: "2.7"
+      env: DJANGO="1.8" DB="postgresql" 
+    - python: "pypy"
+      env: DJANGO="1.8" DB="mysql" 
+  exclude:
+    # Python 3
     - python: "3.2"
     - python: "3.3"
     - python: "3.4"
     - python: "3.5"
-
-addons:
-  sauce_connect: true
+    # Get pure Python driver
+    - python: "pypy"
+      env: DJANGO="1.7" DB="postgresql" 
+    - python: "pypy"
+      env: DJANGO="1.8" DB="postgresql" 

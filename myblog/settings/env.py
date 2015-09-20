@@ -55,7 +55,9 @@ DEFAULT_CONFIG = {
     'cache_location': '127.0.0.1:6379:1',
     'cache_option_client_class': 'redis_cache.client.DefaultClient',
     # Test
+    'test_runner': 'django.test.runner.DiscoverRunner',
     'internal_ips': '127.0.0.1',
+    'juxd_filename': os.path.join(BASE_DIR, 'junit.xml'),
 }
 # Choose conf file to read
 CONFIG_FILE = os.environ.get('BLOG_CONFIG_FILE',

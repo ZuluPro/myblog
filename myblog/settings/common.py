@@ -30,6 +30,8 @@ if DEBUG:
 MEDIA_ROOT = CONFIG.get('DEFAULT', 'media_root')
 MEDIA_URL = CONFIG.get('DEFAULT', 'media_url')
 # STATICFILES_STORAGE = 'lor.storage.LorStorage'
+TEST_RUNNER = CONFIG.get('DEFAULT', 'test_runner')
+JUXD_FILENAME = CONFIG.get('DEFAULT', 'juxd_filename')
 # Application definition
 INSTALLED_APPS = (
     'lor',
