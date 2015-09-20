@@ -8,8 +8,12 @@ machine:
 
 dependencies:
   override:
-    - pip install -r requirements.txt
+    - pip install tox
+    - extras/circleci/test.sh --notest
 
 test:
   override:
-    - myblog/manage.py test
+    - extras/circleci/test.sh:
+        parallel: true
+  post:
+      - extras/circleci/test.sh -- coverage html -d $CIRCLE_ARTIFACTS

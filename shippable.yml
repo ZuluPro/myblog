@@ -9,8 +9,6 @@ python:
   - "pypy"
 
 env:
-  global:
-    - TEST_OUTPUT_DIR=shippable/testresults/result.xml
   matrix:
     - DJANGO="1.7" DB="sqlite"
     - DJANGO="1.7" DB="mysql"
@@ -36,6 +34,7 @@ matrix:
     # Zinnia 0.15 doesn't support Django 1.8
     - python: "2.7"
       env: DJANGO="1.8" DB="postgresql" 
+    # 1215, 'Cannot add foreign key constraint'
     - python: "pypy"
       env: DJANGO="1.8" DB="mysql" 
   exclude:
