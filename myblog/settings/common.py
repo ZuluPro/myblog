@@ -84,20 +84,24 @@ if USE_I18N:
     TEMPLATE_CONTEXT_PROCESSORS += (
         'django.core.context_processors.i18n',)
 
-TEMPLATES = [
-    {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-            ],
+TEMPLATE_LOADERS = (
+    'django.template.loaders.filesystem.Loader',
+    'django.template.loaders.app_directories.Loader',
+    'admin_tools.template_loaders.Loader',
+)
+
+if __import__('django').VERSION[1] > 7:
+    TEMPLATES = [
+        {
+            'BACKEND': 'django.template.backends.django.DjangoTemplates',
+            'DIRS': [],
+            'APP_DIRS': False,
+            'OPTIONS': {
+                'context_processors': TEMPLATE_CONTEXT_PROCESSORS,
+                'loaders': TEMPLATE_LOADERS,
+            },
         },
-    },
-]
+    ]
 
 DATABASES = {
     'default': {

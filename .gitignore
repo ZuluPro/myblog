@@ -3,6 +3,7 @@ junit.xml
 myblog.egg-info/
 build/
 dist/
+src/
 .tox/
 *.py[co]
 *.sw[po]

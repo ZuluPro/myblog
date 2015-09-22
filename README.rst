@@ -37,6 +37,10 @@ My blog source code
 .. image:: https://app.wercker.com/status/dc2d6a378c2ab897009270377575e3da/m/master
         :target: https://app.wercker.com/project/bykey/dc2d6a378c2ab897009270377575e3da
         :alt: Werker build
+        
+.. image:: https://magnum-ci.com/status/444b783bdfe0d6d2cf46e938963d3c6b.png
+        :target: https://magnum-ci.com/projects/3582
+        :alt: Magnum CI build
 
 .. image:: https://api.shippable.com/projects/5625d2ab1895ca44741eb548/badge/master
         :target: https://app.shippable.com/projects/5625d2ab1895ca44741eb548
@@ -45,6 +49,10 @@ My blog source code
 .. image:: https://coveralls.io/repos/ZuluPro/myblog/badge.svg?branch=master&service=github
         :target: https://coveralls.io/github/ZuluPro/myblog?branch=master
         :alt: Coveralls
+
+.. image:: https://codecov.io/github/ZuluPro/myblog/coverage.svg?branch=master
+        :target: https://codecov.io/github/ZuluPro/myblog?branch=master
+        :alt: Codercov
         
 .. image:: https://codeclimate.com/github/ZuluPro/myblog/badges/gpa.svg
    :target: https://codeclimate.com/github/ZuluPro/myblog
