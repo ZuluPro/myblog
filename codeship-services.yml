@@ -1,0 +1,6 @@
+myblog:
+  build:
+    image:  ZuluPro/myblog
+    dockerfile_path: extras/codeship/Dockerfile
+  environment:
+    BLOG_CONFIG_FILE=extras/myblog.cfg.ci

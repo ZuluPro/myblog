@@ -1,23 +1,7 @@
-# Config file for automatic testing at travis-ci.org
-
-sudo: false
 language: python
-services: mysql
-python:
-  - "2.7"
-  # - "3.2"
-  # - "3.3"
-  # - "3.4"
-  # - "3.5"
-  - "pypy"
 
 env:
   - DJANGO="1.7" DB="sqlite"
-  - DJANGO="1.7" DB="mysql"
-  - DJANGO="1.7" DB="postgresql"
-  - DJANGO="1.8" DB="sqlite"
-  - DJANGO="1.8" DB="mysql"
-  - DJANGO="1.8" DB="postgresql"
 
 install:
   - sudo apt-get install python-setuptools python-dev gcc
@@ -30,21 +14,3 @@ install:
   - extras/travis/before-install-common.sh
 
 script: tox -e $TOX_ENV
-
-matrix:
-  fast_finish: true
-  allow_failures:
-    # Zinnia 0.15 doesn't support Django 1.8
-    - python: "2.7"
-      env: DJANGO="1.8" DB="postgresql" 
-  exclude:
-    # Python 3
-    - python: "3.2"
-    - python: "3.3"
-    - python: "3.4"
-    - python: "3.5"
-    # Get pure Python driver
-    - python: "pypy"
-      env: DJANGO="1.7" DB="postgresql" 
-    - python: "pypy"
-      env: DJANGO="1.8" DB="postgresql" 

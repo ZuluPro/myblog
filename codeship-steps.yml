@@ -1,0 +1,5 @@
+- name: ci
+  type: parallel
+  steps:
+  - service: myblog
+    command: myblog/manage.py test
