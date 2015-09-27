@@ -1,11 +1,12 @@
 junit.xml
+coverage.xml
 .vagrant/
 myblog.egg-info/
 build/
 dist/
 src/
 .tox/
-*.py[co]
+*.py[con]
 *.sw[po]
 *.DS_Store
 .idea/

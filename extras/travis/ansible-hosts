@@ -1,0 +1,2 @@
+[all]
+127.0.0.1 ansible_connection=local mysql_bind_addr=127.0.0.1 mysql_client_addr=127.0.0.1 uwsgi_bind_addr=127.0.0.1 redis_bind_addr=127.0.0.1

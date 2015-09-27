@@ -8,10 +8,10 @@
 - name: Create user {{ myblog_user }}
   user: name="{{ myblog_user }}" shell=/bin/bash home="{{ myblog_home }}"
 
-- name: Add SSH public key to {{ myblog_user }}
-  authorized_key: user={{ myblog_user }}
-                  key="{{ lookup('file', ssh_public_key_file) }}"
-  when: ssh_public_key_test.rc == 0 
+# - name: Add SSH public key to {{ myblog_user }}
+#   authorized_key: user={{ myblog_user }}
+#                   key="{{ lookup('file', ssh_public_key_file) }}"
+#   when: ssh_public_key_test.rc == 0 
 
 # myblog
 - name: Install requirements
@@ -91,8 +91,9 @@
   changed_when: "not 'No migrations to apply.' in migration.stdout"
 
 # uWSGI
+# Remake with supervisord
 - name: Install uWSGI
-  apt: name={{ item }} state=latest
+  apt: name={{ item }} state=installed
   with_items:
     - uwsgi
     - uwsgi-plugin-python
@@ -115,6 +116,10 @@
 - name: Enable myblog Nginx configuration
   file: src=/etc/nginx/sites-available/media-myblog.conf dest=/etc/nginx/sites-enabled/media-myblog.conf state=link
   notify: restart nginx
+
+- name: Create www directory
+  file: dest="/var/www/" state=directory owner=www-data group=www-data
+        mode=0744
 
 - name: Add symlink for media files
   file: src={{ media_root }} dest=/var/www/media state=link owner=www-data group=www-data

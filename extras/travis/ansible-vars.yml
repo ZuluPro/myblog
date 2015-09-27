@@ -1,0 +1,12 @@
+---
+env: prod
+ssh_public_key_file:
+myblog_version: master
+static_root: /var/myblog/static
+media_root: /var/myblog/media/
+root_db_password:
+db_password: myblog
+secret_key: myblog
+# If empty, will be created
+ssl_cert:
+ssl_key: 
