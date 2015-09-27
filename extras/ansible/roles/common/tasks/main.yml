@@ -26,6 +26,7 @@
   ignore_errors: yes
 
 - name: Check SSH public key
+  local_action: test -e {{ ssh_public_key_file }}
   local_action: command test -e {{ ssh_public_key_file }}
   register: ssh_public_key_test
   ignore_errors: yes
@@ -33,9 +34,11 @@
 - name: Fail if no SSH public key
   fail: msg="Please put your public SSH key at {{ ssh_public_key_file }}"
   when: ssh_public_key_test.rc != 0
+  ignore_errors: yes
 
 - name: Add my public key to root
   authorized_key: user=root key="{{ lookup('file', ssh_public_key_file) }}"
+  when: ssh_public_key_file
 
 - name: Disable SSHd to use DNS
   lineinfile: dest=/etc/ssh/sshd_config regexp=UseDNS
@@ -58,11 +61,11 @@
   command: swapoff -va
   register: swapoff
   changed_when: swapoff.stdout.strip()
+  ignore_errors: yes
 
 # Security
 - name: Kernel settings
   sysctl: name={{ item.name }} value={{ item.value }} state=present
-          ignoreerrors=yes
   with_items:
     - {name: 'kernel.exec-shield', value: 1}
     - {name: 'kernel.randomize_va_space', value: 1}
@@ -71,3 +74,4 @@
     - {name: 'net.ipv4.icmp_echo_ignore_broadcasts', value: 1}
     - {name: 'net.ipv4.icmp_ignore_bogus_error_messages', value: 1}
     - {name: 'net.ipv4.conf.all.log_martians', value: 1}
+  ignore_errors: yes

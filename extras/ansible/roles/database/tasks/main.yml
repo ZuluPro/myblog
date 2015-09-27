@@ -1,9 +1,17 @@
 ---
-- name: Install MySQL
+- name: Install MySQL Python client
+  apt: name=python-mysqldb state=latest
+
+- name: Install MariaDB
   apt: name={{ item }} state=latest
   with_items:
     - mariadb-server
-    - python-mysqldb
+  register: mariadb_install
+  ignore_errors: True
+
+- name: Install MySQL if not MariaDB
+  apt: name=mysql-server state=latest
+  when: "mariadb_install.failed"
 
 - name: Start MariaDB
   action: service name=mysql state=started
