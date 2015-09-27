@@ -25,14 +25,16 @@ env:
 
 install:
   - TOX_ENV=py${TRAVIS_PYTHON_VERSION}-django${DJANGO}-${DB}
-  - pip install tox coveralls
+  - pip install tox coveralls codecov
   - tox -e $TOX_ENV --notest
   - cp extras/travis/myblog-${DB}.cfg ~/.myblog.cfg
   - extras/travis/before-install-${DB}.sh
   - extras/travis/before-install-common.sh
 
 script: tox -e $TOX_ENV
-after_success: coveralls $COVERALLS_OPTION
+after_success:
+  - tox -e $TOX_ENV -- coveralls $COVERALLS_OPTION
+  - tox -e $TOX_ENV -- codecov
 
 matrix:
   fast_finish: true
