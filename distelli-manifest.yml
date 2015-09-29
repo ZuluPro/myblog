@@ -1,0 +1,20 @@
+zulupro/Myblog:
+  PkgInclude:
+    - '*'
+    #- requirements.txt
+
+  Build:
+    - tox -e py2.7-django1.8-sqlite
+    - python setup.py sdist
+
+  PreInstall:
+    - sudo apt-get -y update
+    - sudo apt-get -y install python python-pip python-virtualenv
+
+  PostInstall:
+    - echo "Begin PostInstall"
+    - virtualenv .
+    - sudo pip install -r requirements.txt
+
+  Exec:
+    #- python simpleapp.py -p $PORT
