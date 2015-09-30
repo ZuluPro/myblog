@@ -26,9 +26,11 @@ DATABASES = {
     }
 }
 
-if TEMPLATE_DEBUG:
-    TEMPLATES[0]['OPTIONS']['context_processors']\
-        .insert(0, 'django.template.context_processors.debug')
+if __import__('django').VERSION[1] > 7:
+    TEMPLATES[0]['OPTIONS']['context_processors'] = \
+        ('django.template.context_processors.debug',) + TEMPLATES[0]['OPTIONS']['context_processors']
+else:
+    TEMPLATES_LOADERS = ('django.template.context_processors.debug',) + TEMPLATES_LOADERS
 
 DEBUG_TOOLBAR_CONFIG = {
     'JQUERY_URL': STATIC_URL + 'admin_tools/js/jquery/jquery.min.js'

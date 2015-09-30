@@ -190,6 +190,7 @@ section.aboutme {
   background-color: rgba(189, 189, 189, 0.55); }
 
 #aboutme-column {
+  text-align: justify;
   padding: 30px; }
 
 section.aboutme img {
@@ -272,3 +273,10 @@ ul.pagination li a {
 ul.pagination li.current a,
 ul.pagination li a:hover {
   font-weight: bold; }
+
+.link-bar a {
+  margin: 10px; 
+  color: #333; }
+
+.link-bar a:hover {
+  color: #002e40; }
