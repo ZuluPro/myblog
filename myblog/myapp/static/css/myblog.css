@@ -280,3 +280,16 @@ ul.pagination li a:hover {
 
 .link-bar a:hover {
   color: #002e40; }
+
+section.i18n .pure-u-1-3 * {
+  text-align: center;
+  padding-left: 20px;
+  padding-right: 20px;}
+
+section.more {
+  text-align: center; }
+
+section.more a{
+  text-decoration: blink;
+  font-size: 15px;
+  color: #002e40; }

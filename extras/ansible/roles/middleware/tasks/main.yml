@@ -32,12 +32,16 @@
 - name: Install virtualenv
   pip: name=virtualenv
 
-- name: Install Python MySQL and Redis clients
+- name: Install Django Python MySQL and Redis clients
   pip: name={{ item }} virtualenv="{{ myblog_venv }}"
   remote_user: "{{ myblog_user }}"
   with_items:
+    - 'django<1.9'
     - MySQL-python
     - django-redis
+    - 'git+http://github.com/ojii/pymaging.git#egg=pymaging'
+    - 'git+http://github.com/ojii/pymaging-png.git#egg=pymaging-png'
+    - 'git+http://github.com/ZuluPro/django-cv#egg=django-cv'
 
 - name: Git pull blog
   git: repo=https://github.com/ZuluPro/myblog.git

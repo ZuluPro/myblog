@@ -3,6 +3,10 @@ from django.core.urlresolvers import reverse
 
 
 class ViewAboutMeTest(TestCase):
+    fixtures = (
+        'initial_data',
+    )
+
     def test_view(self):
         url = reverse('aboutme')
         res = self.client.get(url)

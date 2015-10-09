@@ -59,6 +59,8 @@ INSTALLED_APPS = (
     'zinnia_tinymce',
     'sorl.thumbnail',
     'admin_cli',
+    'curriculum',
+    'curriculum.revealjs',
 )
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',

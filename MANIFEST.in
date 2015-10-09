@@ -1,2 +1,2 @@
-recursive-include myblog *
+recursive-include myblog * *.json *.css *.html *.js *.asc
 include requirements*.txt
