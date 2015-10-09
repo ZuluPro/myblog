@@ -44,6 +44,7 @@ DEFAULT_CONFIG = {
     'static_url': '/static/',
     'media_url': '/uploads/',
     'staticfiles_dirs': '',
+    'backup_dir': os.path.expanduser('~'),
     # i18n
     'language_code': 'en-us',
     'time_zone': 'UTC',

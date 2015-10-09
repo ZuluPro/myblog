@@ -61,6 +61,7 @@ INSTALLED_APPS = (
     'admin_cli',
     'curriculum',
     'curriculum.revealjs',
+    'dbbackup',
 )
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -134,4 +135,8 @@ LOR_FILES_URLS = {
                 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.3.0/animate.min.css'),
     'opensans': ('css/opensans.css',
                  'https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700'),
+}
+
+DBBACKUP_STORAGE_OPTIONS = {
+    'location': CONFIG.get('DEFAULT', 'backup_dir')
 }

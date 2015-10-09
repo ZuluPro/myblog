@@ -4,6 +4,7 @@ ssh_public_key_file:
 myblog_version: master
 static_root: /var/myblog/static
 media_root: /var/myblog/media/
+backup_dir: /var/myblog/backups/
 root_db_password:
 db_password: myblog
 secret_key: myblog
