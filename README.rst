@@ -2,7 +2,16 @@
 My blog source code
 ===================
 
+.. image:: https://api.travis-ci.org/ZuluPro/myblog.svg
+        :target: https://travis-ci.org/ZuluPro/myblog
 
+.. image:: https://coveralls.io/repos/ZuluPro/myblog/badge.svg?branch=master&service=github
+        :target: https://coveralls.io/github/ZuluPro/myblog?branch=master
+   
+.. image:: https://saucelabs.com/browser-matrix/ZuluPro.svg
+        :target: https://saucelabs.com/u/ZuluPro
+        :alt: Sauce Test Status
+        
 Installation
 ============
 
