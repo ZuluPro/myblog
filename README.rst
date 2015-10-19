@@ -30,7 +30,7 @@ My blog source code
         :target: https://saucelabs.com/u/ZuluPro
         :alt: Sauce Test Status
         
-https://semaphoreci.com/api/v1/projects/7874fd94-37b8-4aa3-a70a-1314890c8ee1/574928/badge.svg
+
 Installation
 ============
 
