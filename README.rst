@@ -10,6 +10,11 @@ My blog source code
 
 .. image:: https://coveralls.io/repos/ZuluPro/myblog/badge.svg?branch=master&service=github
         :target: https://coveralls.io/github/ZuluPro/myblog?branch=master
+        :alt: Coveralls
+        
+.. image:: https://codeclimate.com/github/ZuluPro/myblog/badges/gpa.svg
+   :target: https://codeclimate.com/github/ZuluPro/myblog
+   :alt: Code Climate
    
 .. image:: https://saucelabs.com/browser-matrix/ZuluPro.svg
         :target: https://saucelabs.com/u/ZuluPro
