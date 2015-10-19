@@ -18,6 +18,10 @@ My blog source code
         :target: https://semaphoreci.com/zulupro/myblog/branches/master
         :alt: Semaphore CI build
 
+.. image:: https://drone.io/github.com/ZuluPro/myblog/status.png
+        :target: https://drone.io/github.com/ZuluPro/myblog
+        :alt: Drone IO build
+
 .. image:: https://coveralls.io/repos/ZuluPro/myblog/badge.svg?branch=master&service=github
         :target: https://coveralls.io/github/ZuluPro/myblog?branch=master
         :alt: Coveralls
@@ -29,7 +33,6 @@ My blog source code
 .. image:: https://saucelabs.com/browser-matrix/ZuluPro.svg
         :target: https://saucelabs.com/u/ZuluPro
         :alt: Sauce Test Status
-        
 
 Installation
 ============
