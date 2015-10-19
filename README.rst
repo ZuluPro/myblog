@@ -4,9 +4,16 @@ My blog source code
 
 .. image:: https://circleci.com/gh/ZuluPro/myblog/tree/master.svg?style=shield
         :target: https://circleci.com/gh/ZuluPro/myblog
+        :alt: CircleCI build
 
 .. image:: https://api.travis-ci.org/ZuluPro/myblog.svg
         :target: https://travis-ci.org/ZuluPro/myblog
+        :alt: Travis build
+        
+.. image:: https://snap-ci.com/ZuluPro/myblog/branch/master/build_image
+        :target: https://snap-ci.com/ZuluPro/myblog/branch/master
+        :alt: Snap-CI build
+
 
 .. image:: https://coveralls.io/repos/ZuluPro/myblog/badge.svg?branch=master&service=github
         :target: https://coveralls.io/github/ZuluPro/myblog?branch=master
