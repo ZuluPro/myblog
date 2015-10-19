@@ -14,6 +14,9 @@ My blog source code
         :target: https://snap-ci.com/ZuluPro/myblog/branch/master
         :alt: Snap-CI build
 
+.. image:: https://semaphoreci.com/api/v1/projects/7874fd94-37b8-4aa3-a70a-1314890c8ee1/574928/badge.svg
+        :target: https://semaphoreci.com/zulupro/myblog/branches/master
+        :alt: Semaphore CI build
 
 .. image:: https://coveralls.io/repos/ZuluPro/myblog/badge.svg?branch=master&service=github
         :target: https://coveralls.io/github/ZuluPro/myblog?branch=master
@@ -27,6 +30,7 @@ My blog source code
         :target: https://saucelabs.com/u/ZuluPro
         :alt: Sauce Test Status
         
+https://semaphoreci.com/api/v1/projects/7874fd94-37b8-4aa3-a70a-1314890c8ee1/574928/badge.svg
 Installation
 ============
 
