@@ -34,6 +34,10 @@ My blog source code
         :target: https://landscape.io/github/ZuluPro/myblog
         :alt: Landscape IO health
         
+.. image:: https://gemnasium.com/ZuluPro/myblog.svg
+        :target: https://gemnasium.com/ZuluPro/myblog
+        :alt: Gemnasium Dependency
+
 .. image:: https://saucelabs.com/browser-matrix/ZuluPro.svg
         :target: https://saucelabs.com/u/ZuluPro
         :alt: Sauce Test Status
