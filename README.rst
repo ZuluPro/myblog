@@ -29,7 +29,11 @@ My blog source code
 .. image:: https://codeclimate.com/github/ZuluPro/myblog/badges/gpa.svg
    :target: https://codeclimate.com/github/ZuluPro/myblog
    :alt: Code Climate
-   
+      
+.. image:: https://landscape.io/github/ZuluPro/myblog/master/landscape.svg?style=flat
+        :target: https://landscape.io/github/ZuluPro/myblog
+        :alt: Landscape IO health
+        
 .. image:: https://saucelabs.com/browser-matrix/ZuluPro.svg
         :target: https://saucelabs.com/u/ZuluPro
         :alt: Sauce Test Status
