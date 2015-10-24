@@ -22,6 +22,10 @@ My blog source code
         :target: https://drone.io/github.com/ZuluPro/myblog
         :alt: Drone IO build
 
+.. image:: https://codeship.com/projects/110945/status?branch=master
+        :target: https://codeship.com/projects/110945
+        :alt: Codeship test
+
 .. image:: https://coveralls.io/repos/ZuluPro/myblog/badge.svg?branch=master&service=github
         :target: https://coveralls.io/github/ZuluPro/myblog?branch=master
         :alt: Coveralls
