@@ -22,7 +22,7 @@ My blog source code
         :target: https://drone.io/github.com/ZuluPro/myblog
         :alt: Drone IO build
 
-.. image:: https://codeship.com/projects/110945/status?branch=master
+.. image:: https://codeship.com/projects/7602bb80-5c6c-0133-ab8c-1a7f023b972a/status?branch=master
         :target: https://codeship.com/projects/110945
         :alt: Codeship test
 
