@@ -26,6 +26,15 @@ My blog source code
         :target: https://codeship.com/projects/110945
         :alt: Codeship test
 
+.. image:: https://ci.appveyor.com/api/projects/status/nsua6i3lx50qv57o?svg=true
+        :target: https://ci.appveyor.com/project/ZuluPro/myblog
+        :alt: Appveyor build
+        
+.. image:: https://ci.solanolabs.com/ZuluPro/myblog/badges/branches/master?badge_token=f7f64514d931c3eb5b4e1c59e54f9ac9c951f016
+
+        :target: https://ci.solanolabs.com/ZuluPro/myblog/
+        :alt: Solano CI build
+
 .. image:: https://coveralls.io/repos/ZuluPro/myblog/badge.svg?branch=master&service=github
         :target: https://coveralls.io/github/ZuluPro/myblog?branch=master
         :alt: Coveralls
