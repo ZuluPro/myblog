@@ -30,11 +30,14 @@ My blog source code
         :target: https://ci.appveyor.com/project/ZuluPro/myblog
         :alt: Appveyor build
         
-.. image:: https://ci.solanolabs.com/ZuluPro/myblog/badges/branches/master?badge_token=f7f64514d931c3eb5b4e1c59e54f9ac9c951f016
-
-        :target: https://ci.solanolabs.com/ZuluPro/myblog/
+.. image:: https://ci.solanolabs.com:443/ZuluPro/myblog/badges/branches/master
+        :target: https://ci.solanolabs.com:443/ZuluPro/myblog/suites/326373
         :alt: Solano CI build
 
+.. image:: https://api.shippable.com/projects/5625d2ab1895ca44741eb548/badge/master
+        :target: https://app.shippable.com/projects/5625d2ab1895ca44741eb548
+        :alt: Shippable     
+        
 .. image:: https://coveralls.io/repos/ZuluPro/myblog/badge.svg?branch=master&service=github
         :target: https://coveralls.io/github/ZuluPro/myblog?branch=master
         :alt: Coveralls
