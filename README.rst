@@ -53,6 +53,10 @@ My blog source code
 .. image:: https://gemnasium.com/ZuluPro/myblog.svg
         :target: https://gemnasium.com/ZuluPro/myblog
         :alt: Gemnasium Dependency
+        
+.. image:: https://requires.io/github/ZuluPro/myblog/requirements.svg?branch=master
+     :target: https://requires.io/github/ZuluPro/myblog/requirements/?branch=master
+     :alt: Requirements Status
 
 .. image:: https://saucelabs.com/browser-matrix/ZuluPro.svg
         :target: https://saucelabs.com/u/ZuluPro
