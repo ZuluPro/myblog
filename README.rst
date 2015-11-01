@@ -45,7 +45,11 @@ My blog source code
 .. image:: https://codeclimate.com/github/ZuluPro/myblog/badges/gpa.svg
    :target: https://codeclimate.com/github/ZuluPro/myblog
    :alt: Code Climate
-      
+   
+.. image:: https://api.codacy.com/project/badge/6f22c4f484a645b3ac695dae33b8b724
+    :target: https://www.codacy.com/app/anthony-monthe/myblog
+    :alt: Codacy health
+    
 .. image:: https://landscape.io/github/ZuluPro/myblog/master/landscape.svg?style=flat
         :target: https://landscape.io/github/ZuluPro/myblog
         :alt: Landscape IO health
