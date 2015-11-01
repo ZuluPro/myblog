@@ -33,6 +33,10 @@ My blog source code
 .. image:: https://ci.solanolabs.com:443/ZuluPro/myblog/badges/branches/master
         :target: https://ci.solanolabs.com:443/ZuluPro/myblog/suites/326373
         :alt: Solano CI build
+        
+.. image:: https://app.wercker.com/status/dc2d6a378c2ab897009270377575e3da/m/master
+        :target: https://app.wercker.com/project/bykey/dc2d6a378c2ab897009270377575e3da
+        :alt: Werker build
 
 .. image:: https://api.shippable.com/projects/5625d2ab1895ca44741eb548/badge/master
         :target: https://app.shippable.com/projects/5625d2ab1895ca44741eb548
