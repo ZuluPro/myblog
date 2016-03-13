@@ -59,6 +59,12 @@ DEFAULT_CONFIG = {
     'test_runner': 'django.test.runner.DiscoverRunner',
     'internal_ips': '127.0.0.1',
     'juxd_filename': os.path.join(BASE_DIR, 'junit.xml'),
+    # Flickr
+    'flickr_api_key': None,
+    'flickr_api_secret': None,
+    'flickr_oauth_token': None,
+    'flickr_oauth_token_secret': None,
+    'flickr_user_id': None,
 }
 # Choose conf file to read
 CONFIG_FILE = os.environ.get('BLOG_CONFIG_FILE',

@@ -22,6 +22,7 @@ urlpatterns = patterns(
     url(r'^about$', 'about.views.aboutme', name="aboutme"),
     url(r'^about/slide/(?P<resume_id>\d*)/$', 'curriculum.revealjs.views.get_resume', name="resume_slide"),
     url(r'^about/(?P<resume_id>\d*)/$', 'curriculum.views.export_classic', name="resume_pdf"),
+    url(r'^photos$', 'photos.views.photos', name="photos"),
     url(r'^', include('myapp.urls')),
     url(r'^tinymce/zinnia/', include('zinnia_tinymce.urls')),
     url(r'^tinymce/', include('tinymce.urls')),

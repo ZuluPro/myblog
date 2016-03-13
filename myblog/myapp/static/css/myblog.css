@@ -1,7 +1,11 @@
+html {
+ background: #002E40;
+}
 body {
   padding: 0px;
   margin: 0px;
   font-family: "Open Sans", sans-serif;
+  background: white;
 }
 
 h1, h2, h4, nav li a {
@@ -64,6 +68,8 @@ li {
 .nav-container li {
   display: inline-block; }
 .nav-container li a {
+  padding-right: 5px;
+  padding-left: 5px;
   font-size: 15px;
   color: white; }
 .nav-container li a.active {
@@ -293,3 +299,7 @@ section.more a{
   text-decoration: blink;
   font-size: 15px;
   color: #002e40; }
+
+section.photo {
+  background: #0C516C;
+}

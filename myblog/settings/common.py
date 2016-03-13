@@ -32,6 +32,14 @@ MEDIA_URL = CONFIG.get('DEFAULT', 'media_url')
 # STATICFILES_STORAGE = 'lor.storage.LorStorage'
 TEST_RUNNER = CONFIG.get('DEFAULT', 'test_runner')
 JUXD_FILENAME = CONFIG.get('DEFAULT', 'juxd_filename')
+# Flickr
+FLICKR_STORAGE_OPTIONS = {
+    'api_key': CONFIG.get('DEFAULT', 'flickr_api_key'),
+    'api_secret': CONFIG.get('DEFAULT', 'flickr_api_secret'),
+    'oauth_token': CONFIG.get('DEFAULT', 'flickr_oauth_token'),
+    'oauth_token_secret': CONFIG.get('DEFAULT', 'flickr_oauth_token_secret'),
+    'user_id': CONFIG.get('DEFAULT', 'flickr_user_id')
+}
 # Application definition
 INSTALLED_APPS = (
     'lor',
@@ -61,6 +69,7 @@ INSTALLED_APPS = (
     'admin_cli',
     'curriculum',
     'curriculum.revealjs',
+    'photos',
     'dbbackup',
 )
 MIDDLEWARE_CLASSES = (
@@ -140,3 +149,4 @@ LOR_FILES_URLS = {
 DBBACKUP_STORAGE_OPTIONS = {
     'location': CONFIG.get('DEFAULT', 'backup_dir')
 }
+FLICKR_CACHE = 'default'

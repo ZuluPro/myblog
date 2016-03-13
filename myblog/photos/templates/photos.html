@@ -1,0 +1,46 @@
+{% extends "zinnia/base.html" %}
+{% load i18n staticfiles lor %}
+
+{% block title %}{{ title }}{% endblock title %}
+
+{% block meta %}
+<meta property="og:title" content="{{ title }}">
+<meta property="og:type" content="profile">
+<meta property="og:first_name" content="Anthony">
+<meta property="og:last_name" content="Monthe">
+<meta property="og:username" content="ZuluPro">
+{% endblock meta %}
+
+{% block link %}
+  <script src="{% static "js/jquery.js" %}"></script>
+  <script src="{% static "js/unitegallery.min.js" %}"></script>
+  <script src="{% static "js/ug-theme-default.js" %}"></script>
+  <link rel="stylesheet" href="{% static "css/unite-gallery.css" %}" type='text/css'>
+  <link rel="stylesheet" href="{% static "css/ug-theme-default.css" %}" type='text/css'>
+
+{% endblock link %}
+
+{% block html-attrs %}ng-app="app"{% endblock html-attrs %}
+
+{% block content %}
+<section></section>
+<section class="photo">
+<div class="pure-g">
+  <div class='pure-u-1'>
+    <div id="photo-list" style="display:none;">
+    {% for thumb, photo in photos %}
+    <img src="{{ thumb }}" data-image="{{ photo }}"/>
+    {% endfor %}
+    </div>
+  </div>
+</div>
+</section>
+{% endblock content %}
+
+{% block foot-script %}
+<script type="text/javascript">
+$(document).ready(function(){
+    $("#photo-list").unitegallery();
+})
+</script>
+{% endblock foot-script %}

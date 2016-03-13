@@ -8,3 +8,4 @@ zinnia-wysiwyg-tinymce>=1.2.1
 django-static-lor
 django-admin-cli
 django-dbbackup
+requests-oauthlib

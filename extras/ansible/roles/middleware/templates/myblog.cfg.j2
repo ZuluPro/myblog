@@ -37,3 +37,13 @@ cache_location = {{ hostvars[groups['cache'][0]]['redis_bind_addr'] }}:6379:0
 {% endif %}
 
 session_engine = django.contrib.sessions.backends.cache
+
+{% if flickr_api_key %}
+flickr_api_key = {{ flickr_api_key }}
+{% if flickr_api_secret %}
+flickr_api_secret = {{ flickr_api_secret }}
+flickr_oauth_token = {{ flickr_oauth_token }}
+flickr_oauth_token_secret = {{ flickr_oauth_token_secret }}
+flickr_user_id = {{ flickr_user_id }}
+{% endif %}
+{% endif %}
