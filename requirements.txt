@@ -9,3 +9,4 @@ django-static-lor
 django-admin-cli
 django-dbbackup
 requests-oauthlib
+flickr-pony

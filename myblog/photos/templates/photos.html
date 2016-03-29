@@ -5,10 +5,14 @@
 
 {% block meta %}
 <meta property="og:title" content="{{ title }}">
-<meta property="og:type" content="profile">
+<meta property="og:type" content="article">
 <meta property="og:first_name" content="Anthony">
 <meta property="og:last_name" content="Monthe">
 <meta property="og:username" content="ZuluPro">
+<meta property="og:description" content="My picture gallery">
+{% for thumb, photo in photos %}
+<meta property="og:image" content="{{ thumb }}">
+{% endfor %}
 {% endblock meta %}
 
 {% block link %}
@@ -17,10 +21,7 @@
   <script src="{% static "js/ug-theme-default.js" %}"></script>
   <link rel="stylesheet" href="{% static "css/unite-gallery.css" %}" type='text/css'>
   <link rel="stylesheet" href="{% static "css/ug-theme-default.css" %}" type='text/css'>
-
 {% endblock link %}
-
-{% block html-attrs %}ng-app="app"{% endblock html-attrs %}
 
 {% block content %}
 <section></section>

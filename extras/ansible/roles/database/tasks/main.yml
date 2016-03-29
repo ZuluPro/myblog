@@ -11,7 +11,7 @@
 
 - name: Install MySQL if not MariaDB
   apt: name=mysql-server state=latest
-  when: "mariadb_install.failed"
+  when: "'failed' in mariadb_install"
 
 - name: Start MariaDB
   action: service name=mysql state=started

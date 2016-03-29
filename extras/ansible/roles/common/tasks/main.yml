@@ -35,9 +35,9 @@
   when: ssh_public_key_test.rc != 0
   ignore_errors: yes
 
-- name: Add my public key to root
-  authorized_key: user=root key="{{ lookup('file', ssh_public_key_file) }}"
-  when: ssh_public_key_file
+#- name: Add my public key to root
+#  authorized_key: user=root key="{{ lookup('file', ssh_public_key_file) }}"
+#  when: ssh_public_key_file
 
 - name: Disable SSHd to use DNS
   lineinfile: dest=/etc/ssh/sshd_config regexp=UseDNS

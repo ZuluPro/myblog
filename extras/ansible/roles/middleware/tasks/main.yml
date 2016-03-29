@@ -22,6 +22,7 @@
     - python-setuptools
     - build-essential
     - libmysqlclient-dev
+    - libjpeg-dev
 
 - name: Install pip
   easy_install: name=pip
@@ -80,6 +81,10 @@
 - name: Create media root directory
   file: dest="{{ media_root }}" state=directory owner={{ myblog_user }} group={{ myblog_user }}
         mode=0755
+
+- name: Create backup directory
+  file: dest="{{ backup_dir }}" state=directory owner={{ myblog_user }} group={{ myblog_user }}
+        mode=0740
 
 - name: Collect static files
   command: "{{ myblog_venv }}/bin/myblog collectstatic --noinput"
