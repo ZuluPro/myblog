@@ -20,7 +20,7 @@
 
 {% block content %}
 <section></section>
-<section class="aboutme">
+<section id="aboutme" class="aboutme">
 <div class="pure-g">
   <div class='pure-u-1 pure-u-lg-1-2'>
    <div id="aboutme-column">
@@ -35,6 +35,7 @@
      <a href="https://plus.google.com/u/0/{{ resume.google }}" target="blank"><i class="fa fa-google-plus fa-3x"></i></a>
      <a href="https://fr.linkedin.com/in/{{ resume.linkedin }}" target="blank"><i class="fa fa-linkedin fa-3x"></i></a>
      <!-- <a href="https://angel.co/{{ resume.angellist }}" target="blank"><i class="fa fa-angellist fa-3x"></i></a> -->
+     <!-- <a href="https://angel.co/{{ resume.flickr }}" target="blank"><i class="fa fa-flickr fa-3x"></i></a> -->
      <a href="skype:{{ resume.skype }}" target="blank"><i class="fa fa-skype fa-3x"></i></a>
     </p>
    </div>
@@ -45,7 +46,7 @@
 </div>
 </section>
 
-<section>
+<section id="training">
   <div class='pure-u-1-1'>
    <h1><center>Education & degree</center></h1>
    <ul id="formation">
@@ -59,11 +60,11 @@
   </div>
 </section>
 
-<section>
+<section class="project" id="project">
   <h1><center>Yes I'm contributing</center></h1>
   <div class='pure-g'>
     {% for project in resume.projects.all %}
-      <div class='pure-u-1-4'>
+      <div class='pure-u-1 pure-u-sm-1-2 pure-u-md-1-3 pure-u-lg-1-4 pure-u-xl-1-5'>
         <h4>
          <a href="{{ project.project.url }}"><i class="fa fa-link"></i></a>
          {{ project.project.title }}
@@ -74,7 +75,7 @@
   </div>
 </section>
 
-<section class="i18n">
+<section id="languages" class="i18n">
   <h1><center>I am i18n</center></h1>
   <div class='pure-g'>
     <div class='pure-u-1-3'>
@@ -93,7 +94,7 @@
   <br>
 </section>
 
-<section class="more">
+<section id="more" class="more">
   <h1><center>Get more about me</center></h1>
   <br>
   <div class='pure-g'>
@@ -103,12 +104,12 @@
       </a>
     </div>
     <div class='pure-u-1-3'>
-      <a href="{% url "resume_pdf" 1 %}">
+      <a href="{% url "my_resume_pdf" %}">
         <i class="fa fa-file-pdf-o fa-5x"></i>
       </a>
     </div>
     <div class='pure-u-1-3'>
-      <a href="{% url "resume_slide" 1 %}">
+      <a href="{% url "my_resume_slide" %}">
         <img src="{{ resume.website_qrcode }}" width="90px">
       </a>
     </div>

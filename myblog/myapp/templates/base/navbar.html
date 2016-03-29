@@ -22,8 +22,9 @@
    <li><a href="{% url 'zinnia:sitemap' %}" title="{% trans "Sitemap" %}" class="sitemap"><i class="fa fa-sitemap"></i>{% trans "Sitemap" %}</a></li>
    <li><a href="{% url 'zinnia:entry_latest_feed' %}" title="{% trans "RSS Feed of latest entries" %}" class="feeds"><i class="fa fa-rss"></i>{% trans "RSS Feed" %}</a></li>
    {% if request.user.is_superuser %}
-   <li><a href="{% url 'admin:index' %}" title="{% trans "Admin site" %}" class="admin"><i class="fa fa-edit"></i> {% trans "Admin" %}</a></li>
+   <li><a href="{% url 'admin:index' %}" title="{% trans "Admin site" %}" class="admin"><i class="fa fa-edit"></i>{% trans "Admin" %}</a></li>
    {% endif %}
+   <li><a href="https://github.com/ZuluPro/myblog" title="{% trans "Source" %}" target="_blank"><i class="fa fa-github"></i>{% trans "Source" %}</a></li>
   </ul>
  </div>
  </section>

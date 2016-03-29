@@ -215,6 +215,8 @@ section.aboutme img {
   margin-top: -75px;
   margin-bottom: -75px; }
 }
+section.project a {
+  color: #002E40;}
 
 section.skills {
   min-height: 800px; }
