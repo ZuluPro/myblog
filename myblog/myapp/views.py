@@ -7,3 +7,9 @@ class PrismFormView(StaffMemberRequiredMixin,
                     TemplateView):
     template_name = 'zinnia_tinymce/prism-form.html'
     content_type = 'text/html'
+
+
+def credits(request):
+    return render(request, 'credits.html', {
+        'title': 'Credits',
+    })

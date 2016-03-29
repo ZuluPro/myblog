@@ -1,0 +1,34 @@
+{% extends "zinnia/base.html" %}
+{% load i18n %}
+
+{% block title %}{{ title }}{% endblock title %}
+
+{% block meta %}
+<meta property="og:title" content="{{ title }}">
+<meta property="og:type" content="profile">
+<meta property="og:first_name" content="Anthony">
+<meta property="og:last_name" content="Monthe">
+<meta property="og:username" content="ZuluPro">
+{% endblock meta %}
+
+{% block content %}
+<section></section>
+<section class="aboutme">
+<h2>Projects</h2>
+<li><a href="https://www.djangoproject.com/" targer="_blank">Django</a><li>
+<li><a href="https://github.com/Fantomas42/django-blog-zinnia" targer="_blank">Django Blog Zinnia</a><li>
+<li><a href="http://unitegallery.net/" targer="_blank">Unite Gallery</a><li>
+<li><a href="https://www.ansible.com/" targer="_blank"></a>Ansible<li>
+<li><a href="https://jquery.com/" targer="_blank">jQuery</a><li>
+<li><a href="https://angularjs.org/" targer="_blank">AngularJS</a><li>
+<li><a href="https://purecss.io/" targer="_blank">PureCSS</a><li>
+<li><a href="https://github.com/django-admin-tools/django-admin-tools" targer="_blank">Django Admin Tools</a><li>
+<li><a href="https://github.com/aljosa/django-tinymce" targer="_blank">Django TinyMCE</a><li>
+
+<h2>Persons</h2>
+<li><a href="" targer="_blank"></a><li>
+<li><a href="" targer="_blank"></a><li>
+<li><a href="" targer="_blank"></a><li>
+<li><a href="" targer="_blank"></a><li>
+</section>
+{% endblock content %}
