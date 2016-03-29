@@ -72,6 +72,12 @@ li {
   padding-left: 5px;
   font-size: 15px;
   color: white; }
+.nav-container li a i {
+  font-size: 25px;
+  padding: 5px;
+  text-decoration: none;
+  vertical-align: middle;
+}
 .nav-container li a.active {
   color: #aaaaaa; }
 .nav-container li.name a {
