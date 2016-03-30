@@ -152,3 +152,10 @@ DBBACKUP_STORAGE_OPTIONS = {
     'location': CONFIG.get('DEFAULT', 'backup_dir')
 }
 FLICKR_CACHE = 'default'
+
+REQUEST_IGNORE_IP = (
+    '62.169.67.133',
+)
+REQUEST_IGNORE_PATHS = (
+    r'^admin/',
+)
