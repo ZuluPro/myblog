@@ -192,7 +192,7 @@ section.footer {
   line-height: 200px;
   text-align: center;
   height: 200px;
-  border-radius: 100px; }
+  border-radius: 70px; }
 
 .circle a {
   color: #FFF;
@@ -335,4 +335,11 @@ section.more a{
 
 section.photo {
   background: #0C516C;
+}
+#skill-input {
+  background: #0C516C;
+  color: #FFFFFF;
+  border-width: 0px;
+  box-shadow: none;
+  text-align: center;
 }
