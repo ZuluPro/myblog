@@ -333,6 +333,9 @@ section.more a{
   font-size: 15px;
   color: #002e40; }
 
+section.i18n {
+  text-align: center;
+}
 section.photo {
   background: #0C516C;
 }

@@ -158,4 +158,17 @@ REQUEST_IGNORE_IP = (
 )
 REQUEST_IGNORE_PATHS = (
     r'^admin/',
+    r'^/weblog/opensearch\.xml$',
+)
+REQUEST_IGNORE_USERNAME = (
+    'zulu',
+)
+REQUEST_IGNORE_USER_AGENTS = (
+    r'Googlebot',
+    r'Baiduspider',
+    r'FeedFetcher',
+    r'Mail.RU_Bot',
+    r'bingbot',
+    r'AhrefsBot',
+    r'Netcraft',
 )
