@@ -36,6 +36,15 @@ DEFAULT_CONFIG = {
     'default_db_password': '',
     'default_db_host': '',
     'default_db_port': '',
+    # Email
+    'admins': '',
+    'email_backend': 'django.core.mail.backends.smtp.EmailBackend',
+    'email_host': 'localhost',
+    'email_host_password': '',
+    'email_host_user': '',
+    'email_port': '25',
+    'email_use_tls': 'False',
+    'email_use_ssl': 'False',
     # Extra files
     'lor_use_local_urls': 'False',
     'lor_static_dir': '/tmp/lor/',

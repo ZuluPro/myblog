@@ -19,6 +19,15 @@ TIME_ZONE = CONFIG.get('DEFAULT', 'time_zone')
 USE_I18N = CONFIG.getboolean('DEFAULT', 'use_i18n')
 USE_L10N = CONFIG.getboolean('DEFAULT', 'use_l10n')
 USE_TZ = CONFIG.getboolean('DEFAULT', 'use_tz')
+# Email
+ADMINS = CONFIG.get('DEFAULT', 'admins').split(',')
+EMAIL_BACKEND = CONFIG.get('DEFAULT', 'email_backend')
+EMAIL_HOST = CONFIG.get('DEFAULT', 'email_host')
+EMAIL_HOST_PASSWORD = CONFIG.get('DEFAULT', 'email_host_password')
+EMAIL_HOST_USER = CONFIG.get('DEFAULT', 'email_host_user')
+EMAIL_PORT = CONFIG.getint('DEFAULT', 'email_port')
+EMAIL_USE_TLS = CONFIG.getboolean('DEFAULT', 'email_use_tls')
+EMAIL_USE_SSL = CONFIG.getboolean('DEFAULT', 'email_use_ssl')
 # Extra files (CSS, JavaScript, Images)
 LOR_STATIC_DIR = CONFIG.get('DEFAULT', 'lor_static_dir')
 LOR_USE_LOCAL_URLS = CONFIG.getboolean('DEFAULT', 'lor_use_local_urls')
@@ -158,6 +167,7 @@ REQUEST_IGNORE_IP = (
     '62.169.67.133',
 )
 REQUEST_IGNORE_PATHS = (
+    r'^/$',
     r'^admin/',
     r'^/weblog/opensearch\.xml$',
 )
@@ -165,7 +175,6 @@ REQUEST_IGNORE_USERNAME = (
     'zulu',
 )
 REQUEST_IGNORE_USER_AGENTS = (
-    r'Mozilla/5.0\s*\([^)]*\)\s*AppleWebKit/[0-9.]*\s*\(KHTML, like Gecko\)\s*(Version/[0-9.]*\s*)?\s*Chrome/[0-9.]*\s*(Mobile\s*)?Safari/[0-9.]*',
     r'Googlebot',
     r'Baiduspider',
     r'FeedFetcher',
@@ -179,4 +188,5 @@ REQUEST_IGNORE_USER_AGENTS = (
     r'facebookexternalhit',
     r'LinkedInBot',
     r'Feedfetcher',
+    r'YandexBot',
 )

@@ -29,6 +29,14 @@ default_db_host = {{ No_db_host }}
 {% endif %}
 default_db_port = 3306
 
+admins = {{ admins }}
+email_backend = django.core.mail.backends.smtp.EmailBackend
+email_host = {{ email_host }}
+email_host_user = {{ email_host_user }}
+email_host_password = {{ email_host_password }}
+email_port = {{ email_port }}
+email_use_tls = {{ email_use_tls }}
+
 cache_backend = redis_cache.cache.RedisCache
 {% if 'all' in groups and groups['all'] %}
 cache_location = {{ hostvars[groups['all'][0]]['redis_bind_addr'] }}:6379:0
