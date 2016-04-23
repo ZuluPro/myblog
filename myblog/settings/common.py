@@ -165,6 +165,7 @@ REQUEST_IGNORE_USERNAME = (
     'zulu',
 )
 REQUEST_IGNORE_USER_AGENTS = (
+    r'Mozilla/5.0\s*\([^)]*\)\s*AppleWebKit/[0-9.]*\s*\(KHTML, like Gecko\)\s*(Version/[0-9.]*\s*)?\s*Chrome/[0-9.]*\s*(Mobile\s*)?Safari/[0-9.]*',
     r'Googlebot',
     r'Baiduspider',
     r'FeedFetcher',
@@ -172,4 +173,10 @@ REQUEST_IGNORE_USER_AGENTS = (
     r'bingbot',
     r'AhrefsBot',
     r'Netcraft',
+    r'SMTBot',
+    r'Feedspotbot',
+    r'FlipboardProxy',
+    r'facebookexternalhit',
+    r'LinkedInBot',
+    r'Feedfetcher',
 )
