@@ -7,7 +7,7 @@ dist/
 src/
 .tox/
 *.py[con]
-*.sw[po]
+*.sw[pon]
 *.DS_Store
 .idea/
 .coverage
@@ -18,5 +18,4 @@ extras/ansible/vars.yml
 extras/ansible/hosts
 extras/docker-compose/compose.env
 extras/docker-compose/ssl-certs/*
-extras/docker-compose/ssl-certs/
 extras/docker-compose/ssl-certs/

@@ -1,4 +1,4 @@
-{% load i18n staticfiles lor %}
+{% load i18n staticfiles favicon lor %}
 <!DOCTYPE html>
 <html lang="{{ LANGUAGE_CODE|default:"en-us" }}" prefix="og: http://ogp.me/ns#" {% block html-attrs %}{% endblock html-attrs %}>
  <head>
@@ -17,8 +17,7 @@
   <meta property="og:image" content="{{ request.scheme }}://{{ request.META.HTTP_HOST }}{% static '/static/img/avatar.png' %}">
   <!-- <meta property="og:locale" content="{{ LANGUAGE_CODE|default:"en-us" }}"> !-->
   {% block meta %}{% endblock meta %}
-  <link rel="icon" href="{% static "img/favicon.ico" %}"/>
-  <link rel="apple-touch-icon" href="{% static "/static/img/avatar.png" %}" />
+  {% get_favicons %}
   <link rel="home" href="{% url 'aboutme' %}" title="Anthony Monthe - About"/>
   <link rel="stylesheet" href="{% static "prism/themes/prism.css" %}"/>
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">

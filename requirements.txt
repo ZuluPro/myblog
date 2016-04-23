@@ -10,3 +10,4 @@ django-admin-cli
 django-dbbackup
 flickr-pony
 django-request
+django-super-favicon

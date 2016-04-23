@@ -72,6 +72,7 @@ INSTALLED_APPS = (
     'photos',
     'dbbackup',
     'request',
+    'favicon',
 )
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
