@@ -74,6 +74,11 @@ DEFAULT_CONFIG = {
     'flickr_oauth_token': None,
     'flickr_oauth_token_secret': None,
     'flickr_user_id': None,
+    # Captcha
+    'recaptcha_public_key': None,
+    'recaptcha_private_key': None,
+    'nocaptcha': 'True',
+    'recaptcha_use_ssl': 'True',
 }
 # Choose conf file to read
 CONFIG_FILE = os.environ.get('BLOG_CONFIG_FILE',

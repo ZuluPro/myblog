@@ -49,6 +49,11 @@ FLICKR_STORAGE_OPTIONS = {
     'oauth_token_secret': CONFIG.get('DEFAULT', 'flickr_oauth_token_secret'),
     'user_id': CONFIG.get('DEFAULT', 'flickr_user_id')
 }
+# Captcha
+RECAPTCHA_PUBLIC_KEY = CONFIG.get('DEFAULT', 'recaptcha_public_key')
+RECAPTCHA_PRIVATE_KEY = CONFIG.get('DEFAULT', 'recaptcha_private_key')
+NOCAPTCHA = CONFIG.getboolean('DEFAULT', 'nocaptcha')
+RECAPTCHA_USE_SSL = CONFIG.getboolean('DEFAULT', 'recaptcha_use_ssl')
 # Application definition
 INSTALLED_APPS = (
     'lor',
@@ -82,7 +87,9 @@ INSTALLED_APPS = (
     'dbbackup',
     'request',
     'favicon',
+    'captcha',
     'myadmin',
+    'mycomment',
 )
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -139,6 +146,8 @@ DATABASES = {
     }
 }
 
+GEOIP_PATH = '/var/geoip/'
+
 def _make_googleapi_url(suffix):
     return os.path.join('https://ajax.googleapis.com/ajax/libs/', suffix)
 
@@ -190,4 +199,10 @@ REQUEST_IGNORE_USER_AGENTS = (
     r'LinkedInBot',
     r'Feedfetcher',
     r'YandexBot',
+)
+COMMENTS_APP = 'mycomment'
+PROFANITIES_LIST = (
+    'bitcoin',
+    'protein',
+    'minecraft'
 )

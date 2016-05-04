@@ -11,3 +11,4 @@ django-dbbackup
 flickr-pony
 django-request
 django-super-favicon
+django-recaptcha
