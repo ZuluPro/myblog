@@ -33,5 +33,5 @@ else:
     TEMPLATES_LOADERS = ('django.template.context_processors.debug',) + TEMPLATES_LOADERS
 
 DEBUG_TOOLBAR_CONFIG = {
-    'JQUERY_URL': STATIC_URL + 'admin_tools/js/jquery/jquery.min.js'
+    'JQUERY_URL': STATIC_URL + 'js/jquery.js'
 }

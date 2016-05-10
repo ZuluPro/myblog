@@ -25,10 +25,17 @@ class CommentsAdmin(BaseCommentsAdmin):
     )
 
     def get_object_absolute_url(self, obj):
-        url = obj.content_object.get_absolute_url()
-        return '<a href="%s">%s</a>' % (url, obj)
+        try:
+            url = obj.content_object.get_absolute_url()
+            return '<a href="%s">%s</a>' % (url, obj)
+        except:
+            return ''
     get_object_absolute_url.short_description = _("Object")
     get_object_absolute_url.allow_tags = True
 
-admin.site.unregister(Comment)
+# TODO: WTF
+try:
+    admin.site.unregister(Comment)
+except:
+    pass
 admin.site.register(Comment, CommentsAdmin)
