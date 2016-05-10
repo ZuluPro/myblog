@@ -54,6 +54,8 @@ RECAPTCHA_PUBLIC_KEY = CONFIG.get('DEFAULT', 'recaptcha_public_key')
 RECAPTCHA_PRIVATE_KEY = CONFIG.get('DEFAULT', 'recaptcha_private_key')
 NOCAPTCHA = CONFIG.getboolean('DEFAULT', 'nocaptcha')
 RECAPTCHA_USE_SSL = CONFIG.getboolean('DEFAULT', 'recaptcha_use_ssl')
+AKISMET_API_KEY = CONFIG.get('DEFAULT', 'akismet_api_key')
+
 # Application definition
 INSTALLED_APPS = (
     'lor',
@@ -199,6 +201,7 @@ REQUEST_IGNORE_USER_AGENTS = (
     r'LinkedInBot',
     r'Feedfetcher',
     r'YandexBot',
+    r'Yahoo',
 )
 COMMENTS_APP = 'mycomment'
 PROFANITIES_LIST = (

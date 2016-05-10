@@ -79,6 +79,7 @@ DEFAULT_CONFIG = {
     'recaptcha_private_key': None,
     'nocaptcha': 'True',
     'recaptcha_use_ssl': 'True',
+    'akismet_api_key': None,
 }
 # Choose conf file to read
 CONFIG_FILE = os.environ.get('BLOG_CONFIG_FILE',

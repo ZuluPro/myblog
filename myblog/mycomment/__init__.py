@@ -1,5 +1,3 @@
-from mycomment.forms import CommentForm
-
-
 def get_form():
+    from mycomment.forms import CommentForm
     return CommentForm
