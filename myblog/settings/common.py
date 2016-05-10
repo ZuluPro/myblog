@@ -149,6 +149,10 @@ DATABASES = {
 }
 
 GEOIP_PATH = '/var/geoip/'
+ZINNIA_SPAM_CHECKER_BACKENDS = (
+    'zinnia.spam_checker.backends.long_enough',
+    'mycomment.moderator.akismet',
+)
 
 def _make_googleapi_url(suffix):
     return os.path.join('https://ajax.googleapis.com/ajax/libs/', suffix)
