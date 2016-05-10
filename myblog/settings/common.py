@@ -64,11 +64,6 @@ INSTALLED_APPS = (
     'django_xmlrpc',
     'tinymce',
     'myapp',  # 1st resolved
-    'admin_tools',
-    'admin_tools.theming',
-    'admin_tools.menu',
-    'admin_tools.dashboard',
-    'admin_tools_zinnia',
     'django.contrib.admin',
     'django.contrib.sitemaps',
     'django.contrib.sites',
@@ -121,7 +116,6 @@ if USE_I18N:
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
-    'admin_tools.template_loaders.Loader',
 )
 
 if __import__('django').VERSION[1] > 7:

@@ -27,7 +27,6 @@ urlpatterns = patterns(
     url(r'^tinymce/', include('tinymce.urls')),
     url(r'^comments/', include('django_comments.urls')),
     url(r'^weblog/', include('zinnia.urls', namespace='zinnia')),
-    url(r'^admin/tools/', include('admin_tools.urls')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^xmlrpc/$', 'django_xmlrpc.views.handle_xmlrpc'),
 )
