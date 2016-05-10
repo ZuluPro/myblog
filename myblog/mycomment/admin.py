@@ -30,4 +30,5 @@ class CommentsAdmin(BaseCommentsAdmin):
     get_object_absolute_url.short_description = _("Object")
     get_object_absolute_url.allow_tags = True
 
+admin.site.unregister(Comment)
 admin.site.register(Comment, CommentsAdmin)
