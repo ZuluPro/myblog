@@ -213,6 +213,8 @@ section.aboutme img {
   margin-top: -75px;
   margin-bottom: -75px; }
 }
+section.project {
+  text-align: center;}
 section.project a {
   color: #002E40;}
 
@@ -319,7 +321,7 @@ ul.pagination li.current {
 .link-bar a:hover {
   color: #002e40; }
 
-section.i18n .pure-u-1-3 * {
+section.i18n {
   text-align: center;
   padding-left: 20px;
   padding-right: 20px;}

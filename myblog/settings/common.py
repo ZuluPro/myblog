@@ -64,6 +64,7 @@ INSTALLED_APPS = (
     'django_xmlrpc',
     'tinymce',
     'myapp',  # 1st resolved
+    'myadmin',
     'django.contrib.admin',
     'django.contrib.sitemaps',
     'django.contrib.sites',
@@ -86,7 +87,6 @@ INSTALLED_APPS = (
     'request.tracking',
     'favicon',
     'captcha',
-    'myadmin',
     'mycomment',
 )
 MIDDLEWARE_CLASSES = (
