@@ -1,17 +1,21 @@
 from django.contrib import admin
 from django.utils.html import format_html
 from django.utils.translation import ugettext as _
+
 from zinnia.models import Entry
 from zinnia.admin import filters
 from zinnia_tinymce.admin import EntryAdminTinyMCE
+
 from myadmin.forms import EntryAdminForm
+from request.models import Request
+from request.tracking.models import Visitor
 
 
 class EntryAdmin(EntryAdminTinyMCE):
     list_filter = (filters.CategoryListFilter, 'status', 'creation_date',)
     list_display = ('get_title', 'get_categories', 'get_tags',
                     'get_is_visible', 'get_short_url', 'creation_date',
-                    'get_image', 'get_comment_count')
+                    'get_image', 'get_hit_count', 'get_visitor_count', 'get_comment_count')
 
     form = EntryAdminForm
     fieldsets = (
@@ -46,6 +50,16 @@ class EntryAdmin(EntryAdminTinyMCE):
     def get_comment_count(self, obj):
         return obj.comments.count()
     get_comment_count.short_description = _("Comments")
+
+    def get_hit_count(self, obj):
+        url = obj.get_absolute_url()
+        return Request.objects.filter(path=url).count()
+    get_hit_count.short_description = _("Hits")
+
+    def get_visitor_count(self, obj):
+        url = obj.get_absolute_url()
+        return Visitor.objects.filter(visit__requests__path=url).count()
+    get_visitor_count.short_description = _("Visitors")
 
 
 admin.site.unregister(Entry)

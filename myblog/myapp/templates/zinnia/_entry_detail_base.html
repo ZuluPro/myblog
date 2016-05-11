@@ -114,23 +114,9 @@
      {% endblock entry-comments %}
  
      {% block entry-pingbacks %}
-     {% with pingback_count=object.pingback_count %}
-     {% if pingback_count %}
-     , <a href="{{ object.get_absolute_url }}#pingbacks" title="{% blocktrans with object=object.title %}Pingbacks on {{ object }}{% endblocktrans %}">
-       {% blocktrans count pingback_count=pingback_count %}{{ pingback_count }} pingback{% plural %}{{ pingback_count }} pingbacks{% endblocktrans %}
-     </a>
-     {% endif %}
-     {% endwith %}
      {% endblock entry-pingbacks %}
 
      {% block entry-trackbacks %}
-     {% with trackback_count=object.trackback_count %}
-     {% if trackback_count %}
-     , <a href="{{ object.get_absolute_url }}#trackbacks" title="{% blocktrans with object=object.title %}Trackbacks on {{ object }}{% endblocktrans %}">
-       {% blocktrans count trackback_count=trackback_count %}{{ trackback_count }} trackback{% plural %}{{ trackback_count }} trackbacks{% endblocktrans %}
-     </a>
-     {% endif %}
-     {% endwith %}
      {% endblock entry-trackbacks %}
     {% endblock entry-discussions %}
    </div>
