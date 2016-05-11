@@ -8,19 +8,21 @@
 {% block body-class %}{{ block.super }} archive index {% now "\y\e\a\r-Y \m\o\n\t\h-m \w\e\ek-W \d\a\y-d" %}{% endblock body-class %}
 
 {% block body-head %}
+<div class='pure-u-1-1'>
 <section class="body-head">
-<div class="pure-g">
-   <div class='pure-u-1 pure-u-md-1 pure-u-lg-3-4'>
+ <div class='pure-g'>
+   <div class='pure-u-1 pure-u-md-1-1 pure-u-lg-3-4'>
     <p><b>My blog</b> : <i>{% random_sentence %}</i></p>
    </div>
-   <div class='pure-u-1 pure-u-lg-1-4'>
+   <div class='pure-u-1 pure-u-md-1-1 pure-u-lg-1-4'>
     <form class="pure-form" method="get" action="{% url "zinnia:entry_search" %}" _lpchecked="1">
      <input class="pure-input-rounded" type="text" name="pattern" placeholder="{% trans "Search by keywords..." %}">
      <input type="submit" class="submitbutton" value="OK">
     </form>
    </div>
-</div>
+ </div>
 </section>
+</div>
 {% endblock body-head %}
 
 {% block slider %}

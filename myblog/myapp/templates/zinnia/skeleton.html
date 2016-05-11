@@ -23,7 +23,6 @@
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   {% block link %}{% endblock link %}
   {% block script %}{% endblock script %}
-  <link rel="pingback" href="/xmlrpc/"/>
   <link href='{% lor_url "opensans" %}' rel='stylesheet' type='text/css'/>
   <link rel="stylesheet" href="{% lor_url "pure" %}"/>
   <link rel="stylesheet" href="{% lor_url "pure-grids" %}"/>
@@ -38,12 +37,10 @@
   {% endblock navbar %}
   
   <div class="pure-g">
-   <div class='pure-u-1-1'>
-   {% block body-head %}{% endblock body-head %}
-   </div>
 
+   {% block body-head %}{% endblock body-head %}
    <div class='pure-u-1-1'>
-    {% block content %}{% endblock content %}
+   {% block content %}{% endblock content %}
    </div>
 
    <div class='pure-u-1-1'>

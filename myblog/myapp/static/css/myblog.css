@@ -53,8 +53,6 @@ li {
   width: 100%;
   top: 0px;
   left: 0px; }
-.nav-container section {
-  width: 100%; }
 .nav-container div {
   text-align: center;
   margin: 0px auto; }
@@ -300,6 +298,7 @@ ul.pagination li {
 
 ul.pagination li a {
   vertical-align: -webkit-baseline-middle;
+  line-height: 30px;
   text-decoration: none;
   color: #FFFFFF;}
 
@@ -333,11 +332,8 @@ section.more a{
   font-size: 15px;
   color: #002e40; }
 
-section.i18n {
-  text-align: center;
-}
 section.photo {
-  background: #2B718C;
+  background: #0C516C;
 }
 #skill-input {
   background: #0C516C;
@@ -346,3 +342,10 @@ section.photo {
   box-shadow: none;
   text-align: center;
 }
+section.empty { display: none;}
+.nav-container section {
+box-sizing: border-box;
+-moz-box-sizing: border-box;
+-webkit-box-sizing: border-box;
+width: 100%;
+  width: 100%; }
