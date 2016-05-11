@@ -45,6 +45,8 @@ DEFAULT_CONFIG = {
     'email_port': '25',
     'email_use_tls': 'False',
     'email_use_ssl': 'False',
+    # Misc
+    'geoip_path': '/usr/local/share/GeoIP/',
     # Extra files
     'lor_use_local_urls': 'False',
     'lor_static_dir': '/tmp/lor/',

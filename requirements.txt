@@ -9,7 +9,7 @@ django-static-lor
 django-admin-cli
 django-dbbackup
 flickr-pony
-django-request
+pony-traffic
 django-super-favicon
 django-recaptcha
 akismet

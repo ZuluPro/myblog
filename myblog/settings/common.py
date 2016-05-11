@@ -83,6 +83,7 @@ INSTALLED_APPS = (
     'photos',
     'dbbackup',
     'request',
+    'request.tracking',
     'favicon',
     'captcha',
     'myadmin',
@@ -142,7 +143,7 @@ DATABASES = {
     }
 }
 
-GEOIP_PATH = '/var/geoip/'
+GEOIP_PATH = CONFIG.get('DEFAULT', 'geoip_path')
 ZINNIA_SPAM_CHECKER_BACKENDS = (
     'zinnia.spam_checker.backends.long_enough',
     'mycomment.moderator.akismet',
