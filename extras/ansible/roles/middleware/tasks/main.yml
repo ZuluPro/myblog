@@ -33,6 +33,8 @@
 - name: Install virtualenv
   pip: name=virtualenv
 
+- include: install_geoip.yml
+
 - name: Install Django Python MySQL and Redis clients
   pip: name={{ item }} virtualenv="{{ myblog_venv }}"
   remote_user: "{{ myblog_user }}"
@@ -46,19 +48,19 @@
 
 - name: Git pull blog
   git: repo=https://github.com/ZuluPro/myblog.git
-       dest=/tmp/src/myblog version={{ myblog_version }}
+       dest={{ myblog_src }} version={{ myblog_version }}
   remote_user: "{{ myblog_user }}"
   register: git_pull_myblog
 
 - name: Install myblog requirements
-  pip: requirements=/tmp/src/myblog/requirements.txt
+  pip: requirements={{ myblog_src }}/requirements.txt
        virtualenv="{{ myblog_venv }}"
   remote_user: "{{ myblog_user }}"
 
 - name: Install myblog
   shell: "{{ myblog_venv }}/bin/python setup.py install"
   args:
-     chdir: /tmp/src/myblog
+     chdir: "{{ myblog_src }}"
   remote_user: "{{ myblog_user }}"
   when: git_pull_myblog.changed
   notify: restart uwsgi

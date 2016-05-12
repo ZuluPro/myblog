@@ -2,3 +2,5 @@
 myblog_user: myblog
 myblog_home: /var/myblog
 myblog_venv: /var/myblog/venv
+myblog_src: /var/myblog/src
+myblog_geoip_dir: /var/myblog/geoip

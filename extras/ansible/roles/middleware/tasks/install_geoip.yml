@@ -1,0 +1,21 @@
+---
+- name: Install GeoIP library
+  apt: name=libgeoip1 state=present
+
+- name: Create GeoIP directory
+  file: dest="{{ myblog_geoip_dir }}" state=directory
+        owner="{{ myblog_user }}" group="{{ myblog_user }}"
+
+- name: Download GeoIP City
+  get_url: url=http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz
+           dest="{{ myblog_geoip_dir }}/GeoLiteCity.dat.gz"
+
+- name: Uncompress GeoIP City
+  command: "gzip -d {{ myblog_geoip_dir }}/GeoLiteCity.dat.gz -fk"
+
+- name: Download GeoIP Country
+  get_url: url=http://geolite.maxmind.com/download/geoip/database/GeoLiteCountry/GeoIP.dat.gz
+           dest="{{ myblog_geoip_dir }}/GeoIP.dat.gz"
+
+- name: Uncompress GeoIP Country
+  command: "gzip -d {{ myblog_geoip_dir }}/GeoIP.dat.gz -fk"

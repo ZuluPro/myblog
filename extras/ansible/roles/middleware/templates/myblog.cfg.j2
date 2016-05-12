@@ -46,6 +46,8 @@ cache_location = {{ hostvars[groups['cache'][0]]['redis_bind_addr'] }}:6379:0
 
 session_engine = django.contrib.sessions.backends.cache
 
+geoip_path = {{ myblog_geoip_dir }}
+
 {% if flickr_api_key %}
 flickr_api_key = {{ flickr_api_key }}
 {% if flickr_api_secret %}

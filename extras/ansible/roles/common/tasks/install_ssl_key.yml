@@ -9,7 +9,7 @@
   notify: restart nginx
 
 - name: Put SSL key
-  copy: src={{ ssl_key }} dest={{ ssl_key_addr}}
+  copy: src={{ ssl_key }} dest={{ ssl_key_addr }}
   when: ssl_key and ssl_cert
   
 - name: Put SSL cert
