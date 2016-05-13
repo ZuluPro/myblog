@@ -1,5 +1,5 @@
 {% extends "zinnia/base.html" %}
-{% load i18n staticfiles lor %}
+{% load i18n staticfiles %}
 
 {% block title %}{{ title }}{% endblock title %}
 
@@ -25,6 +25,11 @@
 
 {% block content %}
 <section></section>
+<section class="body-head">
+<div class="content">
+ <b>{% trans "My photo gallery" %}: </b> Not with particular theme but recording anything I see
+</div>
+</section>
 <section class="photo">
 <div class="pure-g">
   <div class='pure-u-1'>

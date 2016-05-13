@@ -1,4 +1,4 @@
-{% load i18n staticfiles favicon lor %}
+{% load i18n staticfiles favicon %}
 <!DOCTYPE html>
 <html lang="{{ LANGUAGE_CODE|default:"en-us" }}" prefix="og: http://ogp.me/ns#" {% block html-attrs %}{% endblock html-attrs %}>
  <head>
@@ -20,12 +20,12 @@
   {% get_favicons %}
   <link rel="home" href="{% url 'aboutme' %}" title="Anthony Monthe - About"/>
   <link rel="stylesheet" href="{% static "prism/themes/prism.css" %}"/>
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="{% static "css/font-awesome.min.css" %}">
   {% block link %}{% endblock link %}
   {% block script %}{% endblock script %}
-  <link href='{% lor_url "opensans" %}' rel='stylesheet' type='text/css'/>
-  <link rel="stylesheet" href="{% lor_url "pure" %}"/>
-  <link rel="stylesheet" href="{% lor_url "pure-grids" %}"/>
+  <link href='{% static "css/opensans.css" %}' rel='stylesheet' type='text/css'/>
+  <link rel="stylesheet" href="{% static "css/pure.css" %}"/>
+  <link rel="stylesheet" href="{% static "css/grids-responsive.css" %}"/>
   <link href="{% static "css/myblog.css" %}" media="all" rel="stylesheet" />
   <meta property="og:image" content="{{ request.scheme }}://{{ request.META.HTTP_HOST }}{% static '/static/img/avatar.png' %}">
  {% endblock head %}

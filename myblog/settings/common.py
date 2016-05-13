@@ -1,7 +1,6 @@
 """
 Common settings for myblog project.
 """
-import os
 from zinnia.xmlrpc import ZINNIA_XMLRPC_METHODS as XMLRPC_METHODS
 from .env import CONFIG, BASE_DIR
 
@@ -29,16 +28,12 @@ EMAIL_PORT = CONFIG.getint('DEFAULT', 'email_port')
 EMAIL_USE_TLS = CONFIG.getboolean('DEFAULT', 'email_use_tls')
 EMAIL_USE_SSL = CONFIG.getboolean('DEFAULT', 'email_use_ssl')
 # Extra files (CSS, JavaScript, Images)
-LOR_STATIC_DIR = CONFIG.get('DEFAULT', 'lor_static_dir')
-LOR_USE_LOCAL_URLS = CONFIG.getboolean('DEFAULT', 'lor_use_local_urls')
 STATIC_ROOT = CONFIG.get('DEFAULT', 'static_root')
 STATIC_URL = CONFIG.get('DEFAULT', 'static_url')
 STATICFILES_DIRS = list(filter(bool, CONFIG.get('DEFAULT', 'staticfiles_dirs').split(',')))
-if DEBUG:
-    STATICFILES_DIRS += [LOR_STATIC_DIR]
 MEDIA_ROOT = CONFIG.get('DEFAULT', 'media_root')
 MEDIA_URL = CONFIG.get('DEFAULT', 'media_url')
-# STATICFILES_STORAGE = 'lor.storage.LorStorage'
+# STATICFILES_STORAGE
 TEST_RUNNER = CONFIG.get('DEFAULT', 'test_runner')
 JUXD_FILENAME = CONFIG.get('DEFAULT', 'juxd_filename')
 # Flickr
@@ -58,7 +53,6 @@ AKISMET_API_KEY = CONFIG.get('DEFAULT', 'akismet_api_key')
 
 # Application definition
 INSTALLED_APPS = (
-    'lor',
     'about',
     'django_comments',
     'django_xmlrpc',
@@ -148,26 +142,6 @@ ZINNIA_SPAM_CHECKER_BACKENDS = (
     'zinnia.spam_checker.backends.long_enough',
     'mycomment.moderator.akismet',
 )
-
-def _make_googleapi_url(suffix):
-    return os.path.join('https://ajax.googleapis.com/ajax/libs/', suffix)
-
-LOR_FILES_URLS = {
-    'jquery': ('js/jquery.js',
-               _make_googleapi_url('jquery/1.11.3/jquery.min.js')),
-    'pure': ('css/pure.css',
-             'https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure.css'),
-    'pure-grids': ('css/pure-grid.css',
-                   'https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css'),
-    'angularjs': ('js/angularjs.js',
-                  _make_googleapi_url('angularjs/1.3.15/angular.min.js')),
-    'wow': ('js/wow.js',
-            'https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js'),
-    'animate': ('css/animate.css',
-                'https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.3.0/animate.min.css'),
-    'opensans': ('css/opensans.css',
-                 'https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700'),
-}
 
 DBBACKUP_STORAGE_OPTIONS = {
     'location': CONFIG.get('DEFAULT', 'backup_dir')

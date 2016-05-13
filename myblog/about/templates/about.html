@@ -1,5 +1,5 @@
 {% extends "zinnia/base.html" %}
-{% load i18n staticfiles lor %}
+{% load i18n staticfiles %}
 
 {% block title %}{{ title }}{% endblock title %}
 
@@ -12,7 +12,7 @@
 {% endblock meta %}
 
 {% block link %}
-  <link rel="stylesheet" href="{% lor_url "animate" %}">
+  <link rel="stylesheet" href="{% static "css/animate.css" %}">
   <link rel="stylesheet" href="//lipis.github.io/flag-icon-css/css/flag-icon.css">
 {% endblock link %}
 
@@ -159,7 +159,7 @@
 
 {% block foot-script %}
 <script src="{% static "prism/prism.js" %}"></script>
-<script src="{% lor_url "angularjs" %}"></script>
-<script src="{% lor_url "wow" %}"></script>
+<script src="{% static "js/angularjs.js" %}"></script>
+<script src="{% static "js/wow.js" %}"></script>
 <script src="{% static "js/about.js" %}"></script>
 {% endblock foot-script %}

@@ -1,0 +1,14 @@
+{% extends "admin/base.html" %}
+{% load favicon %}
+
+{% block title %}{{ title }} | Back office{% endblock %}
+
+{% block extrahead %}
+{% get_favicons %}
+{% endblock extrahead %}
+
+{% block branding %}
+<h1 id="site-name"><a href="{% url 'admin:index' %}">Back office</a></h1>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}
