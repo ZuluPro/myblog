@@ -24,6 +24,7 @@
    {% if request.user.is_superuser %}
    <li><a href="{% url 'admin:index' %}" title="{% trans "Admin site" %}" class="admin"><i class="fa fa-edit"></i>{% trans "Admin" %}</a></li>
    {% endif %}
+   <li><a href="{% url "mytools:home" %}" title="{% trans "Tools" %}"><i class="fa fa-wrench"></i>{% trans "Tools" %}</a></li>
    <li><a href="https://github.com/ZuluPro/myblog" title="{% trans "Source" %}" target="_blank"><i class="fa fa-github"></i>{% trans "Source" %}</a></li>
   </ul>
  </div>

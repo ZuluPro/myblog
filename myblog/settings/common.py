@@ -59,6 +59,7 @@ INSTALLED_APPS = (
     'tinymce',
     'myapp',  # 1st resolved
     'myadmin',
+    'mytools',
     'django.contrib.admin',
     'django.contrib.sitemaps',
     'django.contrib.sites',

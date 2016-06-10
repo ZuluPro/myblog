@@ -1,0 +1,23 @@
+{% extends "zinnia/base.html" %}
+{% load i18n staticfiles %}
+
+{% block title %}Flickr{% endblock title %}
+
+{% block content %}
+<section class="body-head">
+ <div class="content">
+   <h1><a href="{% url "mytools:home" %}">{% trans "Tools" %}</a> - {{ tool.verbose_name }}</h1>
+ </div>
+</section>
+<section>
+ <div class="content">
+  <form method="get" class="pure-form">
+   <fieldset class="pure-group">
+    <input type="text" name="q" maxlength="100" class="pure-input-1" placeholder="{% trans "Enter here an email address or Flickr username" %}" value="{{ q }}">
+   </fieldset>
+   {% if response %}<p><b>{% trans "Response" %}</b>: {{ response }}</p>{% endif %}
+   <input type="submit" name="submit" class="submit-post pure-button pure-button-primary" value="{% trans "Submit" %}">
+  </form>
+ </div>
+</section>
+{% endblock content %}
