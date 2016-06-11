@@ -5,5 +5,9 @@ from mytools import views
 urlpatterns = patterns(
     'mytools',
     url('^$', views.home, name="home"),
-    url('flickr/$', views.FlickrIdView.as_view(), name=views.FlickrIdView.name),
 )
+for tool in views.TOOLS:
+    tool_url = '%s/$' % tool.name
+    urlpatterns += (
+        url(tool_url, tool.as_view(), name=tool.name),
+    )

@@ -1,7 +1,15 @@
+import re
+import json
+
+import yaml
+# from lxml import etree
+
 from django.shortcuts import render
 from django.views.generic import View
 from django.core.urlresolvers import reverse_lazy as reverse
 from django.core.cache import cache
+from django.utils.six import BytesIO
+
 from flickr_pony.storage import get_flickr_storage, FlickrError
 
 
@@ -52,6 +60,40 @@ class FlickrIdView(ToolView):
         return render(request, self.template_name, context)
 
 
+class FormatValidatorView(ToolView):
+    name = 'format_validator'
+    verbose_name = 'Format validator'
+    description = 'Valid differents format'
+    template_name = 'mytools/format_validator.html'
+
+    validators = {
+        'JSON': json.loads,
+        'YAML': yaml.load,
+        # 'XML': lambda x: etree.parse(BytesIO(x)),
+        'regexp': re.compile,
+    }
+
+    def get(self, request):
+        context = self.get_context()
+        context['format'] = request.GET.get('format')
+        if request.GET.get('q'):
+            validator = self.validators.get(request.GET.get('format'))
+            if validator is None:
+                response = 'Bad format!'
+            else:
+                try:
+                    validator(request.GET['q'])
+                    response = 'OK!'
+                except Exception as err:
+                    response = 'Error: %s' % str(err)
+            context.update({
+                'response': response,
+                'q': request.GET['q'],
+            })
+        return render(request, self.template_name, context)
+
+
 TOOLS = (
     FlickrIdView,
+    FormatValidatorView,
 )

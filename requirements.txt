@@ -13,3 +13,4 @@ pony-traffic
 django-super-favicon
 django-recaptcha
 akismet
+pyaml

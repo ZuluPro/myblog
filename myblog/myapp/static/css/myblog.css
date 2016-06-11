@@ -85,6 +85,8 @@ li {
   vertical-align: middle; }
 .nav-container .pure-menu-horizontal {
   white-space: inherit; }
+.nav-container .pure-menu-allow-hover:hover .pure-menu-children {
+  display: inline-table; }
 
 section.title {
   background-color: #A1A1B4; }

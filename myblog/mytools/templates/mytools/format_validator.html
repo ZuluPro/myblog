@@ -1,0 +1,29 @@
+{% extends "zinnia/base.html" %}
+{% load i18n staticfiles %}
+
+{% block title %}Format validator{% endblock title %}
+
+{% block content %}
+<section class="body-head">
+ <div class="content">
+   <h1><a href="{% url "mytools:home" %}">{% trans "Tools" %}</a> - {{ tool.verbose_name }}</h1>
+ </div>
+</section>
+<section>
+ <div class="content">
+  <form action="#textarea" class="pure-form">
+   <fieldset class="pure-group">
+    <textarea id="textarea" type="text" name="q" rows="20" class="pure-input-1" placeholder="{% trans "Enter here content that you want to valid" %}">{{ q }}</textarea>
+    <select name="format" class="pure-input-1">
+     {% for validator in tool.validators %}
+      <option value="{{ validator }}"{% if format == validator%} selected{% endif %}>{{ validator }}</option>
+     {% endfor %}
+    </select>
+   </fieldset>
+   {% if response %}<p><b>{% trans "Response" %}</b>: {{ response }}</p>{% endif %}
+   <input type="submit" name="submit" class="submit-post pure-button pure-button-primary" value="{% trans "Submit" %}">
+  </form>
+ </div>
+</section>
+{% endblock content %}
+
