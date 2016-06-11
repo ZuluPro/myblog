@@ -49,7 +49,6 @@ class FlickrIdView(ToolView):
         if request.GET.get('q'):
             cache_key = 'flickr_id:%s' % request.GET['q']
             context['response'] = cache.get(cache_key) or self._get_id(request.GET['q'])
-        context['q'] = request.GET['q']
         return render(request, self.template_name, context)
 
 

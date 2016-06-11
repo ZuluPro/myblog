@@ -12,19 +12,26 @@
   </ul>
  </div>
 
- <div class="pure-u-1 pure-u-lg-2-3">
-  <ul class="right">
+ <div class="pure-u-1 pure-u-lg-2-3 pure-menu pure-menu-horizontal">
+  <ul class="right pure-menu-list">
    <li>
    <a href="{% url 'aboutme' %}" title="Anthony Monthe"><i class="fa fa-user"></i>{% trans "About me" %}</a>
    </li>
    <li><a href="{% url 'zinnia:entry_archive_index' %}" title="{% trans "My blog" %}"><i class="fa fa-sticky-note"></i>Blog</a></li>
    <li><a href="{% url 'photos' %}" title="{% trans "Photos" %}" class="feeds"><i class="fa fa-camera-retro"></i>{% trans "Photos" %}</a></li>
    <li><a href="{% url 'zinnia:sitemap' %}" title="{% trans "Sitemap" %}" class="sitemap"><i class="fa fa-sitemap"></i>{% trans "Sitemap" %}</a></li>
-   <li><a href="{% url 'zinnia:entry_latest_feed' %}" title="{% trans "RSS Feed of latest entries" %}" class="feeds"><i class="fa fa-rss"></i>{% trans "RSS Feed" %}</a></li>
    {% if request.user.is_superuser %}
    <li><a href="{% url 'admin:index' %}" title="{% trans "Admin site" %}" class="admin"><i class="fa fa-edit"></i>{% trans "Admin" %}</a></li>
    {% endif %}
-   <li><a href="{% url "mytools:home" %}" title="{% trans "Tools" %}"><i class="fa fa-wrench"></i>{% trans "Tools" %}</a></li>
+   <li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover">
+    <a class="pure-menu-link" href="{% url "mytools:home" %}" title="{% trans "Tools" %}"><i class="fa fa-wrench"></i>{% trans "Tools" %}</a>
+    <ul class="pure-menu-children">
+     {% for tool in tools %}
+     <li class="pure-menu-item"><a href="{{ tool.get_url }}" class="pure-menu-link">{{ tool.verbose_name }}</a></li>
+     {% endfor %}
+    </ul>
+   </li>
+   <li><a href="{% url 'zinnia:entry_latest_feed' %}" title="{% trans "RSS Feed of latest entries" %}" class="feeds"><i class="fa fa-rss"></i>{% trans "RSS Feed" %}</a></li>
    <li><a href="https://github.com/ZuluPro/myblog" title="{% trans "Source" %}" target="_blank"><i class="fa fa-github"></i>{% trans "Source" %}</a></li>
   </ul>
  </div>

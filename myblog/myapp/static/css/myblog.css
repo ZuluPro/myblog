@@ -70,6 +70,7 @@ li {
   color: white; }
 .nav-container li a:hover {
   text-decoration: underline;}
+.nav-container i.fa:hover,
 .nav-container li a i {
   font-size: 25px;
   padding: 5px;
@@ -82,6 +83,8 @@ li {
   font-size: 20px; }
 .nav-container li.name a img {
   vertical-align: middle; }
+.nav-container .pure-menu-horizontal {
+  white-space: inherit; }
 
 section.title {
   background-color: #A1A1B4; }
@@ -346,8 +349,19 @@ section.photo {
 }
 section.empty { display: none;}
 .nav-container section {
-box-sizing: border-box;
--moz-box-sizing: border-box;
--webkit-box-sizing: border-box;
-width: 100%;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
   width: 100%; }
+
+.nav-container .pure-menu-link:focus,
+.nav-container .pure-menu-link:hover {
+  background-color: inherit;
+}
+.nav-container .pure-menu-children {
+  background: #002E40;
+  width: 100%;
+}
+.nav-container .pure-menu-item {
+  line-height: 25px;
+}

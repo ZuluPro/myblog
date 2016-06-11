@@ -104,6 +104,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'zinnia.context_processors.version',
     "django.core.context_processors.media",
     "django.core.context_processors.static",
+    'mytools.context_processor.tools',
 )
 if USE_I18N:
     TEMPLATE_CONTEXT_PROCESSORS += (
