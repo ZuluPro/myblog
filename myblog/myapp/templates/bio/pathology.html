@@ -1,0 +1,48 @@
+{% extends "zinnia/base.html" %}
+{% load i18n %}
+
+{% block title %}{% blocktrans %}Pathologies directory - {{ pathology }}{% endblocktrans %}{% endblock title %}
+
+{% block content %}
+<section class="body-head">
+ <div class="content">
+  <h2>
+   <a href="{% url "directories" %}">{% trans "Bio directory" %}</a>
+   / <a href="{% url "pathologies" %}">{% trans "Pathologies directory" %}</a>
+   / {{ pathology }}
+  </h2>
+ </div>
+</section>
+
+<section>
+ <div class="content">
+  {% for illustration in pathology.illustrations.all %}
+  <img src="{{ illustration.image.url }}" height="100px"/>
+  {% endfor %}
+
+  <p>{{ pathology.description }}</p>
+
+  <h2>{% trans "Symptom" %}</h2>
+  <p>
+   {% if pathology.symptom %}
+    {{ pathology.symptom }}
+   {% elif user.is_superuser %}
+    {% trans "No provided symptom" %} <a href="{{ pathology.get_admin_url }}#id_symptom"/>{% trans "Add it!" %}</a>
+   {% else %}
+    {% trans "No provided symptom" %}
+   {% endif %}
+  </p>
+
+  <h2>{% trans "Treatment" %}</h2>
+  <p>
+   {% if pathology.treatment %}
+    {{ pathology.treatment }}
+   {% elif user.is_superuser %}
+    {% trans "No provided treatment" %} <a href="{{ pathology.get_admin_url }}#id_treatment"/>{% trans "Add it!" %}</a>
+   {% else %}
+    {% trans "No provided treatment" %}
+   {% endif %}
+  </p>
+ </div>
+</section>
+{% endblock content %}

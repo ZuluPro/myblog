@@ -24,6 +24,7 @@ urlpatterns = patterns(
     url(r'^', include('about.urls')),
     url(r'^', include('myapp.urls')),
     url(r'^tools/', include('mytools.urls', namespace='mytools')),
+    url(r'^bio/', include('bio.urls')),
     url(r'^tinymce/zinnia/', include('zinnia_tinymce.urls')),
     url(r'^tinymce/', include('tinymce.urls')),
     url(r'^comments/', include('django_comments.urls')),

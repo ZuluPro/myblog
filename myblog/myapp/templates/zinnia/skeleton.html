@@ -46,10 +46,22 @@
    <div class='pure-u-1-1'>
     <section class="footer">
      <div class="content">
-        Made during geeking nights with <a href="http://django-blog-zinnia.com/">Django Zinnia</a>
+     <div class="pure-g">
+      <div class="pure-u-1-2">
+       Made during geeking nights with <a href="http://django-blog-zinnia.com/">Django Zinnia</a>
+      </div>
+      <div class="pure-u-1-2 right">
+       <ul>
+        <li><a href="{% url 'zinnia:sitemap' %}" title="{% trans "Sitemap" %}" class="sitemap">{% trans "Sitemap" %} <i class="fa fa-sitemap"></i></a></li>
+        <li><a href="{% url 'zinnia:entry_latest_feed' %}" title="{% trans "RSS Feed of latest entries" %}" class="feeds">{% trans "RSS Feed" %} <i class="fa fa-rss"></i></a></li>
+        <li><a href="https://github.com/ZuluPro/myblog" title="{% trans "Source" %}" target="_blank">{% trans "Source" %} <i class="fa fa-github"></i></a></li>
+       </ul>
+      </div>
+     </div>
      </div>
     </section>
    </div>
+
   </div>
 
   <script src="{% static "prism/prism.js" %}"></script>

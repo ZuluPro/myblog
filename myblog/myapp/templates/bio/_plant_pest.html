@@ -1,0 +1,10 @@
+{% load i18n %}
+
+<h3>{% trans "Pests" %}</h3>
+{% if plant.pests.exists %}
+ {% include "bio/_thumbnails.html" with objects=plant.pests.all %}
+{% elif user.is_superuser %}
+ <p>{% trans "No provided pest" %}, <a href="{{ plant.get_admin_url }}#id_pests"/>{% trans "Add it!" %}</a></p>
+{% else %}
+ <p>{% trans "No provided pest" %}</p>
+{% endif %}

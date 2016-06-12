@@ -186,6 +186,10 @@ section.footer {
   color: white;
   padding-top: 3px;
   padding-bottom: 3px; }
+section.footer ul {
+  margin: 0px; }
+section.footer ul a {
+  text-decoration: none;}
 
 .circle {
   margin: 25px 10px;
@@ -360,10 +364,22 @@ section.empty { display: none;}
 .nav-container .pure-menu-link:hover {
   background-color: inherit;
 }
+.nav-container .pure-menu-list  {
+  text-align: center; }
 .nav-container .pure-menu-children {
   background: #002E40;
   width: 100%;
 }
 .nav-container .pure-menu-item {
   line-height: 25px;
+}
+
+.thumbnails  {
+  text-align: center;
+}
+.thumbnails img {
+  border-radius: 10px
+}
+.right {
+  text-align: right;
 }

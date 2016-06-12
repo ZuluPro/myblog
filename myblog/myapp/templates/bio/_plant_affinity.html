@@ -1,0 +1,23 @@
+{% load i18n %}
+
+<div class="pure-u-1-2 pure-sm-1-1 pure-lg-1-2">
+ <h4>{% trans "Like" %}</h4>
+ {% if plant.like.all.exists %}
+  {% include "bio/_thumbnails.html" with objects=plant.like.all %}
+ {% elif user.is_superuser %}
+  <p>{% trans "No provided affinity" %}, <a href="{{ plant.get_admin_url }}#id_like"/>{% trans "Add it!" %}</a></p>
+ {% else %}
+  <p>{% trans "No provided affinity" %}.</p>
+ {% endif %}
+</div>
+
+<div class="pure-u-1-2 pure-sm-1-1 pure-lg-1-2">
+ <h4>{% trans "Dislike" %}</h4>
+ {% if plant.dislike.all.exists %}
+  {% include "bio/_thumbnails.html" with objects=plant.dislike.all %}
+ {% elif user.is_superuser %}
+ <p>{% trans "No provided affinity" %}, <a href="{{ plant.get_admin_url }}#id_like"/>{% trans "Add it!" %}</a></p>
+ {% else %}
+ <p>{% trans "No provided affinity" %}.</p>
+ {% endif %}
+</div>

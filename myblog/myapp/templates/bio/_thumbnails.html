@@ -1,0 +1,12 @@
+<div class="pure-g">
+ {% for obj in objects %}
+ <div class="pure-u-1-2 pure-u-sm-1-3 pure-u-md-1-6 pure-u-lg-1-8">
+  <a href="{{ obj.get_absolute_url }}">
+   {% if obj.illustration %}
+   <img src="{{ obj.get_illustration_url }}" width="95%">
+   {% endif %}
+   <p>{{ obj }}</p>
+  </a>
+ </div>
+ {% endfor %}
+</div>

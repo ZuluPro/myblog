@@ -1,0 +1,21 @@
+{% extends "zinnia/base.html" %}
+{% load i18n %}
+
+{% block title %}{% blocktrans with name=meta.verbose_name_plural|capfirst %}{{ name }} directory{% endblocktrans %}{% endblock title %}
+
+{% block content %}
+<section class="body-head">
+ <div class="content">
+  <h2>
+   <a href="{% url "directories" %}">{% trans "Bio directory" %}</a>
+   / {% blocktrans with name=meta.verbose_name_plural|capfirst %}{{ name }} directory{% endblocktrans %}
+  </h2>
+ </div>
+</section>
+
+<section class="thumbnails">
+ <div class="content">
+  {% include "bio/_thumbnails.html" %}
+ </div>
+</section>
+{% endblock content %}

@@ -83,6 +83,7 @@ INSTALLED_APPS = (
     'favicon',
     'captcha',
     'mycomment',
+    'bio',
 )
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
