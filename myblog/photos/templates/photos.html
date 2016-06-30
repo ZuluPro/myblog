@@ -10,17 +10,18 @@
 <meta property="og:last_name" content="Monthe">
 <meta property="og:username" content="ZuluPro">
 <meta property="og:description" content="My picture gallery">
-{% for thumb, photo in photos %}
-<meta property="og:image" content="{{ thumb }}">
+{% for photo in photos %}
+<meta property="og:image" content="{{ photo.url_m }}">
 {% endfor %}
 {% endblock meta %}
 
 {% block link %}
-  <script src="{% static "js/jquery.js" %}"></script>
-  <script src="{% static "js/unitegallery.min.js" %}"></script>
-  <script src="{% static "js/ug-theme-default.js" %}"></script>
   <link rel="stylesheet" href="{% static "css/unite-gallery.css" %}" type='text/css'>
-  <link rel="stylesheet" href="{% static "css/ug-theme-default.css" %}" type='text/css'>
+
+  <script type="text/javascript" src="{% static "js/jquery.js" %}"></script>
+  <script type="text/javascript" src="{% static "js/unitegallery.min.js" %}"></script>
+
+  <script type="text/javascript" src="{% static "themes/tiles/ug-theme-tiles.js" %}"></script>
 {% endblock link %}
 
 {% block content %}
@@ -34,8 +35,8 @@
 <div class="pure-g">
   <div class='pure-u-1'>
     <div id="photo-list" style="display:none;">
-    {% for thumb, photo in photos %}
-    <img src="{{ thumb }}" data-image="{{ photo }}"/>
+    {% for photo in photos %}
+    <img src="{{ photo.url_m }}" data-image="{{ photo.url_l }}" data-original="{{ photo.url_o }}" alt="{{ photo.title }}" data-description="{{ photo.title }}"/>
     {% endfor %}
     </div>
   </div>
@@ -45,8 +46,31 @@
 
 {% block foot-script %}
 <script type="text/javascript">
+var gallery;
 $(document).ready(function(){
-    $("#photo-list").unitegallery();
+    gallery = $("#photo-list").unitegallery({
+        gallery_theme: "tiles",
+        tile_enable_textpanel:true,
+        tile_textpanel_title_text_align: "center",
+    //    gallery_theme: "compact" 
+    });
+    gallery.on("item_change", function(index, data){
+        var temp_img = $('img[src="'+data.urlImage+'"]');
+        if (temp_img.lenght == 0) return 
+
+        var new_image = $('<img>',{
+            src: data.original,
+            style: "display: none; margin: 0px;"
+        })
+        new_image.hide()
+            .one('load', function() {
+                temp_img.attr("src", data.original);
+                gallery.resetZoom();
+            })
+            .each(function() {
+                if(this.complete) $(this).trigger('load');
+            })
+    })
 })
 </script>
 {% endblock foot-script %}

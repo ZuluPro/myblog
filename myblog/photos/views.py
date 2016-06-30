@@ -7,7 +7,7 @@ from flickr_pony.storage import get_flickr_storage
 def photos(request):
     storage = get_flickr_storage()
     if storage.user_id:
-        photos = storage.list_image_and_thumb(size='m')
+        photos = storage.list_all_size()
     else:
         photos = []
     return render(request, 'photos.html', {
