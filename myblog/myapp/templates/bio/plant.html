@@ -29,7 +29,6 @@
     {% endif %}
     </div>
     <div class="pure-u-1-1">
-    {% if plant.heliophilous %}<i class="fa fa-3x fa-sun" aria-hidden="true"></i>{% endif %}
     {% if plant.toxic %}<i class="fa fa-3x fa-exclamation-triangle" aria-hidden="true"></i>{% endif %}
     {% if plant.food %}<i class="fa fa-3x fa-cutlery" aria-hidden="true"></i>{% endif %}
     </div>
@@ -39,7 +38,16 @@
     <h2>{% trans "Cultivation" %}</h2>
    </div>
    <div class="pure-u-1-2 pure-u-sm-1-1 pure-u-lg-1-2">
+    {% include "bio/_plant_seedling.html" %}
+   </div>
+   <div class="pure-u-1-2 pure-u-sm-1-1 pure-u-lg-1-2">
     {% include "bio/_plant_planting.html" %}
+   </div>
+   <div class="pure-u-1-2 pure-u-sm-1-1 pure-u-lg-1-2">
+    {% include "bio/_plant_growth.html" %}
+   </div>
+   <div class="pure-u-1-2 pure-u-sm-1-1 pure-u-lg-1-2">
+    {% include "bio/_plant_blossom.html" %}
    </div>
    <div class="pure-u-1-2 pure-u-sm-1-1 pure-u-lg-1-2">
     {% include "bio/_plant_harvest.html" %}
@@ -48,11 +56,10 @@
    <div class="pure-u-1-1">
     <h2>{% trans "Environment" %}</h2>
    </div>
-   <div class="pure-u-1-2 pure-sm-1-1 pure-lg-1-2">
-    <div class="pure-u-1-2">
+   <div class="pure-u-1-1">
      {% include "bio/_plant_environment.html" %}
-    </div>
    </div>
+   {% include "bio/_plant_rotation.html" %}
 
    <div class="pure-u-1-1">
     <h3>{% trans "Affinities" %}</h3>

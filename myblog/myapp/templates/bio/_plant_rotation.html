@@ -1,0 +1,20 @@
+{% load i18n %}
+
+<div class="pure-u-1-2 pure-sm-1-2 pure-lg-1-2">
+ <h4>{% trans "To plant before" %}</h4>
+ {% if plant.before.all.exists %}
+  {% include "bio/_thumbnails.html" with objects=plant.before.all %}
+ {% else %}
+  <p>{% trans "No provided plants" %}{% if user.is_staff %}, <a href="{{ plant.get_admin_url }}#id_before"/>{% trans "Add it!" %}</a>{% endif %}</p>
+ {% endif %}
+</div>
+
+<div class="pure-u-1-2 pure-sm-1-2 pure-lg-1-2">
+ <h4>{% trans "To plant after" %}</h4>
+ {% if plant.after.all.exists %}
+  {% include "bio/_thumbnails.html" with objects=plant.after.all %}
+ {% else %}
+ <p>{% trans "No provided affinity" %}{% if user.is_staff %}, <a href="{{ plant.get_admin_url }}#id_like"/>{% trans "Add it!" %}</a>{% endif %}</p>
+ {% endif %}
+</div>
+
