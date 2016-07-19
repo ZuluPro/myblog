@@ -14,3 +14,4 @@ django-super-favicon
 django-recaptcha
 akismet
 pyaml
+django-scheduler

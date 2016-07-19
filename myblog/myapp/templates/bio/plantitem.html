@@ -1,0 +1,52 @@
+{% extends "zinnia/base.html" %}
+{% load i18n %}
+
+{% block title %}{% blocktrans %}Bio Calendar - {{ action }}{% endblocktrans %}{% endblock title %}
+
+{% block content %}
+<section class="body-head">
+ <div class="content">
+  <h2>
+   <a href="{% url "directories" %}">{% trans "Bio directory" %}</a>
+   / <a href="{% url "plantitems" %}">{% trans "Inventory" %}</a>
+   / {{ plant }}
+  </h2>
+ </div>
+</section>
+
+<section>
+ <div class="content">
+  <p><b>{% trans "Stage" %}</b>: {{ plant.get_stage_display|capfirst }}</p>
+
+  {% if plant.seedling_date %}
+  <p><b>{% trans "Seedling" %}</b>: {% blocktrans with area=plant.seedling_area date=plant.seedling_date %}{{ date }} in {{ area }}{% endblocktrans %}</p>
+  {% endif %}
+
+  {% if plant.planting_date %}
+  <p><b>{% trans "Planting" %}</b>: {% blocktrans with area=plant.planting_area date=plant.planting_date %}{{ date }} in {{ area }}{% endblocktrans %}</p>
+  {% endif %}
+
+  {% if plant.blossom_start_date %}
+  <p><b>{% trans "Blossom" %}</b>: {% blocktrans with date=plant.blossom_start_date %}Began {{ date }}{% endblocktrans %}</p>
+  {% endif %}
+
+  {% if plant.harvest_start_date %}
+  <p><b>{% trans "Harvest" %}</b>: {% blocktrans with date=plant.harvest_start_date %}Began {{ date }}{% endblocktrans %}</p>
+  {% endif %}
+
+  {% if plant.death_date %}
+  <p><b>{% trans "Death" %}</b>: {{ plant.death_date }}</p>
+  {% endif %}
+
+  {% if actions %}
+  <p><b>{% trans "Actions" %}</b></p>
+  <ul>
+   {% for action in actions %}
+    <li>{{ action }}</li>
+   {% endfor %}
+  </ul>
+  {% endif %}
+
+ </div>
+</section>
+{% endblock content %}

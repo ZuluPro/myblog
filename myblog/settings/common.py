@@ -83,7 +83,10 @@ INSTALLED_APPS = (
     'favicon',
     'captcha',
     'mycomment',
+    'schedule',
     'bio',
+    'bio.items',
+    'bio.scheduler',
 )
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',

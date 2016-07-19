@@ -1,0 +1,26 @@
+{% extends "zinnia/base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Bio Calendar" %}{% endblock title %}
+
+{% block content %}
+<section class="body-head">
+ <div class="content">
+  <h2>
+   <a href="{% url "directories" %}">{% trans "Bio directory" %}</a>
+   / {% trans "Calendar" %}
+  </h2>
+ </div>
+</section>
+
+<section>
+ <div class="content">
+  <ul>
+   {% for action in objects %}
+   <li>{{ action.start|time:"H:i" }} <a href="{{ action.event.get_absolute_url }}">{{ action.title }}</li>
+   {% endfor %}
+  </ul>
+  <p><a href="{% url "month_calendar" calendar_slug="bio" %}">{% trans "See full calendar" %}</a></p>
+ </div>
+</section>
+{% endblock content %}
