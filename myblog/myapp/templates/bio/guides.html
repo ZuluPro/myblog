@@ -1,0 +1,21 @@
+{% extends "zinnia/base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Guides" %}{% endblock title %}
+
+{% block content %}
+<section class="body-head">
+ <div class="content">
+  <h2>
+   <a href="{% url "directories" %}">{% trans "Bio directory" %}</a>
+   / {% trans "Guides" %}
+  </h2>
+ </div>
+</section>
+
+<section>
+ <div class="content">
+  {% include "bio/_thumbnails.html" with objects=guides %}
+ </div>
+</section>
+{% endblock content %}

@@ -47,6 +47,11 @@
   </ul>
   {% endif %}
 
+  {% if plant.guide %}
+  <p><b>{% trans "Guide" %}</b></p>
+  <p><a href="{{ plant.guide.get_absolute_url }}">{{ plant.guide }}</a></p>
+  {% endif %}
+
  </div>
 </section>
 {% endblock content %}

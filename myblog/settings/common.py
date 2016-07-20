@@ -85,6 +85,7 @@ INSTALLED_APPS = (
     'mycomment',
     'schedule',
     'bio',
+    'bio.guide',
     'bio.items',
     'bio.scheduler',
 )

@@ -25,6 +25,7 @@ urlpatterns = patterns(
     url(r'^', include('myapp.urls')),
     url(r'^tools/', include('mytools.urls', namespace='mytools')),
     url(r'^bio/', include('bio.urls')),
+    url(r'^bio/', include('bio.guide.urls')),
     url(r'^bio/', include('bio.items.urls')),
     url(r'^bio/', include('bio.scheduler.urls')),
     url(r'^bio/', include('schedule.urls')),
